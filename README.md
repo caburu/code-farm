@@ -44,9 +44,7 @@ pip install -r requirements.txt
 
 ### Execução da API
 ```
-bash
-Copiar
-Editar
+cd API
 uvicorn main:app --reload
 ```
 
