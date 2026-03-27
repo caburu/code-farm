@@ -10,9 +10,13 @@ var _save_jogo: SaveJogo
 var missao_atual: int
 var glossario: Glossario = Glossario.new()
 var inventario: Inventario = Inventario.new()
+var nome_fazenda_atual: String = "Fazenda Code Farm"
+var posicao_player_atual: Vector2 = Vector2.ZERO
+var slot_jogo_atual: int = 1
 
 # _________________________ GERENCIAMENTO DE SINAIS PROPAGADOS _________________________ #
 
+signal voltar_menu_principal
 signal novo_jogo
 signal continuar_jogo
 signal abrir_glossario
@@ -50,28 +54,98 @@ func concluiu_todas_missoes() -> bool:
 
 # _________________________ GERENCIAMENTO DE SAVE _________________________ #
 
-func salvar_jogo(posicao_player: Vector2) -> void:
-	if not _save_jogo:
-		print("Nenhum save encontrado. Criando novo save.")
-		_save_jogo = SaveJogo.new()
-	
-	_save_jogo.missao_atual = missao_atual
-	_save_jogo.player_posicao = posicao_player
-	
-	ResourceSaver.save(_save_jogo, CAMINHO_SAVE)
-	print("Jogo salvo!")
+func obter_caminho_save(slot_id: int) -> String:
+	return "user://save_slot_%d.tres" % slot_id
 
-func carregar_save() -> void:
-	if ResourceLoader.exists(CAMINHO_SAVE):
-		_save_jogo = ResourceLoader.load(CAMINHO_SAVE) as SaveJogo
-		missao_atual = _save_jogo.missao_atual
-		print("Save carregado! Missão:", missao_atual)
+func salvar_jogo(slot_id: int, posicao_player: Vector2) -> void:
+	var novo_save = SaveJogo.new()
+	
+	# Preenche os dados
+	novo_save.nome_fazenda = nome_fazenda_atual
+	novo_save.missao_atual = missao_atual
+	novo_save.player_posicao = posicao_player
+	novo_save.data_hora = Time.get_datetime_dict_from_system()
+	
+	slot_jogo_atual = slot_id 
+	print("Salvando no slot: ", slot_id)
+	
+	# Salva no arquivo com o número do slot correto
+	var caminho = obter_caminho_save(slot_id)
+	var erro = ResourceSaver.save(novo_save, caminho)
+	
+	if erro == OK:
+		print("Jogo salvo com sucesso no Slot ", slot_id)
 	else:
-		print("Nenhum save encontrado. Criando novo save.")
-		_save_jogo = SaveJogo.new()
-		salvar_jogo(Vector2.ZERO)
+		print("Erro ao salvar no Slot ", slot_id)
 
+# No Global.gd
 
+func carregar_jogo(slot_id: int) -> bool:
+	var caminho = obter_caminho_save(slot_id)
+	
+	if ResourceLoader.exists(caminho):
+		_save_jogo = ResourceLoader.load(caminho) as SaveJogo
+		
+		# Restaura os dados globais
+		missao_atual = _save_jogo.missao_atual
+		nome_fazenda_atual = _save_jogo.nome_fazenda
+		
+		posicao_player_atual = _save_jogo.player_posicao
+		
+		slot_jogo_atual = slot_id 
+		
+		print("Save carregado do Slot ", slot_id)
+		return true
+	else:
+		print("Save não encontrado no Slot ", slot_id)
+		return false
+		
+func verificar_dados_slot(slot_id: int) -> Dictionary:
+	var caminho = obter_caminho_save(slot_id)
+	if ResourceLoader.exists(caminho):
+		
+		var save_temp = ResourceLoader.load(caminho, "", ResourceLoader.CACHE_MODE_IGNORE) as SaveJogo
+		
+		return {
+			"existe": true,
+			"nome_fazenda": save_temp.nome_fazenda,
+			"missao": save_temp.missao_atual,
+			"data_hora": save_temp.data_hora # 👈 ADICIONAR ISSO
+		}
+	else:
+		return {"existe": false}
+
+func resetar_dados_novo_jogo() -> void:
+	print("Iniciando reset dos dados globais...")
+	
+	missao_atual = MISSAO_INICIAL
+	retomando_missao = false
+	
+	glossario = Glossario.new()
+	inventario = Inventario.new()
+	
+	_save_jogo = null
+	
+	print("Dados resetados com sucesso!")
+	
+func obter_slot_mais_recente() -> int:
+	var slot_mais_recente = -1
+	var tempo_mais_recente = 0
+	
+	# Slot 0 = Auto Save
+	# Slots 1-5 = Saves Manuais
+	for i in range(0, 6):
+		var caminho = obter_caminho_save(i)
+		
+		if FileAccess.file_exists(caminho):
+			
+			var modificado_em = FileAccess.get_modified_time(caminho)
+			
+			if modificado_em > tempo_mais_recente:
+				tempo_mais_recente = modificado_em
+				slot_mais_recente = i
+				
+	return slot_mais_recente
 #Estrutura do projeto:
 
 #jogo

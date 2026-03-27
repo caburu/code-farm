@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://bufu2dd280qkf"]
+
+[ext_resource type="Texture2D" uid="uid://c6yh48kthpqbe" path="res://assets/imagens/npcs/PC _ Computer - Stardew Valley - Non-Playable Characters - Penny.png" id="1_k0r53"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lnspf"]
+atlas = ExtResource("1_k0r53")
+region = Rect2(0, 34, 16, 34)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a62ux"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lnspf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrjpi"]
+radius = 9.0
+
+[node name="atendenteSalao" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_a62ux")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CircleShape2D_xrjpi")

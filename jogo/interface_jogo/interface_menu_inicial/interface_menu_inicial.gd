@@ -21,7 +21,20 @@ func _ao_clicar_novo_jogo():
 	Global.emit_signal("novo_jogo")
 
 func _ao_clicar_continuar_jogo():
-	Global.emit_signal("continuar_jogo")
+	
+	var slot_mais_recente = Global.obter_slot_mais_recente()
+	
+	if slot_mais_recente != -1:
+		print("Continuando do slot mais recente: ", slot_mais_recente)
+		
+		
+		Global.carregar_jogo(slot_mais_recente)
+		
+		Global.emit_signal("continuar_jogo")
+		
+	else:
+		print("Nenhum save encontrado para continuar!")
+		
 
 func _ao_clicar_sair_jogo():
 	get_tree().quit()

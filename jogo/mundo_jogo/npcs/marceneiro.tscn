@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://x8q7i06nnq7h"]
+
+[ext_resource type="Texture2D" uid="uid://cdow71fbjx15l" path="res://assets/imagens/npcs/PC _ Computer - Stardew Valley - Non-Playable Characters - Lewis.png" id="1_71xh6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqic0"]
+atlas = ExtResource("1_71xh6")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6ja4m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqic0")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tdil3"]
+radius = 7.0
+
+[node name="marceneiro" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_6ja4m")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_tdil3")

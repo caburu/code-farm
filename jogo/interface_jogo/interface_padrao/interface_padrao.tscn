@@ -1,8 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://cl8hd4fyrtkyh"]
+[gd_scene load_steps=9 format=3 uid="uid://cl8hd4fyrtkyh"]
 
 [ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/Sprout Lands - UI/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_ngjog"]
-[ext_resource type="Script" path="res://interface_jogo/interface_padrao/menu_superior.gd" id="2_c10w6"]
-[ext_resource type="Script" path="res://interface_jogo/interface_padrao/hotbar.gd" id="4_8sum0"]
+[ext_resource type="Script" uid="uid://8n73a7lf64s" path="res://interface_jogo/interface_padrao/menu_superior.gd" id="2_c10w6"]
+[ext_resource type="Script" uid="uid://dc56celgquhuq" path="res://interface_jogo/interface_padrao/hotbar.gd" id="4_8sum0"]
 [ext_resource type="PackedScene" uid="uid://dujl6ijvm1jas" path="res://interface_jogo/interface_padrao/slot_hotbar/slot_hotbar.tscn" id="5_dnj68"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3gxud"]
@@ -29,31 +29,6 @@ texture_margin_top = 4.0
 texture_margin_right = 4.0
 texture_margin_bottom = 6.0
 region_rect = Rect2(645, 132, 22, 24)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m3huj"]
-texture = ExtResource("1_ngjog")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-region_rect = Rect2(869, 102, 22, 22)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_64lj4"]
-texture = ExtResource("1_ngjog")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-region_rect = Rect2(869, 102, 22, 22)
-modulate_color = Color(0.768627, 0.603922, 0.423529, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oismf"]
-texture = ExtResource("1_ngjog")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 6.0
-region_rect = Rect2(837, 100, 22, 24)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d7joi"]
 atlas = ExtResource("1_ngjog")
@@ -98,15 +73,6 @@ theme_override_font_sizes/font_size = 8
 theme_override_styles/hover = SubResource("StyleBoxTexture_3gxud")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_5mqda")
 theme_override_styles/normal = SubResource("StyleBoxTexture_35mjg")
-
-[node name="BotaoFechar" type="Button" parent="MenuSuperior/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(30, 30)
-layout_mode = 2
-focus_mode = 0
-theme_override_font_sizes/font_size = 8
-theme_override_styles/hover = SubResource("StyleBoxTexture_m3huj")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_64lj4")
-theme_override_styles/normal = SubResource("StyleBoxTexture_oismf")
 
 [node name="Hotbar" type="Control" parent="."]
 layout_mode = 1
@@ -190,4 +156,3 @@ patch_margin_bottom = 10
 
 [connection signal="visibility_changed" from="." to="Hotbar" method="_ao_mudar_visibilidade_interface_padrao"]
 [connection signal="pressed" from="MenuSuperior/MarginContainer/VBoxContainer/BotaoGlossario" to="MenuSuperior" method="_ao_clicar_botao_glossario"]
-[connection signal="pressed" from="MenuSuperior/MarginContainer/VBoxContainer/BotaoFechar" to="MenuSuperior" method="_ao_clicar_botao_glossario"]

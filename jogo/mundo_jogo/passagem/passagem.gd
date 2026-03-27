@@ -35,8 +35,12 @@ func _definir_posicao_spawn() -> void:
 			_posicao_spawn.position.x -= DISTANCIA_SPAWN
 
 func _ao_jogador_passar_passagem(jogador: Node2D) -> void:
+	print("DEBUG: Algo encostou na passagem!")
+	
 	if jogador.is_in_group("Jogador"): 
+		print("DEBUG: O objeto É o jogador. Tentando emitir sinal...")
 		emit_signal("jogador_passou_passagem", terreno_destino, passagem_destino)
+	print("DEBUG: O objeto NÃO está no grupo Jogador. ")
 
 func obter_posicao_spawn():
 	return _posicao_spawn.global_position

@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://21hji81cbghv"]
 
-[ext_resource type="Script" path="res://interface_jogo/interface_menu_inicial/interface_menu_inicial.gd" id="1_3wpea"]
+[ext_resource type="Script" uid="uid://bxha0s8l3saj2" path="res://interface_jogo/interface_menu_inicial/interface_menu_inicial.gd" id="1_3wpea"]
 [ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/Sprout Lands - UI/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_7cy5n"]
 [ext_resource type="FontFile" uid="uid://8dyl8sjpwyl2" path="res://assets/fontes/ExpressionPro.ttf" id="1_76ion"]
-[ext_resource type="Texture2D" uid="uid://c0nen18pu7m5g" path="res://assets/imagens/fundo_menu_principal.jpg" id="1_tb5av"]
+[ext_resource type="Texture2D" uid="uid://cigwvp374o43d" path="res://assets/imagens/Fundo_novo.jpeg" id="2_gx8dj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tteiq"]
-texture = ExtResource("1_tb5av")
+texture = ExtResource("2_gx8dj")
 modulate_color = Color(0.411747, 0.411747, 0.411747, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gobhx"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c48mo1nwpwjc7"]
 
-[ext_resource type="Script" path="res://mundo_jogo/passagem/passagem.gd" id="1_xn48j"]
+[ext_resource type="Script" uid="uid://bu522ai63u2hx" path="res://mundo_jogo/passagem/passagem.gd" id="1_xn48j"]
 
 [node name="Passagem" type="Area2D" groups=["Passagens"]]
 script = ExtResource("1_xn48j")

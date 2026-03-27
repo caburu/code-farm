@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dw887bsydvhg7"]
-
-[ext_resource type="Script" path="res://interface_jogo/interface_glossario/textura_animada_interface/animated_texture_rect.gd" id="1_4bnbw"]
-
-[node name="AnimatedTextureRect" type="TextureRect"]
-script = ExtResource("1_4bnbw")

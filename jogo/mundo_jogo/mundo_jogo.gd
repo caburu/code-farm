@@ -2,7 +2,7 @@ class_name MundoJogo
 
 extends Node2D
 
-@onready var _jogador: Jogador = $Jogador
+@onready var jogador: Jogador = $Jogador
 
 @onready var _canvas = %CanvasLayer
 @onready var _transicao_cenario: TransicaoCenario = %TransicaoCenario
@@ -20,29 +20,29 @@ func _ao_jogador_passar_passagem(terreno_destino: String, passagem_destino: Stri
 	_transicao_cenario.iniciar_transicao(Callable(self, "_trocar_posicao_do_jogador").bind(terreno_destino, passagem_destino))
 
 func _trocar_posicao_do_jogador(terreno_destino: String, passagem_destino: String):
-	_jogador.desativar_camera()	
-	_jogador.desativar_movimento()	
+	jogador.desativar_camera()	
+	jogador.desativar_movimento()	
 	
 	_terreno_atual = find_child(terreno_destino)
 	var nova_passagem = _terreno_atual.find_child(passagem_destino, true, true)
-	_jogador.global_position = nova_passagem.obter_posicao_spawn()
+	jogador.global_position = nova_passagem.obter_posicao_spawn()
 
 	await get_tree().create_timer(0.1).timeout
 	
 	Global.conectar_sinal(_transicao_cenario, "transicao_finalizada", Callable(self, "_reativar_camera_apos_transicao"))
 
 func _reativar_camera_apos_transicao():
-	_jogador.ativar_camera()
-	_jogador.ativar_movimento()	
+	jogador.ativar_camera()
+	jogador.ativar_movimento()	
 
 func ativar_movimento_jogador():
-	_jogador.ativar_movimento()
+	jogador.ativar_movimento()
 	
 func desativar_movimento_jogador():
-	_jogador.desativar_movimento()
+	jogador.desativar_movimento()
 
 func obter_jogador() -> Jogador:
-	return _jogador
+	return jogador
 
 func obter_objeto_interativo_atual() -> ObjetoInterativo:
 	return find_child("Missao%d" % Global.missao_atual, true, false)

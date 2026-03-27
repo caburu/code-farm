@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cw5e72uib81a7"]
+
+[ext_resource type="Script" uid="uid://bu522ai63u2hx" path="res://mundo_jogo/passagem/passagem.gd" id="1_avh2g"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_muyhw"]
+a = Vector2(0, -3)
+b = Vector2(0, 14)
+
+[node name="EntradaBunker" type="Area2D"]
+script = ExtResource("1_avh2g")
+terreno_destino = "TerrenoCasa"
+passagem_destino = "TapeteBunker"
+metadata/_custom_type_script = "uid://bu522ai63u2hx"
+
+[node name="Colisao" type="CollisionShape2D" parent="."]
+position = Vector2(-3, -4)
+shape = SubResource("SegmentShape2D_muyhw")
+
+[node name="PosicaoSpawn" type="Marker2D" parent="."]

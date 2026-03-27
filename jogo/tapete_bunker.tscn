@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://b7gtrv82o2jmt"]
+
+[ext_resource type="Script" uid="uid://b2o26pmrnfc5l" path="res://mundo_jogo/tapete_bunker.gd" id="1_412ol"]
+[ext_resource type="Script" uid="uid://cb8h0wpn6yvqn" path="res://mundo_jogo/objeto_interativo/objeto_interativo.gd" id="2_5s1i4"]
+[ext_resource type="Texture2D" uid="uid://cvmhhkg2ewojj" path="res://assets/imagens/retro_interior/TopDownHouse_FurnitureState1.png" id="3_7g7fm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s2wpm"]
+size = Vector2(61.3333, 32)
+
+[node name="TapeteBunker" type="Node2D"]
+script = ExtResource("1_412ol")
+terreno_destino = "TerrenoBunker"
+passagem_destino = "EntradaBunker"
+
+[node name="ObjetoInterativo" type="StaticBody2D" parent="."]
+visible = false
+position = Vector2(-3.05176e-05, 2.66667)
+script = ExtResource("2_5s1i4")
+metadata/_custom_type_script = "uid://cb8h0wpn6yvqn"
+
+[node name="Sprite" type="Sprite2D" parent="ObjetoInterativo"]
+position = Vector2(-0.851402, -4.30521)
+scale = Vector2(-1.35341, 1.06426)
+texture = ExtResource("3_7g7fm")
+region_enabled = true
+region_rect = Rect2(160, 32, 48, 32)
+
+[node name="AreaDetecao" type="Area2D" parent="ObjetoInterativo"]
+
+[node name="Colisao" type="CollisionShape2D" parent="ObjetoInterativo"]
+position = Vector2(-1.33337, -4)
+shape = SubResource("RectangleShape2D_s2wpm")
+
+[node name="LabelInteracao" type="Label" parent="ObjetoInterativo"]
+visible = false
+z_index = 100
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5001
+offset_top = -11.5
+offset_right = 90.4999
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/font_size = 6
+text = "[E] para abrir"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Animador" type="AnimationPlayer" parent="ObjetoInterativo"]
+
+[node name="PosicaoSpaw" type="Marker2D" parent="."]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://ber3bclrl5uky"]
+
+[ext_resource type="Texture2D" uid="uid://k3ay7o2kair1" path="res://assets/imagens/npcs/PC _ Computer - Stardew Valley - Non-Playable Characters - Lost Items Shop Crow.png" id="1_ft0bv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s12kr"]
+atlas = ExtResource("1_ft0bv")
+region = Rect2(288, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aoy8q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s12kr")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dimw6"]
+radius = 6.0
+
+[node name="corvoVendedor" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2, 7)
+scale = Vector2(0.75, 0.5625)
+sprite_frames = SubResource("SpriteFrames_aoy8q")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 10)
+shape = SubResource("CircleShape2D_dimw6")

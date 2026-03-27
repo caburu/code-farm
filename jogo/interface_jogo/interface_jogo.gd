@@ -7,6 +7,8 @@ enum Interface {
 	GLOSSARIO
 }
 
+@onready var interface_salvar_carregar: InterfaceSalvarCarregar = $InterfaceSalvarCarregar
+
 @onready var _interfaces = {
 	Interface.MENU_INICIAL: %InterfaceMenuInicial,
 	Interface.PADRAO: %InterfacePadrao,
@@ -50,3 +52,9 @@ func obter_interface_atual() -> Interface:
 		if _interfaces[tipo].visible:
 			return tipo
 	return Interface.PADRAO
+	
+func abrir_menu_save_load(modo_salvar: bool) -> void:
+	# Se for abrir para salvar, garantimos que o pause menu (se estiver aberto) suma
+	# Mas mantenha o jogo pausado se já estiver
+	
+	interface_salvar_carregar.abrir_tela(modo_salvar)	

@@ -16,6 +16,8 @@ func executar() -> void:
 			await dialogo("Muito bem! Agora veja o nome da sua fazenda na placa!")
 
 			var nome = resultado.dados.get("nome_fazenda", "Minha Fazenda")
+			
+			Global.nome_fazenda_atual = nome
 			await _tocar_animacao_placa(nome)
 
 			await dialogo("Agora que você já identificou sua nova fazenda, que tal entrar em casa e explorar mais?")

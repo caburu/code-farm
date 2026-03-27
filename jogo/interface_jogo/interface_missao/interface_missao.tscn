@@ -1,14 +1,14 @@
 [gd_scene load_steps=18 format=3 uid="uid://dpag6d368xqvo"]
 
-[ext_resource type="Script" path="res://interface_jogo/interface_missao/editor_codigo.gd" id="1_iyngm"]
-[ext_resource type="Script" path="res://interface_jogo/interface_missao/interface_missao.gd" id="1_lia0o"]
+[ext_resource type="Script" uid="uid://dlaeimi7m3hs7" path="res://interface_jogo/interface_missao/editor_codigo.gd" id="1_iyngm"]
+[ext_resource type="Script" uid="uid://dskbt4av5tbwn" path="res://interface_jogo/interface_missao/interface_missao.gd" id="1_lia0o"]
 [ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/Sprout Lands - UI/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_r2tii"]
-[ext_resource type="Script" path="res://interface_jogo/interface_missao/caixa_dialogo.gd" id="1_u65mp"]
+[ext_resource type="Script" uid="uid://roavcl0p15ii" path="res://interface_jogo/interface_missao/caixa_dialogo.gd" id="1_u65mp"]
 [ext_resource type="Texture2D" uid="uid://df17hb2g6ael3" path="res://assets/imagens/Tiny Wonder Forest/characters/main character old/portrait female.png" id="2_006bi"]
 [ext_resource type="FontFile" uid="uid://8dyl8sjpwyl2" path="res://assets/fontes/ExpressionPro.ttf" id="3_rlvmk"]
 [ext_resource type="AudioStream" uid="uid://dep54x20m7itr" path="res://assets/sons/caracteres_exibindo.mp3" id="6_omwur"]
-[ext_resource type="Script" path="res://interface_jogo/interface_missao/tooltip.gd" id="8_crg80"]
-[ext_resource type="Script" path="res://interface_jogo/interface_missao/python_syntax_highlighter.gd.gd" id="8_ej35g"]
+[ext_resource type="Script" uid="uid://bu5r5erb3ihol" path="res://interface_jogo/interface_missao/tooltip.gd" id="8_crg80"]
+[ext_resource type="Script" uid="uid://cdbuqeunniffl" path="res://interface_jogo/interface_missao/python_syntax_highlighter.gd.gd" id="8_ej35g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_hatc4"]
 line_spacing = 0.0

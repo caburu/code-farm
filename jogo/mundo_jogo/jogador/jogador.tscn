@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://bperut1ryhs0o"]
 
-[ext_resource type="Script" path="res://mundo_jogo/jogador/jogador.gd" id="1_dqjfs"]
+[ext_resource type="Script" uid="uid://cx61kdkh6eoo5" path="res://mundo_jogo/jogador/jogador.gd" id="1_dqjfs"]
 [ext_resource type="Texture2D" uid="uid://hsfdr2sh3twq" path="res://assets/imagens/cute_fantasy/Player/Player.png" id="2_e1dja"]
 [ext_resource type="Texture2D" uid="uid://dtllcjn1io0e" path="res://assets/imagens/cute_fantasy/Player/Player_Actions.png" id="2_so6ri"]
 
@@ -788,16 +788,16 @@ tracks/5/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tm3jw"]
 _data = {
-"RESET": SubResource("Animation_qyjwy"),
-"andando_baixo": SubResource("Animation_5i2bs"),
-"andando_cima": SubResource("Animation_nxra6"),
-"andando_direita": SubResource("Animation_uoc07"),
-"andando_esquerda": SubResource("Animation_6ldns"),
-"parado_baixo": SubResource("Animation_uw8j6"),
-"parado_cima": SubResource("Animation_lsn3v"),
-"parado_direita": SubResource("Animation_q0wh1"),
-"parado_esquerda": SubResource("Animation_0wn63"),
-"usando_regador_direita": SubResource("Animation_oryyh")
+&"RESET": SubResource("Animation_qyjwy"),
+&"andando_baixo": SubResource("Animation_5i2bs"),
+&"andando_cima": SubResource("Animation_nxra6"),
+&"andando_direita": SubResource("Animation_uoc07"),
+&"andando_esquerda": SubResource("Animation_6ldns"),
+&"parado_baixo": SubResource("Animation_uw8j6"),
+&"parado_cima": SubResource("Animation_lsn3v"),
+&"parado_direita": SubResource("Animation_q0wh1"),
+&"parado_esquerda": SubResource("Animation_0wn63"),
+&"usando_regador_direita": SubResource("Animation_oryyh")
 }
 
 [node name="Jogador" type="CharacterBody2D" groups=["Jogador"]]
@@ -831,7 +831,7 @@ position_smoothing_speed = 4.0
 
 [node name="Animador" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_tm3jw")
+&"": SubResource("AnimationLibrary_tm3jw")
 }
 autoplay = "parado_baixo"
 

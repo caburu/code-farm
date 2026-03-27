@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://c3l2v3b10hvkv"]
+
+[ext_resource type="Texture2D" uid="uid://bpjjcuiu6vte3" path="res://assets/imagens/npcs/PC _ Computer - Stardew Valley - Non-Playable Characters - Clint.png" id="1_plk0b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw4k1"]
+atlas = ExtResource("1_plk0b")
+region = Rect2(0, 0, 16, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5drs4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw4k1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bit2l"]
+radius = 6.0
+
+[node name="Ferreiro" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_5drs4")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_bit2l")

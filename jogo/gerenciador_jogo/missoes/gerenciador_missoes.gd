@@ -58,7 +58,7 @@ func _concluir_missao_atual() -> void:
 	print("Missao %d concluida!" % Global.missao_atual)
 	
 	var jogador = mundo_jogo.obter_jogador()
-	Global.salvar_jogo(jogador.global_position)
+	Global.salvar_jogo(0, jogador.global_position)
 	
 	_ativar_objeto_missao_atual()
 	

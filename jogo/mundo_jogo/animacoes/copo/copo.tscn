@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://fdyhl54amort"]
 
-[ext_resource type="Script" path="res://mundo_jogo/animacoes/copo/copo.gd" id="1_lelfd"]
+[ext_resource type="Script" uid="uid://d2rwb6aji230v" path="res://mundo_jogo/animacoes/copo/copo.gd" id="1_lelfd"]
 [ext_resource type="Texture2D" uid="uid://vyv14pkawu2n" path="res://assets/imagens/garrafa.png" id="1_v1ak1"]
 [ext_resource type="Texture2D" uid="uid://csj5myoufc3q6" path="res://assets/imagens/liquido_caindo.png" id="2_ghnph"]
 
@@ -247,9 +247,9 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_28qac"]
 _data = {
-"RESET": SubResource("Animation_n6lse"),
-"despejar_agua": SubResource("Animation_s31lt"),
-"despejar_suco": SubResource("Animation_erj82")
+&"RESET": SubResource("Animation_n6lse"),
+&"despejar_agua": SubResource("Animation_s31lt"),
+&"despejar_suco": SubResource("Animation_erj82")
 }
 
 [node name="Copo" type="Node2D"]
@@ -278,5 +278,5 @@ vframes = 5
 [node name="Animador" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_28qac")
+&"": SubResource("AnimationLibrary_28qac")
 }

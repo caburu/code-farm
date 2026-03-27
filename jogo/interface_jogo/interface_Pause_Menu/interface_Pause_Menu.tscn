@@ -1,0 +1,168 @@
+[gd_scene load_steps=7 format=3 uid="uid://chgo2vmml8vc6"]
+
+[ext_resource type="Script" uid="uid://u5nyy8ovou7e" path="res://interface_jogo/interface_Pause_Menu/interface_pause_menu.gd" id="1_4cdk0"]
+[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/Sprout Lands - UI/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_87wm8"]
+[ext_resource type="FontFile" uid="uid://8dyl8sjpwyl2" path="res://assets/fontes/ExpressionPro.ttf" id="3_4sdh7"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dsu4t"]
+texture = ExtResource("2_87wm8")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(59, 107, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0ikl6"]
+texture = ExtResource("2_87wm8")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(107, 107, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hhoc8"]
+texture = ExtResource("2_87wm8")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(11, 155, 26, 28)
+
+[node name="Interface_Pause_Menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4cdk0")
+
+[node name="Fundo" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.207843, 0.184314, 0.168627, 0.784314)
+
+[node name="SecaoMenu" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_right = 99.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 20
+
+[node name="Fundo" type="NinePatchRect" parent="SecaoMenu"]
+custom_minimum_size = Vector2(120, 180)
+layout_mode = 2
+texture = ExtResource("2_87wm8")
+region_rect = Rect2(153, 9, 30, 30)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="SecaoMenu"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SecaoMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="BotaoContinuar" type="Button" parent="SecaoMenu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(45, 20)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_4sdh7")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/hover = SubResource("StyleBoxTexture_dsu4t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0ikl6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hhoc8")
+text = "Continuar"
+text_overrun_behavior = 1
+
+[node name="BotaoConfiguração" type="Button" parent="SecaoMenu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(45, 20)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_4sdh7")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/hover = SubResource("StyleBoxTexture_dsu4t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0ikl6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hhoc8")
+text = "Configurações"
+text_overrun_behavior = 1
+
+[node name="BotaoDiario" type="Button" parent="SecaoMenu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(45, 20)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_4sdh7")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/hover = SubResource("StyleBoxTexture_dsu4t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0ikl6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hhoc8")
+text = "Diario"
+text_overrun_behavior = 1
+
+[node name="BotaoCarregar" type="Button" parent="SecaoMenu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(45, 20)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_4sdh7")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/hover = SubResource("StyleBoxTexture_dsu4t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0ikl6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hhoc8")
+text = "Carregar"
+text_overrun_behavior = 1
+
+[node name="BotaoSalvar" type="Button" parent="SecaoMenu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(45, 20)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_4sdh7")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/hover = SubResource("StyleBoxTexture_dsu4t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0ikl6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hhoc8")
+text = "Salvar"
+text_overrun_behavior = 1
+
+[node name="BotaoMenu" type="Button" parent="SecaoMenu/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(45, 20)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("3_4sdh7")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/hover = SubResource("StyleBoxTexture_dsu4t")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0ikl6")
+theme_override_styles/normal = SubResource("StyleBoxTexture_hhoc8")
+text = "Menu  Inicial
+"
+text_overrun_behavior = 1
+
+[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/BotaoContinuar" to="." method="_on_botao_continuar_pressed"]
+[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/BotaoDiario" to="." method="_on_botao_diario_pressed"]
+[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/BotaoCarregar" to="." method="_on_botao_carregar_pressed"]
+[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/BotaoSalvar" to="." method="_on_botao_salvar_pressed"]
+[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/BotaoMenu" to="." method="_on_botao_menu_pressed"]

@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bj0447rfnfvpv"]
+[gd_scene load_steps=8 format=3 uid="uid://bj0447rfnfvpv"]
 
-[ext_resource type="Script" path="res://interface_jogo/interface_jogo.gd" id="1_40nnx"]
+[ext_resource type="Script" uid="uid://17pwa3sqejlg" path="res://interface_jogo/interface_jogo.gd" id="1_40nnx"]
 [ext_resource type="PackedScene" uid="uid://cl8hd4fyrtkyh" path="res://interface_jogo/interface_padrao/interface_padrao.tscn" id="2_nud58"]
 [ext_resource type="PackedScene" uid="uid://dpag6d368xqvo" path="res://interface_jogo/interface_missao/interface_missao.tscn" id="2_s4wmp"]
-[ext_resource type="PackedScene" uid="uid://isj1s76o4ek4" path="res://interface_jogo/interface_glossario/interface_glossario.tscn" id="3_8rodc"]
+[ext_resource type="PackedScene" uid="uid://isj1s76o4ek4" path="res://interface_jogo/interface_Pause_Menu/interface_glossario.tscn" id="3_8rodc"]
 [ext_resource type="PackedScene" uid="uid://21hji81cbghv" path="res://interface_jogo/interface_menu_inicial/interface_menu_inicial.tscn" id="5_l5nfd"]
+[ext_resource type="PackedScene" uid="uid://chgo2vmml8vc6" path="res://interface_jogo/interface_Pause_Menu/interface_Pause_Menu.tscn" id="6_rsl5s"]
+[ext_resource type="PackedScene" uid="uid://lw67vqmv51r3" path="res://interface_jogo/interface_Pause_Menu/interface_save_menu.tscn" id="7_vvkj0"]
 
 [node name="InterfaceJogo" type="Control"]
 layout_mode = 3
@@ -25,8 +27,17 @@ layout_mode = 1
 
 [node name="InterfaceGlossario" parent="." instance=ExtResource("3_8rodc")]
 unique_name_in_owner = true
+process_mode = 3
 layout_mode = 1
 
 [node name="InterfaceMenuInicial" parent="." instance=ExtResource("5_l5nfd")]
 unique_name_in_owner = true
+layout_mode = 1
+
+[node name="Interface_Pause_Menu" parent="." node_paths=PackedStringArray("interface_glossario") instance=ExtResource("6_rsl5s")]
+layout_mode = 1
+interface_glossario = NodePath("../InterfaceGlossario")
+
+[node name="InterfaceSalvarCarregar" parent="." instance=ExtResource("7_vvkj0")]
+visible = false
 layout_mode = 1

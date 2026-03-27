@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfd7d2e7dhx7v"]
+
+[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/Sprout Lands - UI/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_h2s17"]
+[ext_resource type="FontFile" uid="uid://8dyl8sjpwyl2" path="res://assets/fontes/ExpressionPro.ttf" id="1_n562h"]
+[ext_resource type="Script" uid="uid://bvqp2myhd5c3x" path="res://interface_jogo/interface_Pause_Menu/botao_lista_glossario/botao_lista_glossario.gd" id="2_5ulfb"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dussb"]
+texture = ExtResource("1_h2s17")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(11, 107, 26, 28)
+modulate_color = Color(0.419608, 0.294118, 0.356863, 0.741176)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_105lt"]
+texture = ExtResource("1_h2s17")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(59, 107, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t7ebg"]
+texture = ExtResource("1_h2s17")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(107, 107, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_60vce"]
+texture = ExtResource("1_h2s17")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(11, 155, 26, 28)
+
+[node name="BotaoListaGlossario" type="Button"]
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_n562h")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/disabled = SubResource("StyleBoxTexture_dussb")
+theme_override_styles/hover = SubResource("StyleBoxTexture_105lt")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t7ebg")
+theme_override_styles/normal = SubResource("StyleBoxTexture_60vce")
+text = "Termo"
+script = ExtResource("2_5ulfb")
+estilo_normal = SubResource("StyleBoxTexture_60vce")
+estilo_selecionado = SubResource("StyleBoxTexture_dussb")
