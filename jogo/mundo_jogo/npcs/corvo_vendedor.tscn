@@ -1,6 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://ber3bclrl5uky"]
+[gd_scene load_steps=10 format=3 uid="uid://ber3bclrl5uky"]
 
+[ext_resource type="Script" uid="uid://dib3263np767q" path="res://mundo_jogo/npcs/dialogo.gd" id="1_aoy8q"]
 [ext_resource type="Texture2D" uid="uid://k3ay7o2kair1" path="res://assets/imagens/npcs/PC _ Computer - Stardew Valley - Non-Playable Characters - Lost Items Shop Crow.png" id="1_ft0bv"]
+[ext_resource type="Resource" uid="uid://wvy4haaf0oc6" path="res://gerenciador_jogo/gerenciador_npcs/dialogos/corvo_vendedor.tres" id="2_dimw6"]
+[ext_resource type="Resource" uid="uid://cndg77nhoh1it" path="res://gerenciador_jogo/gerenciador_npcs/troca/estoques/estoque_corvo.tres" id="3_b3gkp"]
+[ext_resource type="PackedScene" uid="uid://dbkpdacppilwy" path="res://mundo_jogo/objeto_interativo/objeto_interativo.tscn" id="3_dimw6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s12kr"]
 atlas = ExtResource("1_ft0bv")
@@ -17,17 +21,38 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_dimw6"]
-radius = 6.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_b3gkp"]
+radius = 4.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3tnxr"]
+radius = 11.0
 
 [node name="corvoVendedor" type="CharacterBody2D"]
+script = ExtResource("1_aoy8q")
+dados_dialogo = ExtResource("2_dimw6")
+nome = "Crow"
+foto = "res://assets/imagens/npcs/Crow.png"
+estoque = ExtResource("3_b3gkp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2, 7)
 scale = Vector2(0.75, 0.5625)
 sprite_frames = SubResource("SpriteFrames_aoy8q")
 animation = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 10)
-shape = SubResource("CircleShape2D_dimw6")
+[node name="ObjetoInterativo" parent="." instance=ExtResource("3_dimw6")]
+
+[node name="Sprite" parent="ObjetoInterativo" index="0"]
+visible = false
+texture = ExtResource("1_ft0bv")
+region_enabled = true
+region_rect = Rect2(255.37115, 8.25983, 16.5878, 22.970078)
+
+[node name="Colisao" parent="ObjetoInterativo" index="1"]
+position = Vector2(-1, 4)
+shape = SubResource("CircleShape2D_b3gkp")
+
+[node name="Colisao" parent="ObjetoInterativo/AreaDetecao" index="0"]
+position = Vector2(-1, 4)
+shape = SubResource("CircleShape2D_3tnxr")
+
+[editable path="ObjetoInterativo"]

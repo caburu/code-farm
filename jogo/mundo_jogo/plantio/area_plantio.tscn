@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=3 uid="uid://btfbawmdv2k12"]
+
+[ext_resource type="Script" uid="uid://4363fbu1l47x" path="res://mundo_jogo/plantio/area_plantio.gd" id="1_1tyrf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1tyrf"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_1tyrf"]
+
+[node name="AreaPlantio" type="Area2D"]
+z_index = 2
+script = ExtResource("1_1tyrf")
+
+[node name="LabelPlantio" type="Label" parent="."]
+visible = false
+z_index = 2
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.000001
+offset_top = -17.0
+offset_right = 33.0998
+offset_bottom = -2.616516
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.6116852, 0.68171144)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9882353)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/font_size = 6
+text = "[E] para plantar"
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="LabelErro" type="Label" parent="."]
+visible = false
+z_index = 2
+z_as_relative = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -14.0
+offset_top = -17.0
+offset_right = 57.719894
+offset_bottom = -4.8626633
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.55594355, 0.7122324)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/font_size = 6
+text = "Isso nao e uma semente"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_1tyrf")
+
+[node name="LabelRegar" type="Label" parent="."]
+visible = false
+z_index = 2
+z_as_relative = false
+offset_left = -14.000002
+offset_top = -17.0
+offset_right = 27.999998
+offset_bottom = -6.0
+scale = Vector2(0.6536438, 0.5980276)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/font_size = 6
+text = "[E] para regar"
+
+[node name="TerraMolhada" type="Sprite2D" parent="."]
+modulate = Color(0.4175885, 0.08123904, 0.89690465, 1)
+position = Vector2(-2.9802322e-08, 0)
+scale = Vector2(20, 20)
+texture = SubResource("PlaceholderTexture2D_1tyrf")
+
+[connection signal="body_entered" from="." to="." method="_ao_detectar_entrada"]
+[connection signal="body_exited" from="." to="." method="_ao_detectar_saida"]

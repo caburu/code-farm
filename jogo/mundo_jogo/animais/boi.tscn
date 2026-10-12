@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dxo5dyjge5q60"]
 
-[ext_resource type="Texture2D" uid="uid://738bb3mx58ob" path="res://assets/imagens/Farm RPG/Farm RPG FREE 16x16 - Tiny Asset Pack/Farm Animals/Male Cow Brown.png" id="1_j4gv8"]
+[ext_resource type="Texture2D" uid="uid://738bb3mx58ob" path="res://assets/imagens/animais/Male Cow Brown.png" id="1_j4gv8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_41ig8"]
 atlas = ExtResource("1_j4gv8")

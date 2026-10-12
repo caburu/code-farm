@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://d36ijp77spnb1"]
+
+[ext_resource type="Script" uid="uid://f3j7dwxxmowi" path="res://gerenciador_jogo/gerenciador_npcs/troca/slot_troca.gd" id="1_4wo0i"]
+[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/interface/Sprite sheet for Basic Pack.png" id="2_uy1bc"]
+[ext_resource type="FontFile" uid="uid://8dyl8sjpwyl2" path="res://assets/fontes/ExpressionPro.ttf" id="3_hgktp"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_06yd8"]
+line_spacing = 0.0
+font = ExtResource("3_hgktp")
+font_size = 10
+outline_size = 4
+outline_color = Color(0.223529, 0.117647, 0.0509804, 1)
+shadow_size = 4
+shadow_color = Color(0.221665, 0.118462, 0.0510634, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uy1bc"]
+line_spacing = 0.0
+font = ExtResource("3_hgktp")
+font_size = 10
+outline_size = 4
+outline_color = Color(0.22352941, 0.11764706, 0.050980393, 1)
+shadow_size = 4
+shadow_color = Color(0.22352941, 0.11764706, 0.050980393, 1)
+
+[node name="SlotTroca" type="Button" unique_id=143518429]
+custom_minimum_size = Vector2(30, 30)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4wo0i")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1277101211]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 2
+
+[node name="Fundo" type="NinePatchRect" parent="MarginContainer" unique_id=525605835]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+texture = ExtResource("2_uy1bc")
+region_rect = Rect2(11, 155, 26, 28)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Fundo" unique_id=1753201025]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 7
+
+[node name="Icone" type="TextureRect" parent="MarginContainer/Fundo/MarginContainer" unique_id=2124604235]
+unique_name_in_owner = true
+layout_mode = 2
+expand_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/Fundo" unique_id=1867150614]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.671
+anchor_top = 0.58100003
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.24398804
+offset_top = 0.1639862
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Quantidade" type="Label" parent="MarginContainer/Fundo/MarginContainer2" unique_id=955061884]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+label_settings = SubResource("LabelSettings_06yd8")
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/Fundo" unique_id=407571629]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.30900002
+anchor_bottom = 0.41900003
+offset_right = 12.475983
+offset_bottom = -0.16401672
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+
+[node name="Preco" type="Label" parent="MarginContainer/Fundo/MarginContainer3" unique_id=1520272821]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+label_settings = SubResource("LabelSettings_uy1bc")

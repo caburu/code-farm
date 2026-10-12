@@ -67,3 +67,6 @@ func _quando_editor_solicitar_dados():
 		"contexto": contexto()
 	}
 	Global.emit_signal("dados_requisicao_prontos", dados)
+	
+func configurar_personagem(nome: String, caminho_foto: String) -> void:
+	_interface_missao.atualizar_personagem(nome, caminho_foto)

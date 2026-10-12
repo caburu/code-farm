@@ -1,0 +1,204 @@
+[gd_scene load_steps=12 format=3 uid="uid://c5u13eymo2tos"]
+
+[ext_resource type="Script" uid="uid://b1bsfgtb27bkr" path="res://mundo_jogo/objeto_coletavel/objeto_coletavel.gd" id="1_yjxrh"]
+[ext_resource type="Script" uid="uid://de8teor80qd8x" path="res://gerenciador_jogo/inventario/item.gd" id="3_jhx84"]
+[ext_resource type="Texture2D" uid="uid://df3nifq2ujqwy" path="res://assets/imagens/terrenos/TopDownHouse_SmallItems.png" id="3_l07if"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l07if"]
+atlas = ExtResource("3_l07if")
+region = Rect2(98, 35, 12, 12)
+
+[sub_resource type="Resource" id="Resource_fk80x"]
+script = ExtResource("3_jhx84")
+nome = "Caixa robo"
+icone = SubResource("AtlasTexture_l07if")
+pode_empilhar = true
+descricao = ""
+tipo = ""
+caminho_cena = "uid://c5u13eymo2tos"
+metadata/_custom_type_script = "uid://de8teor80qd8x"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fk80x"]
+radius = 4.0
+height = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j5h55"]
+radius = 34.0147
+
+[sub_resource type="Animation" id="Animation_yq61l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(-0.333333),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_b52kk"]
+resource_name = "coletar"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 6.28319, -6.28319]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.5, 0.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_x284y"]
+resource_name = "destacar_objeto"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.0002, 0.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.392157), Color(1, 1, 1, 0.392157), Color(0.917647, 1, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_46f6w"]
+_data = {
+&"RESET": SubResource("Animation_yq61l"),
+&"coletar": SubResource("Animation_b52kk"),
+&"destacar_objeto": SubResource("Animation_x284y")
+}
+
+[node name="CaixadoRobo" type="StaticBody2D"]
+collision_layer = 4
+script = ExtResource("1_yjxrh")
+item = SubResource("Resource_fk80x")
+metadata/_custom_type_script = "uid://b1bsfgtb27bkr"
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("3_l07if")
+region_enabled = true
+region_rect = Rect2(98, 35, 12, 12)
+
+[node name="Colisao" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_fk80x")
+
+[node name="AreaDetecao" type="Area2D" parent="."]
+
+[node name="Colisao" type="CollisionShape2D" parent="AreaDetecao"]
+shape = SubResource("CircleShape2D_j5h55")
+
+[node name="Animador" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_46f6w")
+}
+
+[node name="LabelInteracao" type="Label" parent="."]
+visible = false
+z_index = 100
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.5
+offset_top = -11.5
+offset_right = 90.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/font_size = 6
+text = "[C] para coletar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="AreaDetecao" to="." method="_ao_detectar_entrada"]
+[connection signal="body_exited" from="AreaDetecao" to="." method="_ao_detectar_saida"]

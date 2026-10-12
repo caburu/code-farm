@@ -29,9 +29,12 @@ func _on_botao_diario_pressed():
 	hide()
 	
 	# 2. Abre o glossário
-	if interface_glossario:
-		interface_glossario.abrir_glossario()
-		interface_glossario.show()
+	if Global.missao_atual != 0:
+		if interface_glossario:
+			interface_glossario.abrir_glossario()
+			interface_glossario.show()
+	else:
+		show()
 
 
 func _on_botao_menu_pressed() -> void:

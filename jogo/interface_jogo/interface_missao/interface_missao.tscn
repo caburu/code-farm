@@ -1,39 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://dpag6d368xqvo"]
+[gd_scene load_steps=14 format=3 uid="uid://dpag6d368xqvo"]
 
-[ext_resource type="Script" uid="uid://dlaeimi7m3hs7" path="res://interface_jogo/interface_missao/editor_codigo.gd" id="1_iyngm"]
-[ext_resource type="Script" uid="uid://dskbt4av5tbwn" path="res://interface_jogo/interface_missao/interface_missao.gd" id="1_lia0o"]
-[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/Sprout Lands - UI/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_r2tii"]
-[ext_resource type="Script" uid="uid://roavcl0p15ii" path="res://interface_jogo/interface_missao/caixa_dialogo.gd" id="1_u65mp"]
-[ext_resource type="Texture2D" uid="uid://df17hb2g6ael3" path="res://assets/imagens/Tiny Wonder Forest/characters/main character old/portrait female.png" id="2_006bi"]
+[ext_resource type="Script" path="res://interface_jogo/interface_missao/editor_codigo.gd" id="1_iyngm"]
+[ext_resource type="Script" path="res://interface_jogo/interface_missao/interface_missao.gd" id="1_lia0o"]
+[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/interface/Sprite sheet for Basic Pack.png" id="1_r2tii"]
+[ext_resource type="PackedScene" uid="uid://bpcy0vespkpg7" path="res://interface_jogo/interface_missao/caixa_dialogo.tscn" id="2_0r30s"]
 [ext_resource type="FontFile" uid="uid://8dyl8sjpwyl2" path="res://assets/fontes/ExpressionPro.ttf" id="3_rlvmk"]
-[ext_resource type="AudioStream" uid="uid://dep54x20m7itr" path="res://assets/sons/caracteres_exibindo.mp3" id="6_omwur"]
-[ext_resource type="Script" uid="uid://bu5r5erb3ihol" path="res://interface_jogo/interface_missao/tooltip.gd" id="8_crg80"]
-[ext_resource type="Script" uid="uid://cdbuqeunniffl" path="res://interface_jogo/interface_missao/python_syntax_highlighter.gd.gd" id="8_ej35g"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_hatc4"]
-line_spacing = 0.0
-font = ExtResource("3_rlvmk")
-shadow_size = 4
-shadow_color = Color(0.221665, 0.118462, 0.0510634, 1)
+[ext_resource type="PackedScene" uid="uid://jo5gekf703qc" path="res://interface_jogo/interface_missao/fechar.tscn" id="8_5350m"]
+[ext_resource type="Script" path="res://interface_jogo/interface_missao/tooltip.gd" id="8_crg80"]
+[ext_resource type="Script" path="res://interface_jogo/interface_missao/python_syntax_highlighter.gd.gd" id="8_ej35g"]
 
 [sub_resource type="SyntaxHighlighter" id="SyntaxHighlighter_ivxbh"]
 script = ExtResource("8_ej35g")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_105lt"]
-texture = ExtResource("1_r2tii")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-region_rect = Rect2(59, 107, 26, 26)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t7ebg"]
-texture = ExtResource("1_r2tii")
-texture_margin_left = 4.0
-texture_margin_top = 4.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-region_rect = Rect2(107, 107, 26, 26)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ot10x"]
 texture = ExtResource("1_r2tii")
@@ -43,30 +20,27 @@ texture_margin_right = 4.0
 texture_margin_bottom = 6.0
 region_rect = Rect2(11, 155, 26, 28)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fwpee"]
-texture = ExtResource("1_r2tii")
-texture_margin_left = 4.0
-texture_margin_top = 6.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-region_rect = Rect2(869, 100, 22, 24)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_arqv6"]
-texture = ExtResource("1_r2tii")
-texture_margin_left = 4.0
-texture_margin_top = 6.0
-texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-region_rect = Rect2(869, 100, 22, 24)
-modulate_color = Color(0.768627, 0.603922, 0.423529, 1)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5m0ch"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_t7ebg"]
 texture = ExtResource("1_r2tii")
 texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
-texture_margin_bottom = 6.0
-region_rect = Rect2(837, 100, 22, 24)
+texture_margin_bottom = 4.0
+region_rect = Rect2(107, 107, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_105lt"]
+texture = ExtResource("1_r2tii")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(59, 107, 26, 26)
+
+[sub_resource type="LabelSettings" id="LabelSettings_hatc4"]
+line_spacing = 0.0
+font = ExtResource("3_rlvmk")
+shadow_size = 4
+shadow_color = Color(0.221665, 0.118462, 0.0510634, 1)
 
 [node name="InterfaceMissao" type="Control"]
 layout_mode = 3
@@ -78,148 +52,9 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_lia0o")
 
-[node name="CaixaDialogo" type="Control" parent="."]
+[node name="CaixaDialogo" parent="." instance=ExtResource("2_0r30s")]
 unique_name_in_owner = true
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-grow_vertical = 0
-script = ExtResource("1_u65mp")
-
-[node name="MarginContainer" type="MarginContainer" parent="CaixaDialogo"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 7.0
-offset_top = -149.0
-offset_right = 425.0
-offset_bottom = -3.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 5
-theme_override_constants/margin_bottom = 10
-
-[node name="NinePatchRect" type="NinePatchRect" parent="CaixaDialogo/MarginContainer"]
-layout_mode = 2
-texture = ExtResource("1_r2tii")
-region_rect = Rect2(153, 9, 30, 30)
-patch_margin_left = 10
-patch_margin_top = 10
-patch_margin_right = 10
-patch_margin_bottom = 10
-
-[node name="HBoxContainer" type="HBoxContainer" parent="CaixaDialogo/MarginContainer/NinePatchRect"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 0
-
-[node name="MarginContainer" type="MarginContainer" parent="CaixaDialogo/MarginContainer/NinePatchRect/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 10
-
-[node name="NinePatchRect" type="NinePatchRect" parent="CaixaDialogo/MarginContainer/NinePatchRect/HBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-texture = ExtResource("1_r2tii")
-region_rect = Rect2(11, 11, 26, 28)
-patch_margin_left = 10
-patch_margin_top = 10
-patch_margin_right = 10
-patch_margin_bottom = 10
-
-[node name="TextureRect" type="TextureRect" parent="CaixaDialogo/MarginContainer/NinePatchRect/HBoxContainer/MarginContainer/NinePatchRect"]
-custom_minimum_size = Vector2(85, 85)
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -42.5
-offset_top = -42.5
-offset_right = 42.5
-offset_bottom = 42.5
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_006bi")
-expand_mode = 1
-stretch_mode = 5
-
-[node name="MarginContainer2" type="MarginContainer" parent="CaixaDialogo/MarginContainer/NinePatchRect/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CaixaDialogo/MarginContainer/NinePatchRect/HBoxContainer/MarginContainer2"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="Label" type="Label" parent="CaixaDialogo/MarginContainer/NinePatchRect/HBoxContainer/MarginContainer2/VBoxContainer"]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-text = "Nome do NPC"
-label_settings = SubResource("LabelSettings_hatc4")
-
-[node name="MarginContainer" type="MarginContainer" parent="CaixaDialogo/MarginContainer/NinePatchRect/HBoxContainer/MarginContainer2/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="FundoEditorTexto2" type="NinePatchRect" parent="CaixaDialogo/MarginContainer/NinePatchRect/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer"]
-custom_minimum_size = Vector2(100, 0)
-layout_mode = 2
-texture = ExtResource("1_r2tii")
-region_rect = Rect2(11, 155, 26, 28)
-patch_margin_left = 4
-patch_margin_top = 4
-patch_margin_right = 4
-patch_margin_bottom = 6
-
-[node name="MarginContainer" type="MarginContainer" parent="CaixaDialogo/MarginContainer/NinePatchRect/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/FundoEditorTexto2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 8
-
-[node name="RichTextLabel" type="RichTextLabel" parent="CaixaDialogo/MarginContainer/NinePatchRect/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/FundoEditorTexto2/MarginContainer"]
-layout_mode = 2
-focus_mode = 2
-theme_override_colors/default_color = Color(1, 1, 1, 1)
-theme_override_colors/font_outline_color = Color(0.24882, 0.157137, 0.161123, 1)
-theme_override_colors/font_shadow_color = Color(0.247059, 0.156863, 0.160784, 1)
-theme_override_constants/outline_size = 2
-theme_override_constants/shadow_outline_size = 4
-theme_override_font_sizes/bold_italics_font_size = 8
-theme_override_font_sizes/italics_font_size = 8
-theme_override_font_sizes/mono_font_size = 8
-theme_override_font_sizes/normal_font_size = 8
-theme_override_font_sizes/bold_font_size = 8
-bbcode_enabled = true
-text = "Dialogo do NPC"
-selection_enabled = true
-
-[node name="SomCaracteresExibindo" type="AudioStreamPlayer" parent="CaixaDialogo"]
-stream = ExtResource("6_omwur")
 
 [node name="EditorCodigo" type="Control" parent="."]
 unique_name_in_owner = true
@@ -304,18 +139,18 @@ theme_override_constants/margin_bottom = 5
 [node name="CodeEdit" type="CodeEdit" parent="EditorCodigo/MarginContainer/FundoMenuLateral/MarginContainer/VBoxContainer/MarginContainer/FundoEditorTexto/MarginContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/word_highlighted_color = Color(0.411747, 0, 0, 1)
-theme_override_colors/current_line_color = Color(0.779149, 0.798701, 0.730269, 1)
-theme_override_colors/background_color = Color(0.862745, 0.878431, 0.823529, 1)
-theme_override_colors/font_placeholder_color = Color(0.768627, 0.603922, 0.423529, 1)
-theme_override_colors/font_readonly_color = Color(0.574675, 0.574675, 0.574675, 1)
-theme_override_colors/font_color = Color(0.666667, 0.47451, 0.34902, 1)
-theme_override_colors/selection_color = Color(0.768627, 0.603922, 0.423529, 1)
-theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
 theme_override_colors/caret_color = Color(0.666667, 0.47451, 0.34902, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/selection_color = Color(0.768627, 0.603922, 0.423529, 1)
+theme_override_colors/font_color = Color(0.666667, 0.47451, 0.34902, 1)
+theme_override_colors/font_readonly_color = Color(0.574675, 0.574675, 0.574675, 1)
+theme_override_colors/font_placeholder_color = Color(0.768627, 0.603922, 0.423529, 1)
+theme_override_colors/background_color = Color(0.862745, 0.878431, 0.823529, 1)
+theme_override_colors/current_line_color = Color(0.779149, 0.798701, 0.730269, 1)
+theme_override_colors/word_highlighted_color = Color(0.411747, 0, 0, 1)
 theme_override_font_sizes/font_size = 8
-theme_override_colors/line_number_color = Color(0.768627, 0.603922, 0.423529, 1)
 theme_override_colors/code_folding_color = Color(0.768627, 0.603922, 0.423529, 1)
+theme_override_colors/line_number_color = Color(0.768627, 0.603922, 0.423529, 1)
 placeholder_text = "Digite seu codigo aqui"
 scroll_smooth = true
 caret_blink = true
@@ -340,9 +175,9 @@ custom_minimum_size = Vector2(45, 20)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 8
-theme_override_styles/hover = SubResource("StyleBoxTexture_105lt")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_t7ebg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ot10x")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t7ebg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_105lt")
 text = "Limpar"
 text_overrun_behavior = 1
 
@@ -351,9 +186,9 @@ custom_minimum_size = Vector2(45, 20)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 8
-theme_override_styles/hover = SubResource("StyleBoxTexture_105lt")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_t7ebg")
 theme_override_styles/normal = SubResource("StyleBoxTexture_ot10x")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_t7ebg")
+theme_override_styles/hover = SubResource("StyleBoxTexture_105lt")
 text = "Verificar"
 text_overrun_behavior = 2
 
@@ -422,46 +257,20 @@ layout_mode = 2
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0.247059, 0.156863, 0.160784, 1)
 theme_override_colors/font_shadow_color = Color(0.247059, 0.156863, 0.160784, 1)
-theme_override_constants/outline_size = 2
 theme_override_constants/shadow_outline_size = 4
+theme_override_constants/outline_size = 2
 theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "Descrição do comando"
 fit_content = true
 scroll_active = false
 
-[node name="Fechar" type="Control" parent="."]
+[node name="Fechar" parent="." instance=ExtResource("8_5350m")]
 layout_mode = 1
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Fechar"]
-layout_mode = 1
-offset_right = 45.0
-offset_bottom = 45.0
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="BotaoFechar" type="Button" parent="Fechar/MarginContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(25, 25)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-focus_mode = 0
-mouse_default_cursor_shape = 2
-theme_override_font_sizes/font_size = 8
-theme_override_styles/hover = SubResource("StyleBoxTexture_fwpee")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_arqv6")
-theme_override_styles/normal = SubResource("StyleBoxTexture_5m0ch")
-text_overrun_behavior = 1
-
-[connection signal="meta_hover_ended" from="CaixaDialogo/MarginContainer/NinePatchRect/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/FundoEditorTexto2/MarginContainer/RichTextLabel" to="." method="_ao_tirar_mouse_termo"]
-[connection signal="meta_hover_started" from="CaixaDialogo/MarginContainer/NinePatchRect/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/FundoEditorTexto2/MarginContainer/RichTextLabel" to="." method="_ao_passar_mouse_termo"]
 [connection signal="pressed" from="EditorCodigo/MarginContainer/FundoMenuLateral/MarginContainer/VBoxContainer/HBoxContainer/BotaoLimpar" to="EditorCodigo" method="_ao_apertar_botao_limpar"]
 [connection signal="pressed" from="EditorCodigo/MarginContainer/FundoMenuLateral/MarginContainer/VBoxContainer/HBoxContainer/BotaoVerificar" to="EditorCodigo" method="_ao_apertar_botao_verificar"]
 [connection signal="request_completed" from="EditorCodigo/MarginContainer/FundoMenuLateral/MarginContainer/VBoxContainer/HBoxContainer/BotaoVerificar/RequisicaoHTTP" to="EditorCodigo" method="_ao_completar_requisicao_http"]
 [connection signal="pressed" from="Fechar/MarginContainer/BotaoFechar" to="." method="_ao_clicar_fechar_missao"]
+
+[editable path="Fechar"]

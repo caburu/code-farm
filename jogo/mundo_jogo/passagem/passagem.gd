@@ -39,8 +39,10 @@ func _ao_jogador_passar_passagem(jogador: Node2D) -> void:
 	
 	if jogador.is_in_group("Jogador"): 
 		print("DEBUG: O objeto É o jogador. Tentando emitir sinal...")
+		jogador.terreno_atual = terreno_destino
 		emit_signal("jogador_passou_passagem", terreno_destino, passagem_destino)
-	print("DEBUG: O objeto NÃO está no grupo Jogador. ")
+	else:
+		print("DEBUG: O objeto NÃO está no grupo Jogador. ")
 
 func obter_posicao_spawn():
 	return _posicao_spawn.global_position

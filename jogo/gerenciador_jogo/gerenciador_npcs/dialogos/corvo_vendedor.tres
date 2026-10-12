@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DadosDialogo" format=3 uid="uid://wvy4haaf0oc6"]
+
+[ext_resource type="Script" uid="uid://gm0bwnvapw28" path="res://gerenciador_jogo/gerenciador_npcs/dialogos/dados_dialogo.gd" id="1_ip2k3"]
+
+[resource]
+script = ExtResource("1_ip2k3")
+falas = Array[String](["Crááá! Brilhos... você tem coisas brilhantes, humano?", "Eu tenho sementes perdidas. Troco por moedas!"])
+tem_escolhas = true
+pergunta = "O que vai ser?"
+opcoes = Array[String](["Mostrar mercadoria", "Não tenho moedas (Sair)"])
+acoes = Array[String](["abrir_loja"])

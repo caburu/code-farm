@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bj01movk01joa"]
 
 [ext_resource type="PackedScene" uid="uid://7pk4ytvxy4kb" path="res://mundo_jogo/objeto_coletavel/objeto_coletavel.tscn" id="1_bo6ep"]
-[ext_resource type="Texture2D" uid="uid://1446d4da6pw8" path="res://assets/imagens/Farm RPG/Farm RPG FREE 16x16 - Tiny Asset Pack/Objects/Spring Crops.png" id="2_2hjuk"]
-[ext_resource type="Script" path="res://gerenciador_jogo/inventario/item.gd" id="3_dsnpj"]
+[ext_resource type="Texture2D" uid="uid://1446d4da6pw8" path="res://assets/imagens/objetos_coletáveis/Spring Crops.png" id="2_2hjuk"]
+[ext_resource type="Script" uid="uid://de8teor80qd8x" path="res://gerenciador_jogo/inventario/item.gd" id="3_dsnpj"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghv7g"]
 atlas = ExtResource("2_2hjuk")

@@ -1,17 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://cl8hd4fyrtkyh"]
+[gd_scene format=3 uid="uid://cl8hd4fyrtkyh"]
 
-[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/Sprout Lands - UI/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_ngjog"]
+[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/interface/Sprite sheet for Basic Pack.png" id="1_ngjog"]
 [ext_resource type="Script" uid="uid://8n73a7lf64s" path="res://interface_jogo/interface_padrao/menu_superior.gd" id="2_c10w6"]
-[ext_resource type="Script" uid="uid://dc56celgquhuq" path="res://interface_jogo/interface_padrao/hotbar.gd" id="4_8sum0"]
+[ext_resource type="Script" uid="uid://dp5wquo0j6c6e" path="res://interface_jogo/interface_padrao/hotbar.gd" id="4_8sum0"]
 [ext_resource type="PackedScene" uid="uid://dujl6ijvm1jas" path="res://interface_jogo/interface_padrao/slot_hotbar/slot_hotbar.tscn" id="5_dnj68"]
+[ext_resource type="Script" uid="uid://biiwbouov6wyj" path="res://interface_jogo/interface_padrao/container_moedas.gd" id="5_hdnhr"]
+[ext_resource type="Texture2D" uid="uid://y7spfgpud5u7" path="res://assets/imagens/mundo/moeda.png" id="6_32x1g"]
+[ext_resource type="FontFile" uid="uid://8dyl8sjpwyl2" path="res://assets/fontes/ExpressionPro.ttf" id="7_po2go"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3gxud"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_35mjg"]
 texture = ExtResource("1_ngjog")
 texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
-texture_margin_bottom = 4.0
-region_rect = Rect2(677, 134, 22, 22)
+texture_margin_bottom = 6.0
+region_rect = Rect2(645, 132, 22, 24)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5mqda"]
 texture = ExtResource("1_ngjog")
@@ -22,19 +25,28 @@ texture_margin_bottom = 4.0
 region_rect = Rect2(677, 134, 22, 22)
 modulate_color = Color(0.768627, 0.603922, 0.423529, 1)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_35mjg"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3gxud"]
 texture = ExtResource("1_ngjog")
 texture_margin_left = 4.0
 texture_margin_top = 4.0
 texture_margin_right = 4.0
-texture_margin_bottom = 6.0
-region_rect = Rect2(645, 132, 22, 24)
+texture_margin_bottom = 4.0
+region_rect = Rect2(677, 134, 22, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d7joi"]
 atlas = ExtResource("1_ngjog")
 region = Rect2(148, 148, 24, 25)
 
-[node name="InterfacePadrao" type="Control"]
+[sub_resource type="LabelSettings" id="LabelSettings_t00t5"]
+line_spacing = 0.0
+font = ExtResource("7_po2go")
+font_size = 10
+outline_size = 4
+outline_color = Color(0.223529, 0.117647, 0.0509804, 1)
+shadow_size = 4
+shadow_color = Color(0.221665, 0.118462, 0.0510634, 1)
+
+[node name="InterfacePadrao" type="Control" unique_id=258863431]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -42,7 +54,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MenuSuperior" type="Control" parent="."]
+[node name="MenuSuperior" type="Control" parent="." unique_id=224951732]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -51,7 +63,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_c10w6")
 
-[node name="MarginContainer" type="MarginContainer" parent="MenuSuperior"]
+[node name="MarginContainer" type="MarginContainer" parent="MenuSuperior" unique_id=629301491]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -62,38 +74,37 @@ theme_override_constants/margin_top = 5
 theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
-[node name="VBoxContainer" type="HBoxContainer" parent="MenuSuperior/MarginContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="MenuSuperior/MarginContainer" unique_id=1097328906]
 layout_mode = 2
 
-[node name="BotaoGlossario" type="Button" parent="MenuSuperior/MarginContainer/VBoxContainer"]
+[node name="BotaoGlossario" type="Button" parent="MenuSuperior/MarginContainer/VBoxContainer" unique_id=2133387836]
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 8
-theme_override_styles/hover = SubResource("StyleBoxTexture_3gxud")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_5mqda")
 theme_override_styles/normal = SubResource("StyleBoxTexture_35mjg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5mqda")
+theme_override_styles/hover = SubResource("StyleBoxTexture_3gxud")
 
-[node name="Hotbar" type="Control" parent="."]
+[node name="Hotbar" type="Control" parent="." unique_id=2117913543]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
 script = ExtResource("4_8sum0")
 
-[node name="MarginContainer" type="MarginContainer" parent="Hotbar"]
+[node name="MarginContainer" type="MarginContainer" parent="Hotbar" unique_id=348629697]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -125.0
-offset_top = -80.0
-offset_right = 125.0
+offset_left = -127.0
+offset_top = -84.0
+offset_right = 130.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
@@ -102,7 +113,7 @@ theme_override_constants/margin_top = 15
 theme_override_constants/margin_right = 15
 theme_override_constants/margin_bottom = 15
 
-[node name="Fundo" type="NinePatchRect" parent="Hotbar/MarginContainer"]
+[node name="Fundo" type="NinePatchRect" parent="Hotbar/MarginContainer" unique_id=1977579541]
 layout_mode = 2
 texture = ExtResource("1_ngjog")
 region_rect = Rect2(153, 9, 30, 30)
@@ -111,39 +122,39 @@ patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 
-[node name="MarginContainer" type="MarginContainer" parent="Hotbar/MarginContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Hotbar/MarginContainer" unique_id=861118083]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="GridContainer" type="GridContainer" parent="Hotbar/MarginContainer/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="Hotbar/MarginContainer/MarginContainer" unique_id=2142557825]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/h_separation = 0
 columns = 6
 
-[node name="Slot1" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" instance=ExtResource("5_dnj68")]
+[node name="Slot1" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=1858121907 instance=ExtResource("5_dnj68")]
 layout_mode = 2
 
-[node name="Slot2" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" instance=ExtResource("5_dnj68")]
+[node name="Slot2" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=19055460 instance=ExtResource("5_dnj68")]
 layout_mode = 2
 
-[node name="Slot3" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" instance=ExtResource("5_dnj68")]
+[node name="Slot3" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=1956711925 instance=ExtResource("5_dnj68")]
 layout_mode = 2
 
-[node name="Slot4" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" instance=ExtResource("5_dnj68")]
+[node name="Slot4" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=389934674 instance=ExtResource("5_dnj68")]
 layout_mode = 2
 
-[node name="Slot5" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" instance=ExtResource("5_dnj68")]
+[node name="Slot5" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=1012722328 instance=ExtResource("5_dnj68")]
 layout_mode = 2
 
-[node name="Slot6" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" instance=ExtResource("5_dnj68")]
+[node name="Slot6" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=85516314 instance=ExtResource("5_dnj68")]
 layout_mode = 2
 
-[node name="Seletor" type="NinePatchRect" parent="Hotbar/MarginContainer/MarginContainer"]
+[node name="Seletor" type="NinePatchRect" parent="Hotbar/MarginContainer/MarginContainer" unique_id=145991906]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
@@ -153,6 +164,74 @@ patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
+
+[node name="ContainerMoedas" type="MarginContainer" parent="Hotbar" unique_id=1388643881]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.305
+anchor_top = 1.0
+anchor_right = 0.305
+anchor_bottom = 1.0
+offset_left = -40.200012
+offset_top = -82.0
+offset_right = 13.799988
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/margin_left = 23
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_bottom = 25
+script = ExtResource("5_hdnhr")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Hotbar/ContainerMoedas" unique_id=1667323803]
+layout_mode = 2
+texture = ExtResource("1_ngjog")
+region_rect = Rect2(11, 155, 26, 28)
+patch_margin_left = 4
+patch_margin_top = 4
+patch_margin_right = 4
+patch_margin_bottom = 6
+
+[node name="MarginContainer" type="MarginContainer" parent="Hotbar/ContainerMoedas/NinePatchRect" unique_id=789877221]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 7
+
+[node name="Icone" type="TextureRect" parent="Hotbar/ContainerMoedas/NinePatchRect/MarginContainer" unique_id=1668175614]
+layout_mode = 2
+texture = ExtResource("6_32x1g")
+expand_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="Hotbar/ContainerMoedas/NinePatchRect" unique_id=450393707]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -14.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Quantidade" type="Label" parent="Hotbar/ContainerMoedas/NinePatchRect/MarginContainer2" unique_id=1120402268]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+label_settings = SubResource("LabelSettings_t00t5")
 
 [connection signal="visibility_changed" from="." to="Hotbar" method="_ao_mudar_visibilidade_interface_padrao"]
 [connection signal="pressed" from="MenuSuperior/MarginContainer/VBoxContainer/BotaoGlossario" to="MenuSuperior" method="_ao_clicar_botao_glossario"]

@@ -1,4 +1,4 @@
-#missao4.py
+#missao3.py
 
 import ast
 from .base import AnalisadorMissao
@@ -8,68 +8,34 @@ from roteador import registrar_missao
 class AnalisadorMissao4(AnalisadorMissao):
     def analisar_semantica(self) -> dict:
         mensagens = []
-        sucesso = False
-        encontrou_for = False
-        print_ok = False
-        quantidade_regas = 0
-        erro = None
+        variaveis = set()
+        atribuicoes_validas = 0
 
+        # Percorre todos os nós da árvore para encontrar atribuições
         for node in ast.walk(self.tree):
-            if isinstance(node, ast.For):
-                encontrou_for = True
-                iterador = node.iter
-                iteracoes = 0
+            if isinstance(node, ast.Assign):
+                # Processa cada alvo da atribuição
+                for target in node.targets:
+                    if isinstance(target, ast.Name):
+                        variaveis.add(target.id)
+                # Verifica se o valor atribuído é uma string literal
+                if isinstance(node.value, ast.Constant) and isinstance(node.value.value, str):
+                    atribuicoes_validas += 1
 
-                # Verifica se é um range() com argumentos constantes
-                if isinstance(iterador, ast.Call) and isinstance(iterador.func, ast.Name) and iterador.func.id == "range":
-                    args = iterador.args
-                    if all(isinstance(arg, (ast.Constant, ast.Num)) for arg in args):
-                        if len(args) == 1:
-                            stop = args[0].value
-                            start = 0
-                            step = 1
-                        elif len(args) == 2:
-                            start = args[0].value
-                            stop = args[1].value
-                            step = 1
-                        elif len(args) == 3:
-                            start = args[0].value
-                            stop = args[1].value
-                            step = args[2].value
-                        else:
-                            start = stop = step = None
-
-                        if start is not None and stop is not None and step != 0:
-                            iteracoes = max(0, (stop - start + (step - 1 if step > 0 else step + 1)) // step)
-                            quantidade_regas = iteracoes
-
-                # Verifica se há print() dentro do for
-                for subnode in ast.walk(node):
-                    if isinstance(subnode, ast.Expr) and isinstance(subnode.value, ast.Call):
-                        call = subnode.value
-                        if isinstance(call.func, ast.Name) and call.func.id == "print":
-                            print_ok = True
-
-        # Avaliação final
-        if encontrou_for and quantidade_regas == 5 and print_ok:
-            mensagens.append("Você usou corretamente o for com range que resulta em 5 repetições e exibiu as regas com print()!")
-            sucesso = True
+        # Define critérios: devem existir pelo menos duas variáveis diferentes e
+        # cada uma delas deve ter sido atribuída com um valor literal do tipo string.
+        if len(variaveis) >= 2 and atribuicoes_validas >= 2:
+            mensagens.append("Excelente! Você definiu múltiplas variáveis (copos) e atribuiu valores a elas.")
+            status = "sucesso"
         else:
-            if not encontrou_for:
-                mensagens.append("Você precisa usar um laço for para repetir a ação.")
-                erro = "faltou_for"
-            elif not print_ok:
-                mensagens.append("Use print() dentro do for para mostrar quais alfaces estão sendo regadas.")
-                erro = "faltou_print"
-            elif quantidade_regas != 5:
-                mensagens.append("Use um range que gere exatamente 5 repetições para regar as 5 alfaces.")
-                # erro = None neste caso, mas o `quantidade_regas` já será analisado pelo jogo
+            mensagens.append("Atenção: você precisa definir pelo menos duas variáveis distintas (copos) com valores entre aspas, representando o conteúdo de cada um.")
+            status = "erro_semantico"
 
         return {
-            "status": "sucesso" if sucesso else "erro_semantico",
+            "status": status,
             "mensagens": mensagens,
             "dados": {
-                "quantidade_regas": quantidade_regas,
-                "erro": erro  # pode ser None, "faltou_for" ou "faltou_print"
+                "variaveis_definidas": list(variaveis),
+                "total_atribuicoes": atribuicoes_validas
             }
         }

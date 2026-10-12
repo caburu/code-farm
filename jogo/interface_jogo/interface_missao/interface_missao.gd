@@ -5,12 +5,13 @@ extends Control
 @onready var _caixa_dialogo: Control = %CaixaDialogo
 @onready var _editor_codigo: Control = %EditorCodigo
 @onready var _tooltip: Control = %Tooltip
-@onready var _botao_fechar: Button = %BotaoFechar
 
-#Temporariamente o personagem e a foto serão estáticos. 
-#Incorporar futuramente nos roteiros metodos para alternar personagens e fotos
 var foto = "res://assets/imagens/Tiny Wonder Forest/characters/main character old/portrait female.png"
 var personagem = "Thais"
+
+func atualizar_personagem(novo_nome: String, caminho_foto: String) -> void:
+	personagem = novo_nome
+	foto = caminho_foto
 
 func exibir_dialogo(texto: String) -> void: 
 	await _caixa_dialogo.exibir_dialogo(texto, foto, personagem, _caixa_dialogo.TipoDeDialogo.DIALOGO)
@@ -47,5 +48,5 @@ func _ao_clicar_fechar_missao():
 	hide()
 	
 	_caixa_dialogo.parar_som()
-		
+	
 	Global.emit_signal("missao_fechada")

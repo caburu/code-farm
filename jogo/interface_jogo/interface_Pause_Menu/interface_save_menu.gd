@@ -7,6 +7,7 @@ extends Control
 
 # Variável para saber se estamos salvando ou carregando
 var modo_salvar: bool = true 
+var slot_para_excluir: int = 0
 
 func _ready():
 	hide()
@@ -43,25 +44,33 @@ func _atualizar_nomes_botoes():
 		var botao = lista_botoes_slots[i]
 		var slot_real = i + 1 # Slot 1, 2, 3...
 		
+		# Pega a lixeira que está exatamente do lado deste botão de save
+		# Como a lixeira é o segundo item da sua "Linha" (HBoxContainer), ela é o child(1)
+		var botao_lixeira = botao.get_parent().get_child(1) 
+		
 		var dados = Global.verificar_dados_slot(slot_real)
 		
 		if dados["existe"]:
-			# Se tiver save: "Slot 1 [Quebra Linha] Nome da Fazenda (Missão X)"
-			var dt = dados["data_hora"]
-
-			var data_formatada = "%02d/%02d/%04d às %02d:%02d" % [
-				dt.day,
-				dt.month,
-				dt.year,
-				dt.hour,
-				dt.minute
-			]
-
-			botao.text = "%s\n%s" % [dados["nome_fazenda"],data_formatada]
-		else:
-			botao.text = "Save Slot %d" % slot_real # Ou "Vazio", como preferir
+			# Tem save? Deixa a lixeira visível e clicável
+			botao_lixeira.modulate.a = 1.0 # 1.0 = 100% visível
+			botao_lixeira.disabled = false # Permite o clique
 			
-			pass
+			var dt = dados["data_hora"]
+			var data_formatada = "%02d/%02d/%04d às %02d:%02d" % [
+				dt.day, dt.month, dt.year, dt.hour, dt.minute
+			]
+			botao.text = "%s\n%s\n%s" % [
+				dados.get("nome_fazenda", "Fazenda"), 
+				dados.get("nome_jogador", "Jogador"), 
+				data_formatada
+			]
+			
+		else:
+			# Não tem save? Deixa a lixeira transparente e intocável
+			botao_lixeira.modulate.a = 0.0 # 0.0 = totalmente invisível
+			botao_lixeira.disabled = true  # Bloqueia o clique
+			
+			botao.text = "Save Slot %d" % slot_real
 
 func _ao_clicar_slot(slot_id: int):
 	print("--- INÍCIO DO PROCESSO ---")
@@ -93,3 +102,43 @@ func _on_botao_fechar_pressed():
 		# Se estávamos no menu inicial, volta a mostrar o menu inicial?
 		# Isso depende se você ocultou o menu inicial ao abrir este.
 		pass
+	
+
+
+
+func _on_botão_de_excluir_1_pressed() -> void:
+	slot_para_excluir = 1
+	$Fundo_confirmacao.show()
+
+
+func _on_botão_de_excluir_2_pressed() -> void:
+	slot_para_excluir = 2
+	$Fundo_confirmacao.show()
+
+
+func _on_botão_de_excluir_3_pressed() -> void:
+	slot_para_excluir = 3
+	$Fundo_confirmacao.show()
+
+
+func _on_botão_de_excluir_4_pressed() -> void:
+	slot_para_excluir = 4
+	$Fundo_confirmacao.show()
+
+
+func _on_botão_de_excluir_5_pressed() -> void:
+	slot_para_excluir = 5
+	$Fundo_confirmacao.show()
+
+func _on_não_pressed() -> void:
+	$Fundo_confirmacao.hide() # Só esconde a tela, não faz nada
+	
+func _on_sim_pressed() -> void:
+	# Apaga o save usando o seu Global (ajuste o nome da função se for diferente no seu Global)
+	Global.deletar_save(slot_para_excluir) 
+	
+	# Esconde a tela de confirmação
+	$Fundo_confirmacao.hide()
+	
+	# Atualiza os textos dos botões principais para mostrar que o slot agora está "Vazio"
+	_atualizar_nomes_botoes()

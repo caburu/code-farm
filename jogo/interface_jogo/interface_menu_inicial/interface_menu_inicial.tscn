@@ -1,9 +1,9 @@
 [gd_scene load_steps=12 format=3 uid="uid://21hji81cbghv"]
 
-[ext_resource type="Script" uid="uid://bxha0s8l3saj2" path="res://interface_jogo/interface_menu_inicial/interface_menu_inicial.gd" id="1_3wpea"]
-[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/Sprout Lands - UI/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_7cy5n"]
+[ext_resource type="Script" uid="uid://dcd88da4rvpo5" path="res://interface_jogo/interface_menu_inicial/interface_menu_inicial.gd" id="1_3wpea"]
+[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/interface/Sprite sheet for Basic Pack.png" id="1_7cy5n"]
 [ext_resource type="FontFile" uid="uid://8dyl8sjpwyl2" path="res://assets/fontes/ExpressionPro.ttf" id="1_76ion"]
-[ext_resource type="Texture2D" uid="uid://cigwvp374o43d" path="res://assets/imagens/Fundo_novo.jpeg" id="2_gx8dj"]
+[ext_resource type="Texture2D" uid="uid://cigwvp374o43d" path="res://assets/imagens/interface/Fundo_novo.jpeg" id="2_gx8dj"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tteiq"]
 texture = ExtResource("2_gx8dj")
@@ -82,8 +82,10 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -192.0
-offset_right = 192.0
+offset_left = -230.0
+offset_top = -41.0
+offset_right = 230.0
+offset_bottom = 78.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -146,6 +148,20 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_eyvdb")
 text = "Novo Jogo"
 text_overrun_behavior = 1
 
+[node name="BotaoCarregar" type="Button" parent="VBoxContainer/PainelBotoes/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(45, 20)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_76ion")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/hover = SubResource("StyleBoxTexture_gobhx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0tbpb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_eyvdb")
+text = "Carregar
+"
+text_overrun_behavior = 1
+
 [node name="BotaoContinuar" type="Button" parent="VBoxContainer/PainelBotoes/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(45, 20)
 layout_mode = 2
@@ -157,6 +173,20 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_gobhx")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_0tbpb")
 theme_override_styles/normal = SubResource("StyleBoxTexture_eyvdb")
 text = "Continuar"
+text_overrun_behavior = 1
+
+[node name="BotaoConfigurações" type="Button" parent="VBoxContainer/PainelBotoes/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(45, 20)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("1_76ion")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/hover = SubResource("StyleBoxTexture_gobhx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0tbpb")
+theme_override_styles/normal = SubResource("StyleBoxTexture_eyvdb")
+text = "Configurações
+"
 text_overrun_behavior = 1
 
 [node name="BotaoSair" type="Button" parent="VBoxContainer/PainelBotoes/MarginContainer/VBoxContainer"]
@@ -250,7 +280,9 @@ Agradecemos a todos que colaboraram com ideias, testes e suporte durante o desen
 scroll_active = false
 
 [connection signal="pressed" from="VBoxContainer/PainelBotoes/MarginContainer/VBoxContainer/BotaoNovoJogo" to="." method="_ao_clicar_novo_jogo"]
+[connection signal="pressed" from="VBoxContainer/PainelBotoes/MarginContainer/VBoxContainer/BotaoCarregar" to="." method="_on_botao_carregar_pressed"]
 [connection signal="pressed" from="VBoxContainer/PainelBotoes/MarginContainer/VBoxContainer/BotaoContinuar" to="." method="_ao_clicar_continuar_jogo"]
+[connection signal="pressed" from="VBoxContainer/PainelBotoes/MarginContainer/VBoxContainer/BotaoConfigurações" to="." method="_ao_clicar_novo_jogo"]
 [connection signal="pressed" from="VBoxContainer/PainelBotoes/MarginContainer/VBoxContainer/BotaoSair" to="." method="_ao_clicar_sair_jogo"]
 [connection signal="pressed" from="VBoxContainer/PainelBotoes/MarginContainer/VBoxContainer/BotaoCreditos" to="." method="_ao_clicar_creditos"]
 [connection signal="pressed" from="VBoxContainer/PainelCreditos/VBoxContainer/BotaoFecharCreditos" to="." method="_ao_clicar_fechar_creditos"]

@@ -1,62 +1,49 @@
 extends RoteiroMissao
 
-var _etapa_atual: int = 1
 
 func executar() -> void:
-	await parte1()
-	_etapa_atual += 1
-	await parte2()
+	var placa = mundo_jogo.obter_elemento("Missao2")
+
+	mundo_jogo.obter_jogador().desativar_movimento()
+	interface_jogo.exibir_interface(interface_jogo.Interface.MISSAO)
+
+	configurar_personagem(Global.nome_robo, Global.foto_robo)
+	await dialogo("Use a função print() para indicar o nome da fazenda.")
+
+	var sucesso_fazenda = false
+
+	while not sucesso_fazenda:
+		var resultado = await obter_codigo_analisado()
+
+		if resultado.status == ResultadoAPI.Status.SUCESSO:
+			var nome_fazenda = resultado.dados.get("nome_fazenda", "Minha Fazenda")
+			Global.nome_fazenda_atual = nome_fazenda
+
+			await dialogo("Veja como ficou:")
+			await _tocar_animacao_placa(placa, nome_fazenda)
+
+			sucesso_fazenda = true
+		else:
+			for mensagem in resultado.mensagens:
+				await dialogo(mensagem)
+				
+	configurar_personagem(Global.nome_robo, Global.foto_robo)
+	await dialogo("%s, se quiser minha companhia, chegue perto de mim e aperte E para que eu siga você!" % Global.nome_jogador)
+	await dialogo("Agora que nossa fazenda já tem um nome, %s, está na hora de plantar alguma coisa!" % Global.nome_jogador)
+	
 	concluir_missao()
 
-func parte1() -> void:
-	limpar_editor_codigo()
-	
-	await dialogo("Ótimo trabalho no seu primeiro código! Agora precisamos planejar melhor o que vamos fazer.")
-	await dialogo("Programadores costumam usar algo chamado comentários para fazer anotações no código.")
-	await dialogo("Comentários de uma linha começam com o símbolo # e ajudam a documentar o que o código faz. Diferente do comando print(), o texto que você colocar em um comentário será ignorado pelo programa, servindo apenas para organizar e explicar partes do código.")
-	await dialogo("Por exemplo, se você quiser anotar suas tarefas do dia, poderia usar o símbolo # antes de cada nota. Veja só:")
-	await codigo("# Lista de tarefas do dia
-# 1. Organizar a sala
-# 2. Plantar sementes no quintal
-	")
-	await dialogo("Agora é sua vez! Use comentários de uma linha para listar 3 tarefas que você precisa fazer na casa nova. Pode ser algo como '1. Limpar a cozinha', '2. Comprar móveis', etc!")
 
-	var sucesso = false
-	while not sucesso:
-		var resultado = await obter_codigo_analisado()
-		
-		if resultado.status == ResultadoAPI.Status.SUCESSO:
-			await dialogo("Muito bem! Agora vamos aprender um pouco mais sobre comentários!")
-			sucesso = true
-		else:
-			for mensagem in resultado.mensagens:
-				await dialogo(mensagem)
+func _tocar_animacao_placa(objeto_alvo: Node2D,nome_fazenda: String) -> void:
+	var posicao_tela = objeto_alvo.get_global_transform_with_canvas().origin
+	var texto_placa = preload(
+		"res://mundo_jogo/animacoes/texto_placa/texto_placa.tscn"
+	).instantiate()
 
-func parte2() -> void:
-	limpar_editor_codigo()
-	
-	await dialogo("Ótimo! Agora que você já sabe comentar uma linha, vamos aprender a comentar várias linhas de uma vez.")
-	await dialogo('Em Python, você pode usar três aspas duplas """ para criar comentários que ocupam várias linhas, no inicio e no final do texto que queremos comentar.')
-	await dialogo("Isso é útil para descrições mais longas ou para desativar trechos inteiros de código temporariamente.")
-	await dialogo("Por exemplo, você pode descrever todo o propósito do seu código assim:")
-	await codigo('""" 
-Este código organiza as tarefas da casa nova. É importante manter tudo bem documentado para não esquecer nada! 
-"""
-')
-	await dialogo("Experimente adicionar um comentário de várias linhas no início do seu código, explicando o que ele faz e por que ele é útil para você!")
+	mundo_jogo.adicionar_elemento_canvas(texto_placa)
+	texto_placa.exibir(nome_fazenda, posicao_tela)
 
-	var sucesso = false	
-	while not sucesso:
-		var resultado = await obter_codigo_analisado()
-		
-		if resultado.status == ResultadoAPI.Status.SUCESSO:
-			await dialogo("Muito bem! Agora sua lista de tarefas ficou fenomenal!")
-			await dialogo("Agora vamos aproveitar o embalo e arrumar a bagunça no resto da casa.")
-			sucesso = true
-		else:
-			for mensagem in resultado.mensagens:
-				await dialogo(mensagem)
+	await mundo_jogo.get_tree().create_timer(5.0).timeout
 
-func contexto():
-	var chave = "parte" + str(_etapa_atual)
-	return {"etapa": chave}
+	texto_placa.esconder()
+	texto_placa.queue_free()

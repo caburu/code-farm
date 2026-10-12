@@ -1,6 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://bufu2dd280qkf"]
+[gd_scene load_steps=9 format=3 uid="uid://bufu2dd280qkf"]
 
 [ext_resource type="Texture2D" uid="uid://c6yh48kthpqbe" path="res://assets/imagens/npcs/PC _ Computer - Stardew Valley - Non-Playable Characters - Penny.png" id="1_k0r53"]
+[ext_resource type="Script" uid="uid://dib3263np767q" path="res://mundo_jogo/npcs/dialogo.gd" id="1_xrjpi"]
+[ext_resource type="Resource" uid="uid://cuhbgsani4pme" path="res://gerenciador_jogo/gerenciador_npcs/dialogos/atendente_salao.tres" id="2_xrjpi"]
+[ext_resource type="PackedScene" uid="uid://dbkpdacppilwy" path="res://mundo_jogo/objeto_interativo/objeto_interativo.tscn" id="3_xrjpi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lnspf"]
 atlas = ExtResource("1_k0r53")
@@ -17,15 +20,35 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xrjpi"]
-radius = 9.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrjpi"]
+size = Vector2(6, 14)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_irva7"]
+radius = 19.924858
 
 [node name="atendenteSalao" type="CharacterBody2D"]
+script = ExtResource("1_xrjpi")
+dados_dialogo = ExtResource("2_xrjpi")
+nome = "Penny"
+foto = "res://assets/imagens/npcs/Penny_face.png"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_a62ux")
 animation = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
-shape = SubResource("CircleShape2D_xrjpi")
+[node name="ObjetoInterativo" parent="." instance=ExtResource("3_xrjpi")]
+
+[node name="Sprite" parent="ObjetoInterativo" index="0"]
+visible = false
+texture = ExtResource("1_k0r53")
+region_enabled = true
+region_rect = Rect2(-1.0308838, 34.59975, 17.37986, 31.994747)
+
+[node name="Colisao" parent="ObjetoInterativo" index="1"]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_xrjpi")
+
+[node name="Colisao" parent="ObjetoInterativo/AreaDetecao" index="0"]
+shape = SubResource("CircleShape2D_irva7")
+
+[editable path="ObjetoInterativo"]

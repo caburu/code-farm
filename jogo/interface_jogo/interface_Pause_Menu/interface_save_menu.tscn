@@ -1,7 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://lw67vqmv51r3"]
+[gd_scene load_steps=13 format=3 uid="uid://lw67vqmv51r3"]
 
 [ext_resource type="Script" uid="uid://cclbhjg8etf4f" path="res://interface_jogo/interface_Pause_Menu/interface_save_menu.gd" id="1_5yh20"]
-[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/Sprout Lands - UI/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_qah6f"]
+[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/interface/Sprite sheet for Basic Pack.png" id="1_qah6f"]
 [ext_resource type="FontFile" uid="uid://8dyl8sjpwyl2" path="res://assets/fontes/ExpressionPro.ttf" id="2_5yh20"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5yh20"]
@@ -53,6 +53,19 @@ texture_margin_right = 4.0
 texture_margin_bottom = 6.0
 region_rect = Rect2(11, 155, 26, 28)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7bnr"]
+atlas = ExtResource("1_qah6f")
+region = Rect2(804, 165, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmbol"]
+atlas = ExtResource("1_qah6f")
+region = Rect2(772, 163, 22, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yh20"]
+atlas = ExtResource("1_qah6f")
+region = Rect2(153, 9, 30, 30)
+filter_clip = true
+
 [node name="Interface_save_menu" type="Control" node_paths=PackedStringArray("lista_botoes_slots")]
 process_mode = 3
 layout_mode = 3
@@ -62,7 +75,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_5yh20")
-lista_botoes_slots = [NodePath("SecaoMenu/MarginContainer/VBoxContainer/Save slot 1"), NodePath("SecaoMenu/MarginContainer/VBoxContainer/Save slot 2"), NodePath("SecaoMenu/MarginContainer/VBoxContainer/Save slot 3"), NodePath("SecaoMenu/MarginContainer/VBoxContainer/Save slot 4"), NodePath("SecaoMenu/MarginContainer/VBoxContainer/Save slot 5")]
+lista_botoes_slots = [NodePath("SecaoMenu/MarginContainer/VBoxContainer/Linha 1/Save slot 1"), NodePath("SecaoMenu/MarginContainer/VBoxContainer/Linha 2/Save slot 2"), NodePath("SecaoMenu/MarginContainer/VBoxContainer/Linha 3/Save slot 3"), NodePath("SecaoMenu/MarginContainer/VBoxContainer/Linha 4/Save slot 4"), NodePath("SecaoMenu/MarginContainer/VBoxContainer/Linha 5/Save slot 5")]
 
 [node name="Fundo" type="ColorRect" parent="."]
 layout_mode = 1
@@ -91,14 +104,14 @@ metadata/_edit_use_anchors_ = true
 
 [node name="SecaoMenu" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 13
-anchor_left = 0.5
+anchors_preset = -1
+anchor_left = 0.392
 anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -104.0
-offset_top = 27.0
-offset_right = 113.0
-offset_bottom = -28.0
+anchor_bottom = 0.969
+offset_left = -63.88
+offset_top = 23.0
+offset_right = 126.0
+offset_bottom = -16.84
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 15
@@ -126,9 +139,14 @@ theme_override_constants/margin_bottom = 20
 [node name="VBoxContainer" type="VBoxContainer" parent="SecaoMenu/MarginContainer"]
 layout_mode = 2
 
-[node name="Save slot 1" type="Button" parent="SecaoMenu/MarginContainer/VBoxContainer"]
+[node name="Linha 1" type="HBoxContainer" parent="SecaoMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Save slot 1" type="Button" parent="SecaoMenu/MarginContainer/VBoxContainer/Linha 1"]
 custom_minimum_size = Vector2(45, 20)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("2_5yh20")
@@ -139,9 +157,21 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_cmbol")
 text = "Save slot 1"
 text_overrun_behavior = 1
 
-[node name="Save slot 2" type="Button" parent="SecaoMenu/MarginContainer/VBoxContainer"]
+[node name="Botão de excluir 1" type="TextureButton" parent="SecaoMenu/MarginContainer/VBoxContainer/Linha 1"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_s7bnr")
+texture_pressed = SubResource("AtlasTexture_s7bnr")
+texture_hover = SubResource("AtlasTexture_cmbol")
+
+[node name="Linha 2" type="HBoxContainer" parent="SecaoMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Save slot 2" type="Button" parent="SecaoMenu/MarginContainer/VBoxContainer/Linha 2"]
 custom_minimum_size = Vector2(45, 20)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("2_5yh20")
@@ -152,9 +182,21 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_cmbol")
 text = "Save slot 2"
 text_overrun_behavior = 1
 
-[node name="Save slot 3" type="Button" parent="SecaoMenu/MarginContainer/VBoxContainer"]
+[node name="Botão de excluir 2" type="TextureButton" parent="SecaoMenu/MarginContainer/VBoxContainer/Linha 2"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_s7bnr")
+texture_pressed = SubResource("AtlasTexture_s7bnr")
+texture_hover = SubResource("AtlasTexture_cmbol")
+
+[node name="Linha 3" type="HBoxContainer" parent="SecaoMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Save slot 3" type="Button" parent="SecaoMenu/MarginContainer/VBoxContainer/Linha 3"]
 custom_minimum_size = Vector2(45, 20)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("2_5yh20")
@@ -165,9 +207,21 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_cmbol")
 text = "Save slot 3"
 text_overrun_behavior = 1
 
-[node name="Save slot 4" type="Button" parent="SecaoMenu/MarginContainer/VBoxContainer"]
+[node name="Botão de excluir 3" type="TextureButton" parent="SecaoMenu/MarginContainer/VBoxContainer/Linha 3"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_s7bnr")
+texture_pressed = SubResource("AtlasTexture_s7bnr")
+texture_hover = SubResource("AtlasTexture_cmbol")
+
+[node name="Linha 4" type="HBoxContainer" parent="SecaoMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Save slot 4" type="Button" parent="SecaoMenu/MarginContainer/VBoxContainer/Linha 4"]
 custom_minimum_size = Vector2(45, 20)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("2_5yh20")
@@ -178,9 +232,21 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_cmbol")
 text = "Save slot 4"
 text_overrun_behavior = 1
 
-[node name="Save slot 5" type="Button" parent="SecaoMenu/MarginContainer/VBoxContainer"]
+[node name="Botão de excluir 4" type="TextureButton" parent="SecaoMenu/MarginContainer/VBoxContainer/Linha 4"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_s7bnr")
+texture_pressed = SubResource("AtlasTexture_s7bnr")
+texture_hover = SubResource("AtlasTexture_cmbol")
+
+[node name="Linha 5" type="HBoxContainer" parent="SecaoMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Save slot 5" type="Button" parent="SecaoMenu/MarginContainer/VBoxContainer/Linha 5"]
 custom_minimum_size = Vector2(45, 20)
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_default_cursor_shape = 2
 theme_override_fonts/font = ExtResource("2_5yh20")
@@ -191,7 +257,15 @@ theme_override_styles/normal = SubResource("StyleBoxTexture_cmbol")
 text = "Save slot 5"
 text_overrun_behavior = 1
 
+[node name="Botão de excluir 5" type="TextureButton" parent="SecaoMenu/MarginContainer/VBoxContainer/Linha 5"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_s7bnr")
+texture_pressed = SubResource("AtlasTexture_s7bnr")
+texture_hover = SubResource("AtlasTexture_cmbol")
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
 offset_left = 446.0
 offset_top = 47.0
 offset_right = 476.0
@@ -200,9 +274,99 @@ offset_bottom = 332.0
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
+[node name="Fundo_confirmacao" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.196078, 0.196078, 0.196078, 0.545098)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Fundo_confirmacao"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.0
+offset_top = -75.0
+offset_right = 66.0
+offset_bottom = 54.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_5yh20")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Fundo_confirmacao/NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0656934
+anchor_top = 0.0852713
+anchor_right = 0.934307
+anchor_bottom = 0.930233
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="Fundo_confirmacao/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Fundo_confirmacao/NinePatchRect/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_5yh20")
+theme_override_font_sizes/font_size = 16
+text = "Tem certeza que deseja  excluir o save?"
+autowrap_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Fundo_confirmacao/NinePatchRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Sim" type="Button" parent="Fundo_confirmacao/NinePatchRect/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(45, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_5yh20")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/hover = SubResource("StyleBoxTexture_s7bnr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_531gn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cmbol")
+text = "Sim
+"
+text_overrun_behavior = 1
+
+[node name="Não" type="Button" parent="Fundo_confirmacao/NinePatchRect/VBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(45, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("2_5yh20")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/hover = SubResource("StyleBoxTexture_s7bnr")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_531gn")
+theme_override_styles/normal = SubResource("StyleBoxTexture_cmbol")
+text = "Não
+"
+text_overrun_behavior = 1
+
 [connection signal="pressed" from="botao_fechar" to="." method="_on_botao_fechar_pressed"]
-[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/Save slot 1" to="." method="_on_save_slot_1_pressed"]
-[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/Save slot 2" to="." method="_on_save_slot_2_pressed"]
-[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/Save slot 3" to="." method="_on_save_slot_3_pressed"]
-[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/Save slot 4" to="." method="_on_save_slot_4_pressed"]
-[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/Save slot 5" to="." method="_on_save_slot_5_pressed"]
+[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/Linha 1/Save slot 1" to="." method="_on_save_slot_1_pressed"]
+[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/Linha 1/Botão de excluir 1" to="." method="_on_botão_de_excluir_1_pressed"]
+[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/Linha 2/Save slot 2" to="." method="_on_save_slot_2_pressed"]
+[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/Linha 2/Botão de excluir 2" to="." method="_on_botão_de_excluir_2_pressed"]
+[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/Linha 3/Save slot 3" to="." method="_on_save_slot_3_pressed"]
+[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/Linha 3/Botão de excluir 3" to="." method="_on_botão_de_excluir_3_pressed"]
+[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/Linha 4/Save slot 4" to="." method="_on_save_slot_4_pressed"]
+[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/Linha 4/Botão de excluir 4" to="." method="_on_botão_de_excluir_4_pressed"]
+[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/Linha 5/Save slot 5" to="." method="_on_save_slot_5_pressed"]
+[connection signal="pressed" from="SecaoMenu/MarginContainer/VBoxContainer/Linha 5/Botão de excluir 5" to="." method="_on_botão_de_excluir_5_pressed"]
+[connection signal="pressed" from="Fundo_confirmacao/NinePatchRect/VBoxContainer/VBoxContainer/Sim" to="." method="_on_sim_pressed"]
+[connection signal="pressed" from="Fundo_confirmacao/NinePatchRect/VBoxContainer/VBoxContainer/Não" to="." method="_on_não_pressed"]

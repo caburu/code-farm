@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bq0hr7dr7twfn"]
+
+[ext_resource type="Script" uid="uid://bxhacos2lx2g3" path="res://mundo_jogo/objeto_interativo/bau.gd" id="1_6au1u"]
+[ext_resource type="Script" uid="uid://dsl3dfocxiadp" path="res://mundo_jogo/objeto_base/comportamentos/comportamento_objeto.gd" id="2_ap4bh"]
+[ext_resource type="Script" uid="uid://bkr7uosnbbeiu" path="res://mundo_jogo/objeto_base/comportamentos/comportamento_interativo.gd" id="3_0fvo6"]
+[ext_resource type="Texture2D" uid="uid://c7de14nbuvevr" path="res://assets/imagens/mundo/Chest.png" id="4_bd8tq"]
+
+[sub_resource type="Resource" id="Resource_l0mw4"]
+script = ExtResource("3_0fvo6")
+texto_interacao = "[E] abrir baú"
+metadata/_custom_type_script = "uid://bkr7uosnbbeiu"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ntayv"]
+size = Vector2(16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ntayv"]
+radius = 30.0
+
+[node name="bau" type="StaticBody2D" unique_id=1392569640]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_6au1u")
+comportamentos = Array[ExtResource("2_ap4bh")]([SubResource("Resource_l0mw4")])
+metadata/_custom_type_script = "uid://g5xbs1eun8rv"
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=786466921]
+texture = ExtResource("4_bd8tq")
+
+[node name="Collisao" type="CollisionShape2D" parent="." unique_id=1519631189]
+light_mask = 3
+visibility_layer = 3
+shape = SubResource("RectangleShape2D_ntayv")
+
+[node name="AreaDetecao" type="Area2D" parent="." unique_id=270361664]
+
+[node name="Colisao" type="CollisionShape2D" parent="AreaDetecao" unique_id=1531242635]
+shape = SubResource("CircleShape2D_ntayv")
+
+[node name="Animador" type="AnimationPlayer" parent="." unique_id=1673609455]
+
+[node name="ContainerLabels" type="VBoxContainer" parent="." unique_id=262510140]
+offset_left = -19.0
+offset_top = -31.0
+offset_right = 20.0
+offset_bottom = -18.0
+
+[connection signal="body_entered" from="AreaDetecao" to="." method="_ao_detectar_entrada"]
+[connection signal="body_exited" from="AreaDetecao" to="." method="_ao_detectar_saida"]

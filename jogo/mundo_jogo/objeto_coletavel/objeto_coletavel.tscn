@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://7pk4ytvxy4kb"]
 
-[ext_resource type="Script" path="res://mundo_jogo/objeto_coletavel/objeto_coletavel.gd" id="1_bhuq2"]
+[ext_resource type="Script" uid="uid://b1bsfgtb27bkr" path="res://mundo_jogo/objeto_coletavel/objeto_coletavel.gd" id="1_bhuq2"]
 
 [sub_resource type="Animation" id="Animation_yq61l"]
 length = 0.001
@@ -125,9 +125,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_46f6w"]
 _data = {
-"RESET": SubResource("Animation_yq61l"),
-"coletar": SubResource("Animation_b52kk"),
-"destacar_objeto": SubResource("Animation_x284y")
+&"RESET": SubResource("Animation_yq61l"),
+&"coletar": SubResource("Animation_b52kk"),
+&"destacar_objeto": SubResource("Animation_x284y")
 }
 
 [node name="ObjetoColetavel" type="StaticBody2D" groups=["ObjetosColetaveis"]]
@@ -144,7 +144,7 @@ script = ExtResource("1_bhuq2")
 
 [node name="Animador" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_46f6w")
+&"": SubResource("AnimationLibrary_46f6w")
 }
 
 [node name="LabelInteracao" type="Label" parent="."]
@@ -164,7 +164,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_constants/shadow_outline_size = 4
 theme_override_font_sizes/font_size = 8
-text = "[E] para coletar"
+text = "[C] para coletar"
 horizontal_alignment = 1
 vertical_alignment = 1
 

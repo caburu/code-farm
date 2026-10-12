@@ -1,0 +1,226 @@
+[gd_scene format=3 uid="uid://bqqa26c68r7pg"]
+
+[ext_resource type="Script" uid="uid://bf27u88avvj4b" path="res://interface_jogo/interface_padrao/interface_bau.gd" id="1_cb2io"]
+[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/interface/Sprite sheet for Basic Pack.png" id="2_y5tyg"]
+[ext_resource type="PackedScene" uid="uid://dujl6ijvm1jas" path="res://interface_jogo/interface_padrao/slot_hotbar/slot_hotbar.tscn" id="3_8thuh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4211y"]
+texture = ExtResource("2_y5tyg")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(837, 100, 22, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cb2io"]
+texture = ExtResource("2_y5tyg")
+texture_margin_left = 4.0
+texture_margin_top = 6.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(869, 100, 22, 24)
+modulate_color = Color(0.768627, 0.603922, 0.423529, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x4r1s"]
+texture = ExtResource("2_y5tyg")
+texture_margin_left = 4.0
+texture_margin_top = 6.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(869, 100, 22, 24)
+
+[node name="InterfaceBau" type="Control" unique_id=1164160307]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cb2io")
+
+[node name="Hotbar" type="Control" parent="." unique_id=1429839446]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Hotbar" unique_id=2144529363]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -126.0
+offset_top = -266.0
+offset_right = 131.0
+offset_bottom = -106.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Fundo" type="NinePatchRect" parent="Hotbar/MarginContainer" unique_id=1532208832]
+layout_mode = 2
+texture = ExtResource("2_y5tyg")
+region_rect = Rect2(153, 9, 30, 30)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="Hotbar/MarginContainer" unique_id=1423452414]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="Hotbar/MarginContainer/MarginContainer" unique_id=403341591]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 0
+columns = 6
+
+[node name="Slot1" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=35657926 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot2" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=1878873158 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot3" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=1372713550 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot4" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=1533171077 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot5" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=1378811642 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot6" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=1666794625 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot7" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=12006238 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot8" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=1271166901 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot9" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=1103316752 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot10" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=418423859 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot11" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=400063583 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot12" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=309755070 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot13" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=297412931 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot14" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=2005478783 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot15" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=1724276244 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot16" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=485601208 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot17" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=1685135027 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot18" parent="Hotbar/MarginContainer/MarginContainer/GridContainer" unique_id=625986739 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="BotaoFechar" type="Button" parent="." unique_id=110103502]
+custom_minimum_size = Vector2(35, 35)
+layout_mode = 0
+offset_left = 473.0
+offset_top = 109.0
+offset_right = 508.0
+offset_bottom = 144.0
+focus_mode = 0
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_4211y")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cb2io")
+theme_override_styles/hover = SubResource("StyleBoxTexture_x4r1s")
+
+[node name="GridJogador" type="Control" parent="." unique_id=374657621]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="GridJogador" unique_id=447118032]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -127.0
+offset_top = -84.0
+offset_right = 130.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="Fundo" type="NinePatchRect" parent="GridJogador/MarginContainer" unique_id=1108456773]
+layout_mode = 2
+texture = ExtResource("2_y5tyg")
+region_rect = Rect2(153, 9, 30, 30)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="GridJogador/MarginContainer" unique_id=532156908]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer" type="GridContainer" parent="GridJogador/MarginContainer/MarginContainer" unique_id=1624561027]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/h_separation = 0
+columns = 6
+
+[node name="Slot1" parent="GridJogador/MarginContainer/MarginContainer/GridContainer" unique_id=853413554 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot2" parent="GridJogador/MarginContainer/MarginContainer/GridContainer" unique_id=1888250138 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot3" parent="GridJogador/MarginContainer/MarginContainer/GridContainer" unique_id=2105706019 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot4" parent="GridJogador/MarginContainer/MarginContainer/GridContainer" unique_id=1955733754 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot5" parent="GridJogador/MarginContainer/MarginContainer/GridContainer" unique_id=1458753387 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[node name="Slot6" parent="GridJogador/MarginContainer/MarginContainer/GridContainer" unique_id=2066760688 instance=ExtResource("3_8thuh")]
+layout_mode = 2
+
+[connection signal="pressed" from="BotaoFechar" to="." method="fechar"]

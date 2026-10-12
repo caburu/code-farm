@@ -1,0 +1,49 @@
+[gd_scene load_steps=12 format=3 uid="uid://cg826sijtyxxm"]
+
+[ext_resource type="PackedScene" uid="uid://c6ypjuhp2cn4q" path="res://mundo_jogo/objeto_base/objeto_base.tscn" id="1_3k35j"]
+[ext_resource type="Script" uid="uid://dsl3dfocxiadp" path="res://mundo_jogo/objeto_base/comportamentos/comportamento_objeto.gd" id="2_ca15i"]
+[ext_resource type="Resource" uid="uid://v3tnb16ixn3i" path="res://mundo_jogo/itens/new_resource.tres" id="3_3k35j"]
+[ext_resource type="Texture2D" uid="uid://df3nifq2ujqwy" path="res://assets/imagens/terrenos/TopDownHouse_SmallItems.png" id="3_rvnkf"]
+[ext_resource type="Script" uid="uid://eomquwoyej2x" path="res://mundo_jogo/objeto_base/comportamentos/comportamento_coletavel.gd" id="5_uwsee"]
+[ext_resource type="Script" uid="uid://bkr7uosnbbeiu" path="res://mundo_jogo/objeto_base/comportamentos/comportamento_interativo.gd" id="6_f3xvt"]
+
+[sub_resource type="Resource" id="Resource_sefj4"]
+script = ExtResource("5_uwsee")
+item = ExtResource("3_3k35j")
+texto_interacao = "[C] para coletar"
+ativo_ao_iniciar = false
+metadata/_custom_type_script = "uid://eomquwoyej2x"
+
+[sub_resource type="Resource" id="Resource_kbdxs"]
+script = ExtResource("6_f3xvt")
+texto_interacao = "[E] para abrir"
+ativo_ao_iniciar = true
+metadata/_custom_type_script = "uid://bkr7uosnbbeiu"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_375bm"]
+atlas = ExtResource("3_rvnkf")
+region = Rect2(98, 35, 12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i8bop"]
+size = Vector2(12, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uuq7e"]
+radius = 34.0588
+
+[node name="ObjetoBase" instance=ExtResource("1_3k35j")]
+comportamentos = Array[ExtResource("2_ca15i")]([SubResource("Resource_sefj4"), SubResource("Resource_kbdxs")])
+
+[node name="Sprite" parent="." index="0"]
+texture = SubResource("AtlasTexture_375bm")
+
+[node name="Colisao" parent="." index="1"]
+shape = SubResource("RectangleShape2D_i8bop")
+
+[node name="Colisao" parent="AreaDetecao" index="0"]
+shape = SubResource("CircleShape2D_uuq7e")
+
+[node name="ContainerLabels" parent="." index="4"]
+offset_left = -15.0
+offset_top = -20.0
+offset_right = 16.0
+offset_bottom = -8.0

@@ -1,0 +1,217 @@
+[gd_scene format=3 uid="uid://rmy6sc6txb2h"]
+
+[ext_resource type="PackedScene" uid="uid://bpcy0vespkpg7" path="res://interface_jogo/interface_missao/caixa_dialogo.tscn" id="1_lqhph"]
+[ext_resource type="Script" uid="uid://c1njpfx5gmvty" path="res://interface_jogo/interface_dialogo/interface_npc.gd" id="1_ybv3f"]
+[ext_resource type="PackedScene" uid="uid://jo5gekf703qc" path="res://interface_jogo/interface_missao/fechar.tscn" id="3_77vmd"]
+[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/interface/Sprite sheet for Basic Pack.png" id="4_77vmd"]
+[ext_resource type="Script" uid="uid://bluxf4leruigg" path="res://interface_jogo/interface_dialogo/painel_troca.gd" id="4_fwtrn"]
+[ext_resource type="Script" uid="uid://dmp05vql4nqy5" path="res://interface_jogo/interface_dialogo/tooltip_confirmacao.gd" id="6_mtrto"]
+[ext_resource type="Script" uid="uid://bgrbembr1ub2n" path="res://interface_jogo/interface_dialogo/mensagem_troca.gd" id="7_mensagem"]
+[ext_resource type="FontFile" uid="uid://8dyl8sjpwyl2" path="res://assets/fontes/ExpressionPro.ttf" id="8_pj1bn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_77vmd"]
+content_margin_left = 37.0
+content_margin_top = 23.0
+content_margin_right = 37.0
+content_margin_bottom = 30.0
+texture = ExtResource("4_77vmd")
+region_rect = Rect2(155.776, 12.648993, 24.390503, 23.3184)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mtrto"]
+texture = ExtResource("4_77vmd")
+region_rect = Rect2(158.23418, 14.783285, 19.358932, 18.739653)
+
+[node name="InterfaceNpc" type="Control" unique_id=1156405537]
+layout_mode = 3
+anchor_right = 0.9375
+anchor_bottom = 0.8888889
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+script = ExtResource("1_ybv3f")
+metadata/_edit_use_anchors_ = true
+
+[node name="CaixaDialogo" parent="." unique_id=23319079 instance=ExtResource("1_lqhph")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+
+[node name="Fechar" parent="." unique_id=2023471140 instance=ExtResource("3_77vmd")]
+layout_mode = 1
+
+[node name="PainelTroca" type="Control" parent="." unique_id=1057995765]
+visible = false
+layout_mode = 1
+anchor_left = 0.29500002
+anchor_top = 0.5
+anchor_right = 0.73600006
+anchor_bottom = 0.675
+offset_left = 0.19998169
+offset_top = 2.0
+offset_right = -0.040039063
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("4_fwtrn")
+
+[node name="MarginContainer" type="MarginContainer" parent="PainelTroca" unique_id=1017920479]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="FundoLoja" type="NinePatchRect" parent="PainelTroca/MarginContainer" unique_id=1781135489]
+custom_minimum_size = Vector2(120, 60)
+layout_mode = 2
+size_flags_vertical = 0
+texture = ExtResource("4_77vmd")
+region_rect = Rect2(153, 9, 30, 30)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 7
+
+[node name="MarginContainer" type="MarginContainer" parent="PainelTroca/MarginContainer/FundoLoja" unique_id=748731895]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.037
+anchor_top = 0.125
+anchor_right = 0.95900005
+anchor_bottom = 0.85800004
+offset_left = 0.04699993
+offset_right = 0.0289917
+offset_bottom = 0.019996643
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PainelTroca/MarginContainer/FundoLoja/MarginContainer" unique_id=799630841]
+layout_mode = 2
+
+[node name="FundoNPC" type="NinePatchRect" parent="PainelTroca/MarginContainer/FundoLoja/MarginContainer/HBoxContainer" unique_id=1521327279]
+layout_mode = 2
+size_flags_horizontal = 3
+texture = ExtResource("4_77vmd")
+region_rect = Rect2(11, 11, 26, 28)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="PainelTroca/MarginContainer/FundoLoja/MarginContainer/HBoxContainer/FundoNPC" unique_id=766993083]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.020000001
+anchor_top = 0.11400001
+anchor_right = 0.98
+anchor_bottom = 0.90900004
+offset_left = 0.039999485
+offset_top = -0.01600027
+offset_right = -0.040008545
+offset_bottom = 0.0039978027
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 0
+theme_override_constants/margin_bottom = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="PainelTroca/MarginContainer/FundoLoja/MarginContainer/HBoxContainer/FundoNPC/MarginContainer" unique_id=1869260349]
+layout_mode = 2
+vertical_scroll_mode = 0
+
+[node name="GridContainerNPC" type="GridContainer" parent="PainelTroca/MarginContainer/FundoLoja/MarginContainer/HBoxContainer/FundoNPC/MarginContainer/ScrollContainer" unique_id=841100541]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 3
+
+[node name="TooltipConfirmacao" type="CenterContainer" parent="." unique_id=1849387624]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_mtrto")
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="TooltipConfirmacao" unique_id=111261637]
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 2
+color = Color(0, 0, 0, 0.627451)
+
+[node name="PanelContainer" type="PanelContainer" parent="TooltipConfirmacao" unique_id=1321485415]
+custom_minimum_size = Vector2(220, 150)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_77vmd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TooltipConfirmacao/PanelContainer" unique_id=1686594416]
+layout_mode = 2
+
+[node name="LabelAcao" type="Label" parent="TooltipConfirmacao/PanelContainer/VBoxContainer" unique_id=1255241498]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Comprar"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelPreco" type="Label" parent="TooltipConfirmacao/PanelContainer/VBoxContainer" unique_id=629896726]
+layout_mode = 2
+text = "10 moedas"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Confirmar" type="Button" parent="TooltipConfirmacao/PanelContainer/VBoxContainer" unique_id=221933092]
+layout_mode = 2
+text = "Comprar"
+
+[node name="Cancelar" type="Button" parent="TooltipConfirmacao/PanelContainer/VBoxContainer" unique_id=1966437555]
+layout_mode = 2
+text = "Cancelar"
+
+[node name="Mensagem" type="PanelContainer" parent="." unique_id=960322074]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.5
+offset_top = -20.0
+offset_right = 60.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_mtrto")
+script = ExtResource("7_mensagem")
+
+[node name="MarginContainer" type="MarginContainer" parent="Mensagem" unique_id=1850635136]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 9
+theme_override_constants/margin_bottom = 3
+
+[node name="Label" type="Label" parent="Mensagem/MarginContainer" unique_id=498202147]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_pj1bn")
+autowrap_mode = 2
+
+[node name="Timer" type="Timer" parent="Mensagem" unique_id=382580440]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="pressed" from="Fechar/MarginContainer/BotaoFechar" to="." method="_ao_clicar_fechar_dialogo"]
+
+[editable path="Fechar"]

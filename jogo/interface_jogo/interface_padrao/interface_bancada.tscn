@@ -1,0 +1,242 @@
+[gd_scene format=3 uid="uid://b3lef5uhvd21j"]
+
+[ext_resource type="Script" uid="uid://beafn8yylyabh" path="res://interface_jogo/interface_padrao/interface_bancada.gd" id="1_551ej"]
+[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/interface/Sprite sheet for Basic Pack.png" id="2_pqslv"]
+[ext_resource type="Script" uid="uid://cdbuqeunniffl" path="res://interface_jogo/interface_missao/python_syntax_highlighter.gd.gd" id="3_4lesb"]
+[ext_resource type="PackedScene" uid="uid://jo5gekf703qc" path="res://interface_jogo/interface_missao/fechar.tscn" id="4_7iv48"]
+
+[sub_resource type="SyntaxHighlighter" id="SyntaxHighlighter_q402f"]
+script = ExtResource("3_4lesb")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fbugv"]
+texture = ExtResource("2_pqslv")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(11, 155, 26, 28)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_e5dr4"]
+texture = ExtResource("2_pqslv")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(107, 107, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sptje"]
+texture = ExtResource("2_pqslv")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(59, 107, 26, 26)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_551ej"]
+texture = ExtResource("2_pqslv")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(645, 132, 22, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pqslv"]
+texture = ExtResource("2_pqslv")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(677, 134, 22, 22)
+modulate_color = Color(0.768627, 0.603922, 0.423529, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4lesb"]
+texture = ExtResource("2_pqslv")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(677, 134, 22, 22)
+
+[node name="InterfaceBancada" type="Control" unique_id=404960778]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+script = ExtResource("1_551ej")
+
+[node name="EditorCodigo" type="Control" parent="." unique_id=2088741810]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="EditorCodigo" unique_id=1395493677]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -210.0
+offset_top = -171.0
+offset_bottom = 177.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="FundoMenuLateral" type="NinePatchRect" parent="EditorCodigo/MarginContainer" unique_id=1665087616]
+custom_minimum_size = Vector2(120, 180)
+layout_mode = 2
+texture = ExtResource("2_pqslv")
+region_rect = Rect2(153, 9, 30, 30)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="EditorCodigo/MarginContainer/FundoMenuLateral" unique_id=379684837]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EditorCodigo/MarginContainer/FundoMenuLateral/MarginContainer" unique_id=2082764303]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="MarginContainer" type="MarginContainer" parent="EditorCodigo/MarginContainer/FundoMenuLateral/MarginContainer/VBoxContainer" unique_id=1484334624]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FundoEditorTexto" type="NinePatchRect" parent="EditorCodigo/MarginContainer/FundoMenuLateral/MarginContainer/VBoxContainer/MarginContainer" unique_id=17938686]
+custom_minimum_size = Vector2(100, 130)
+layout_mode = 2
+texture = ExtResource("2_pqslv")
+region_rect = Rect2(11, 11, 26, 28)
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="EditorCodigo/MarginContainer/FundoMenuLateral/MarginContainer/VBoxContainer/MarginContainer/FundoEditorTexto" unique_id=570198090]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="CodeEdit" type="CodeEdit" parent="EditorCodigo/MarginContainer/FundoMenuLateral/MarginContainer/VBoxContainer/MarginContainer/FundoEditorTexto/MarginContainer" unique_id=1464885547]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/caret_color = Color(0.666667, 0.47451, 0.34902, 1)
+theme_override_colors/font_selected_color = Color(1, 1, 1, 1)
+theme_override_colors/selection_color = Color(0.768627, 0.603922, 0.423529, 1)
+theme_override_colors/font_color = Color(0.666667, 0.47451, 0.34902, 1)
+theme_override_colors/font_readonly_color = Color(0.574675, 0.574675, 0.574675, 1)
+theme_override_colors/font_placeholder_color = Color(0.768627, 0.603922, 0.423529, 1)
+theme_override_colors/background_color = Color(0.862745, 0.878431, 0.823529, 1)
+theme_override_colors/current_line_color = Color(0.779149, 0.798701, 0.730269, 1)
+theme_override_colors/word_highlighted_color = Color(0.411747, 0, 0, 1)
+theme_override_font_sizes/font_size = 8
+theme_override_colors/code_folding_color = Color(0.768627, 0.603922, 0.423529, 1)
+theme_override_colors/line_number_color = Color(0.768627, 0.603922, 0.423529, 1)
+placeholder_text = "Digite seu codigo aqui"
+scroll_smooth = true
+caret_blink = true
+syntax_highlighter = SubResource("SyntaxHighlighter_q402f")
+highlight_all_occurrences = true
+highlight_current_line = true
+line_folding = true
+gutters_draw_line_numbers = true
+gutters_draw_fold_gutter = true
+indent_automatic = true
+auto_brace_completion_enabled = true
+auto_brace_completion_highlight_matching = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EditorCodigo/MarginContainer/FundoMenuLateral/MarginContainer/VBoxContainer" unique_id=2036824520]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+
+[node name="BotaoLimpar" type="Button" parent="EditorCodigo/MarginContainer/FundoMenuLateral/MarginContainer/VBoxContainer/HBoxContainer" unique_id=741658647]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(45, 20)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_fbugv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_e5dr4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_sptje")
+text = "Limpar"
+text_overrun_behavior = 1
+
+[node name="BotaoVerificar" type="Button" parent="EditorCodigo/MarginContainer/FundoMenuLateral/MarginContainer/VBoxContainer/HBoxContainer" unique_id=394993143]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(45, 20)
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_fbugv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_e5dr4")
+theme_override_styles/hover = SubResource("StyleBoxTexture_sptje")
+text = "Executar"
+text_overrun_behavior = 2
+
+[node name="Mensagens" type="Label" parent="EditorCodigo/MarginContainer/FundoMenuLateral/MarginContainer/VBoxContainer" unique_id=712462659]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 3
+
+[node name="Mensagens2" type="Label" parent="EditorCodigo/MarginContainer/FundoMenuLateral/MarginContainer/VBoxContainer" unique_id=184383062]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 6
+autowrap_mode = 3
+
+[node name="Fechar" parent="." unique_id=1509814808 instance=ExtResource("4_7iv48")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_top = 0.0
+anchor_right = 0.5
+anchor_bottom = 0.0
+grow_horizontal = 2
+grow_vertical = 1
+
+[node name="MarginContainer" parent="Fechar" index="0"]
+offset_left = 32.0
+offset_top = 10.0
+offset_right = 142.0
+offset_bottom = 55.0
+
+[node name="BotaoGlossario" type="Button" parent="." unique_id=886124004]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 0
+focus_mode = 0
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_551ej")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_pqslv")
+theme_override_styles/hover = SubResource("StyleBoxTexture_4lesb")
+
+[editable path="Fechar"]

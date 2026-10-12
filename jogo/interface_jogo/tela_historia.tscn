@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcwsbmsq1qxq7"]
+
+[ext_resource type="Texture2D" uid="uid://w017je0w0exp" path="res://assets/imagens/interface/Historia_code_farm.png" id="1_uexhr"]
+
+[node name="TelaHistoria" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -111.0
+offset_top = -53.0
+offset_right = 105.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.172549, 0.117647, 0.192157, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1493.0
+offset_bottom = 840.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("1_uexhr")
+expand_mode = 5
+stretch_mode = 4

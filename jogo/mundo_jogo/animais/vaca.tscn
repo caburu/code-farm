@@ -1,7 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://b2bp5aw8nemn1"]
+[gd_scene load_steps=17 format=3 uid="uid://b2bp5aw8nemn1"]
 
-[ext_resource type="Script" uid="uid://1kf8mflfufjw" path="res://mundo_jogo/animais/vaca.gd" id="1_r6lfj"]
-[ext_resource type="Texture2D" uid="uid://c7xl8m7paefl8" path="res://assets/imagens/craftpix-net-291971-free-top-down-animals-farm-pixel-art-sprites/PNG/Without_shadow/Calf_animation_without_shadow.png" id="2_h7k6e"]
+[ext_resource type="Script" uid="uid://t76wjwda07c3" path="res://mundo_jogo/animais/baseAnimal.gd" id="1_spgai"]
+[ext_resource type="Texture2D" uid="uid://c7xl8m7paefl8" path="res://assets/imagens/animais/Calf_animation_without_shadow.png" id="2_h7k6e"]
+[ext_resource type="AudioStream" uid="uid://cib7dvygl71be" path="res://assets/sons/VacaNormal.mp3" id="3_h7k6e"]
+[ext_resource type="AudioStream" uid="uid://713keyxoxdv0" path="res://assets/sons/VacaFugindo.mp3" id="4_spgai"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_spgai"]
 size = Vector2(13, 11.5)
@@ -169,10 +171,13 @@ _data = {
 &"parado_esquerda": SubResource("Animation_d40gh")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_r6lfj"]
+radius = 20.0
+
 [node name="Vaca" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 6
-script = ExtResource("1_r6lfj")
+script = ExtResource("1_spgai")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_h7k6e")
@@ -193,3 +198,22 @@ autoplay = "parado_baixo"
 speed_scale = 0.6
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="TimerSom" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -5)
+shape = SubResource("CircleShape2D_r6lfj")
+
+[node name="SomNormal" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_h7k6e")
+volume_db = -10.0
+max_distance = 150.0
+
+[node name="SomFugindo" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_spgai")
+max_distance = 150.0

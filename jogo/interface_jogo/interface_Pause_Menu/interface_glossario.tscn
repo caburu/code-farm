@@ -1,10 +1,34 @@
-[gd_scene load_steps=24 format=3 uid="uid://isj1s76o4ek4"]
+[gd_scene load_steps=30 format=3 uid="uid://isj1s76o4ek4"]
 
-[ext_resource type="Script" uid="uid://bowh2y8ka4rix" path="res://interface_jogo/interface_Pause_Menu/interface_glossario.gd" id="1_ejanw"]
-[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/Sprout Lands - UI/Sprite sheets/Sprite sheet for Basic Pack.png" id="1_vh8qg"]
+[ext_resource type="Script" uid="uid://cq7dbw2n0svqs" path="res://interface_jogo/interface_Pause_Menu/interface_glossario.gd" id="1_ejanw"]
+[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/interface/Sprite sheet for Basic Pack.png" id="1_vh8qg"]
 [ext_resource type="PackedScene" uid="uid://dw887bsydvhg7" path="res://interface_jogo/interface_Pause_Menu/textura_animada_interface/animated_texture_rect.tscn" id="2_v50ty"]
 [ext_resource type="FontFile" uid="uid://8dyl8sjpwyl2" path="res://assets/fontes/ExpressionPro.ttf" id="3_wuabr"]
-[ext_resource type="Texture2D" uid="uid://74ryrqqrb7wo" path="res://assets/imagens/PixelBooksVers1.0/RADL_Book_red.png" id="4_r40hi"]
+[ext_resource type="Texture2D" uid="uid://74ryrqqrb7wo" path="res://assets/imagens/interface/RADL_Book_red.png" id="4_r40hi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1pled"]
+atlas = ExtResource("1_vh8qg")
+region = Rect2(276, 18, 7, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhkgy"]
+atlas = ExtResource("1_vh8qg")
+region = Rect2(276, 18, 7, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k7ay7"]
+atlas = ExtResource("1_vh8qg")
+region = Rect2(292, 18, 7, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m14ng"]
+atlas = ExtResource("1_vh8qg")
+region = Rect2(277, 2, 7, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aj4q7"]
+atlas = ExtResource("1_vh8qg")
+region = Rect2(277, 2, 7, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q573u"]
+atlas = ExtResource("1_vh8qg")
+region = Rect2(293, 2, 7, 12)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pvl2h"]
 texture = ExtResource("1_vh8qg")
@@ -290,6 +314,14 @@ layout_mode = 2
 [node name="Titulo" type="HBoxContainer" parent="SecaoLivro/VBoxContainer"]
 layout_mode = 2
 
+[node name="BotaoEsquerda" type="TextureButton" parent="SecaoLivro/VBoxContainer/Titulo"]
+layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+texture_normal = SubResource("AtlasTexture_1pled")
+texture_pressed = SubResource("AtlasTexture_hhkgy")
+texture_hover = SubResource("AtlasTexture_k7ay7")
+
 [node name="Fundo" type="NinePatchRect" parent="SecaoLivro/VBoxContainer/Titulo"]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -314,12 +346,20 @@ offset_bottom = 9.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="SecaoLivro/VBoxContainer/Titulo/Fundo/MarginContainer"]
+[node name="TituloGlossario" type="Label" parent="SecaoLivro/VBoxContainer/Titulo/Fundo/MarginContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_wuabr")
 theme_override_font_sizes/font_size = 20
 text = "Glossario de Comandos Apreendidos"
+
+[node name="BotaoDireita" type="TextureButton" parent="SecaoLivro/VBoxContainer/Titulo"]
+layout_mode = 2
+size_flags_vertical = 4
+texture_normal = SubResource("AtlasTexture_m14ng")
+texture_pressed = SubResource("AtlasTexture_aj4q7")
+texture_hover = SubResource("AtlasTexture_q573u")
 
 [node name="BotaoFechar" type="Button" parent="SecaoLivro/VBoxContainer/Titulo"]
 custom_minimum_size = Vector2(35, 35)
@@ -418,6 +458,8 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_2nuci")
 theme_override_styles/normal = SubResource("StyleBoxTexture_2js8s")
 
 [connection signal="text_changed" from="SecaoMenu/MarginContainer/VBoxContainer/MarginContainer/CampoPesquisa" to="." method="_ao_mudar_texto_campo_pesquisa"]
+[connection signal="pressed" from="SecaoLivro/VBoxContainer/Titulo/BotaoEsquerda" to="." method="_ao_clicar_botao_esquerda"]
+[connection signal="pressed" from="SecaoLivro/VBoxContainer/Titulo/BotaoDireita" to="." method="_ao_clicar_botao_direita"]
 [connection signal="pressed" from="SecaoLivro/VBoxContainer/Titulo/BotaoFechar" to="." method="_ao_fechar_glossario"]
 [connection signal="pressed" from="SecaoLivro/VBoxContainer/Livro/HBoxContainer/MarginContainer/BotaoVoltarPagina2" to="." method="_ao_clicar_voltar_pagina"]
 [connection signal="pressed" from="SecaoLivro/VBoxContainer/Livro/HBoxContainer/MarginContainer3/BotaoPassarPagina" to="." method="_ao_clicar_passar_pagina"]

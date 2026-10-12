@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://b6xfljq0cac3e"]
+
+[ext_resource type="Texture2D" uid="uid://1446d4da6pw8" path="res://assets/imagens/objetos_coletáveis/Spring Crops.png" id="1_bpgh6"]
+[ext_resource type="Script" uid="uid://de8teor80qd8x" path="res://gerenciador_jogo/inventario/item.gd" id="1_g7wnd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3g45c"]
+atlas = ExtResource("1_bpgh6")
+region = Rect2(0, 19.2402, 13.0263, 15.1833)
+
+[resource]
+script = ExtResource("1_g7wnd")
+nome = "semente_morango"
+icone = SubResource("AtlasTexture_3g45c")
+descricao = "Semente para plantio de morango."
+tipo = "semente"
+caminho_cena = "uid://klp3houq0dkn"
+preco = 10
+metadata/_custom_type_script = "uid://de8teor80qd8x"

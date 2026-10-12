@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cux52ekdo6kop"]
+
+[ext_resource type="Script" uid="uid://k7ghqo0pn6fg" path="res://mundo_jogo/objeto_interativo/bancada.gd" id="1_uogkm"]
+[ext_resource type="Script" uid="uid://dsl3dfocxiadp" path="res://mundo_jogo/objeto_base/comportamentos/comportamento_objeto.gd" id="2_uogkm"]
+[ext_resource type="Script" uid="uid://bkr7uosnbbeiu" path="res://mundo_jogo/objeto_base/comportamentos/comportamento_interativo.gd" id="3_cq4ca"]
+[ext_resource type="Texture2D" uid="uid://dwnipwsd5seqh" path="res://assets/imagens/terrenos/TopDownHouse_FurnitureState2.png" id="4_uogkm"]
+
+[sub_resource type="Resource" id="Resource_euo4h"]
+script = ExtResource("3_cq4ca")
+texto_interacao = "[E] para programar!"
+metadata/_custom_type_script = "uid://bkr7uosnbbeiu"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o3pjx"]
+atlas = ExtResource("4_uogkm")
+region = Rect2(176, 256, 32, 32)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cq4ca"]
+radius = 24.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uogkm"]
+size = Vector2(16, 16)
+
+[node name="bancada" type="StaticBody2D" unique_id=353762870]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_uogkm")
+comportamentos = Array[ExtResource("2_uogkm")]([SubResource("Resource_euo4h")])
+metadata/_custom_type_script = "uid://g5xbs1eun8rv"
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=69309924]
+position = Vector2(9.536743e-07, 0)
+scale = Vector2(0.46875, 0.5)
+texture = SubResource("AtlasTexture_o3pjx")
+
+[node name="AreaDetecao" type="Area2D" parent="." unique_id=1441415044]
+
+[node name="Colisao" type="CollisionShape2D" parent="AreaDetecao" unique_id=205936682]
+shape = SubResource("CircleShape2D_cq4ca")
+
+[node name="Animador" type="AnimationPlayer" parent="." unique_id=588858308]
+
+[node name="ContainerLabels" type="VBoxContainer" parent="." unique_id=1598426819]
+offset_left = -19.0
+offset_top = -31.0
+offset_right = 20.0
+offset_bottom = -18.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Collisao" type="CollisionShape2D" parent="." unique_id=1971074566]
+light_mask = 3
+visibility_layer = 3
+shape = SubResource("RectangleShape2D_uogkm")
+
+[connection signal="body_entered" from="AreaDetecao" to="." method="_ao_detectar_entrada"]
+[connection signal="body_exited" from="AreaDetecao" to="." method="_ao_detectar_saida"]

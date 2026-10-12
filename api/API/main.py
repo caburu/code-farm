@@ -25,6 +25,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
+from modelos import RequisicaoPlantio
+from plantio import analisar_plantio
+
 from modelos import RequisicaoCodigo
 from roteador import obter_analisador
 import analisador
@@ -50,3 +53,7 @@ def endpoint_analisar_codigo(requisicao: RequisicaoCodigo):
             "mensagens": [str(e)],
             "dados": {}
         }
+
+@app.post("/analisar_plantio")
+def endpoint_analisar_plantio(requisicao: RequisicaoPlantio):
+    return analisar_plantio(requisicao.codigo)

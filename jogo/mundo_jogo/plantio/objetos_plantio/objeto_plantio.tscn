@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bybm41yehmic"]
+
+[ext_resource type="Script" uid="uid://bwl75fg87n0cx" path="res://mundo_jogo/plantio/objetos_plantio/objeto_plantio.gd" id="1_1moll"]
+[ext_resource type="PackedScene" uid="uid://7pk4ytvxy4kb" path="res://mundo_jogo/objeto_coletavel/objeto_coletavel.tscn" id="3_x47lh"]
+
+[node name="ObjetoPlantio" type="StaticBody2D"]
+script = ExtResource("1_1moll")
+
+[node name="Fases_Plantio" type="AnimatedSprite2D" parent="."]
+
+[node name="ProdutoPlantio" parent="." instance=ExtResource("3_x47lh")]
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]

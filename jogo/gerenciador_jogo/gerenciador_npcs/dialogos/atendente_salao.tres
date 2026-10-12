@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DadosDialogo" load_steps=2 format=3 uid="uid://cuhbgsani4pme"]
+
+[ext_resource type="Script" uid="uid://dyuu8f7ajc8jo" path="res://gerenciador_jogo/gerenciador_npcs/dialogos/dados_dialogo.gd" id="1_44fgn"]
+
+[resource]
+script = ExtResource("1_44fgn")
+falas = Array[String](["Olá! Bem-vindo ao meu salão.", "Como posso te ajudar hoje?"])
+tem_escolhas = true
+opcoes = Array[String](["Quero comprar itens", "Apenas olhando, obrigado."])
+metadata/_custom_type_script = "uid://dyuu8f7ajc8jo"

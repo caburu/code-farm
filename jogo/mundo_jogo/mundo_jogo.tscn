@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://chsijyi1x1s3"]
+[gd_scene format=3 uid="uid://chsijyi1x1s3"]
 
 [ext_resource type="PackedScene" uid="uid://455f8bih0bus" path="res://mundo_jogo/terrenos/terreno_casa.tscn" id="1_4mwex"]
 [ext_resource type="PackedScene" uid="uid://dscfkde3tti8f" path="res://mundo_jogo/terrenos/terreno_fazenda.tscn" id="1_848jc"]
@@ -7,28 +7,42 @@
 [ext_resource type="PackedScene" uid="uid://c48mo1nwpwjc7" path="res://mundo_jogo/passagem/passagem.tscn" id="2_gcw66"]
 [ext_resource type="PackedScene" uid="uid://bperut1ryhs0o" path="res://mundo_jogo/jogador/jogador.tscn" id="2_ytvii"]
 [ext_resource type="PackedScene" uid="uid://dbkpdacppilwy" path="res://mundo_jogo/objeto_interativo/objeto_interativo.tscn" id="3_3at3k"]
-[ext_resource type="Texture2D" uid="uid://otnwpwe6jvss" path="res://assets/imagens/Tiny Wonder Forest/items&objects/summer and spring items.png" id="4_0nsch"]
-[ext_resource type="Texture2D" uid="uid://df3nifq2ujqwy" path="res://assets/imagens/retro_interior/TopDownHouse_SmallItems.png" id="7_ru7ms"]
-[ext_resource type="Texture2D" uid="uid://c7de14nbuvevr" path="res://assets/imagens/cute_fantasy/Outdoor decoration/Chest.png" id="7_yfmyd"]
-[ext_resource type="Texture2D" uid="uid://b0rkdwyiucb1j" path="res://assets/imagens/Tiny Wonder Farm/objects&items/plants free.png" id="8_jt3mr"]
+[ext_resource type="PackedScene" uid="uid://c6ypjuhp2cn4q" path="res://mundo_jogo/objeto_base/objeto_base.tscn" id="3_diario_base"]
+[ext_resource type="Script" uid="uid://dsl3dfocxiadp" path="res://mundo_jogo/objeto_base/comportamentos/comportamento_objeto.gd" id="3_diario_comportamento"]
+[ext_resource type="Script" uid="uid://bkr7uosnbbeiu" path="res://mundo_jogo/objeto_base/comportamentos/comportamento_interativo.gd" id="3_diario_interativo"]
+[ext_resource type="Texture2D" uid="uid://otnwpwe6jvss" path="res://assets/imagens/terrenos/summer and spring items.png" id="4_0nsch"]
+[ext_resource type="Texture2D" uid="uid://df3nifq2ujqwy" path="res://assets/imagens/terrenos/TopDownHouse_SmallItems.png" id="7_ru7ms"]
+[ext_resource type="Texture2D" uid="uid://c7de14nbuvevr" path="res://assets/imagens/mundo/Chest.png" id="7_yfmyd"]
+[ext_resource type="Texture2D" uid="uid://b0rkdwyiucb1j" path="res://assets/imagens/terrenos/plants free.png" id="8_jt3mr"]
 [ext_resource type="PackedScene" uid="uid://fdyhl54amort" path="res://mundo_jogo/animacoes/copo/copo.tscn" id="9_y1w4k"]
 [ext_resource type="Script" uid="uid://bx58o7yh3ibda" path="res://mundo_jogo/tapeteInterativo.gd" id="11_dy05v"]
 [ext_resource type="PackedScene" uid="uid://bbv8amqqrpjy8" path="res://mundo_jogo/terrenos/terreno_celeiro.tscn" id="11_h23k8"]
+[ext_resource type="PackedScene" uid="uid://klp3houq0dkn" path="res://mundo_jogo/objeto_coletavel/objetos/semente_morango.tscn" id="11_jtt2m"]
 [ext_resource type="PackedScene" uid="uid://b7w8yxijr424" path="res://mundo_jogo/terrenos/terreno_bunker.tscn" id="11_xkeb6"]
 [ext_resource type="PackedScene" uid="uid://b205kh20u728g" path="res://mundo_jogo/terrenos/terreno_moinho.tscn" id="12_h23k8"]
-[ext_resource type="Texture2D" uid="uid://cvmhhkg2ewojj" path="res://assets/imagens/retro_interior/TopDownHouse_FurnitureState1.png" id="13_muyhw"]
+[ext_resource type="Texture2D" uid="uid://cvmhhkg2ewojj" path="res://assets/imagens/terrenos/TopDownHouse_FurnitureState1.png" id="13_muyhw"]
 [ext_resource type="PackedScene" uid="uid://dskrr8ixlne8r" path="res://mundo_jogo/terrenos/terreno_marceneiro.tscn" id="15_a1tre"]
 [ext_resource type="PackedScene" uid="uid://c3l2v3b10hvkv" path="res://mundo_jogo/npcs/ferreiro.tscn" id="15_muyhw"]
 [ext_resource type="PackedScene" uid="uid://b2bp5aw8nemn1" path="res://mundo_jogo/animais/vaca.tscn" id="15_s2wpm"]
 [ext_resource type="PackedScene" uid="uid://dxo5dyjge5q60" path="res://mundo_jogo/animais/boi.tscn" id="15_v2ue8"]
 [ext_resource type="PackedScene" uid="uid://bbaagvyi6w631" path="res://mundo_jogo/terrenos/terreno_ferreiro.tscn" id="16_a5oup"]
 [ext_resource type="PackedScene" uid="uid://yc0e2qahfkik" path="res://mundo_jogo/animais/galinha.tscn" id="16_dy05v"]
+[ext_resource type="PackedScene" path="res://mundo_jogo/objeto_base/cocho/cocho.tscn" id="cocho_galinhas"]
+[ext_resource type="PackedScene" path="res://mundo_jogo/objeto_base/objetos_coletaveis/milho.tscn" id="milho_galinhas"]
 [ext_resource type="PackedScene" uid="uid://gueeykda8uvu" path="res://mundo_jogo/terrenos/terreno_salao.tscn" id="16_muyhw"]
+[ext_resource type="PackedScene" uid="uid://bq0hr7dr7twfn" path="res://mundo_jogo/objeto_interativo/bau.tscn" id="16_n50el"]
 [ext_resource type="PackedScene" uid="uid://83xun8fp8ysk" path="res://mundo_jogo/animais/porco.tscn" id="17_muyhw"]
 [ext_resource type="PackedScene" uid="uid://x8q7i06nnq7h" path="res://mundo_jogo/npcs/marceneiro.tscn" id="17_r2s0a"]
+[ext_resource type="PackedScene" uid="uid://cux52ekdo6kop" path="res://mundo_jogo/objeto_interativo/bancada.tscn" id="17_wgyws"]
 [ext_resource type="PackedScene" uid="uid://ber3bclrl5uky" path="res://mundo_jogo/npcs/corvo_vendedor.tscn" id="19_u7fjk"]
 [ext_resource type="PackedScene" uid="uid://bufu2dd280qkf" path="res://mundo_jogo/npcs/atendente_salao.tscn" id="20_jf6b1"]
+[ext_resource type="PackedScene" uid="uid://c5u13eymo2tos" path="res://mundo_jogo/objeto_coletavel/objetos/caixado_robo.tscn" id="21_egxgh"]
+[ext_resource type="Script" uid="uid://de8teor80qd8x" path="res://gerenciador_jogo/inventario/item.gd" id="22_63weq"]
+[ext_resource type="PackedScene" uid="uid://cg826sijtyxxm" path="res://mundo_jogo/objeto_base/objetos_coletaveis/caixa_robo.tscn" id="22_maqq7"]
+[ext_resource type="Resource" uid="uid://6h1psdesppbd" path="res://mundo_jogo/itens/morango.tres" id="36_2je6l"]
 [ext_resource type="PackedScene" uid="uid://c3hrv2w0c5yoy" path="res://mundo_jogo/terrenos/terreno_vila.tscn" id="36_rs3yu"]
+[ext_resource type="Resource" uid="uid://b6xfljq0cac3e" path="res://mundo_jogo/itens/semente_morango.tres" id="37_n50el"]
+[ext_resource type="Script" uid="uid://brdg340dgsxde" path="res://gerenciador_jogo/gerenciador_npcs/troca/estoques/estoque_troca.gd" id="38_wgyws"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mp83p"]
 size = Vector2(12, 11)
@@ -44,7 +58,11 @@ radius = 4.0
 height = 12.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wlrp0"]
-radius = 35.0
+radius = 34.0147
+
+[sub_resource type="Resource" id="Resource_diario_interativo"]
+script = ExtResource("3_diario_interativo")
+ativo_ao_iniciar = false
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_51u5e"]
 size = Vector2(4, 15)
@@ -58,15 +76,41 @@ size = Vector2(62.3334, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h23k8"]
 size = Vector2(64, 9)
 
-[node name="MundoJogo" type="Node2D"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_maqq7"]
+atlas = ExtResource("7_ru7ms")
+region = Rect2(98, 35, 12, 12)
+
+[sub_resource type="Resource" id="Resource_vyvl6"]
+script = ExtResource("22_63weq")
+nome = "CaixaDoRobo"
+icone = SubResource("AtlasTexture_maqq7")
+pode_empilhar = false
+descricao = "Caixa que contêm o robo"
+caminho_cena = "uid://c5u13eymo2tos"
+metadata/_custom_type_script = "uid://de8teor80qd8x"
+
+[sub_resource type="Resource" id="Resource_wgyws"]
+resource_local_to_scene = true
+script = ExtResource("38_wgyws")
+itens_a_venda = Array[ExtResource("22_63weq")]([ExtResource("36_2je6l"), ExtResource("37_n50el")])
+quantidades = Dictionary[ExtResource("22_63weq"), int]({
+ExtResource("36_2je6l"): 10,
+ExtResource("37_n50el"): 10
+})
+limites = Dictionary[ExtResource("22_63weq"), int]({
+ExtResource("36_2je6l"): 10,
+ExtResource("37_n50el"): 10
+})
+
+[node name="MundoJogo" type="Node2D" unique_id=99088058]
 y_sort_enabled = true
 script = ExtResource("1_rswm3")
 metadata/_edit_horizontal_guides_ = [-276.0]
 
-[node name="TerrenoFazenda" parent="." instance=ExtResource("1_848jc")]
-position = Vector2(23, 107)
+[node name="TerrenoFazenda" parent="." unique_id=904896384 instance=ExtResource("1_848jc")]
+position = Vector2(17, 100)
 
-[node name="Passagem1" parent="TerrenoFazenda" instance=ExtResource("2_gcw66")]
+[node name="Passagem1" parent="TerrenoFazenda" unique_id=920476428 instance=ExtResource("2_gcw66")]
 position = Vector2(150, 38)
 terreno_destino = "TerrenoCasa"
 passagem_destino = "Passagem2"
@@ -76,68 +120,70 @@ direcao_spawn = 1
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_mp83p")
 
-[node name="Passagem3" parent="TerrenoFazenda" instance=ExtResource("2_gcw66")]
+[node name="Passagem3" parent="TerrenoFazenda" unique_id=1133540969 instance=ExtResource("2_gcw66")]
 position = Vector2(240, -341)
 terreno_destino = "TerrenoCeleiro"
 passagem_destino = "Passagem4"
 direcao_spawn = 1
 
-[node name="ColisaoDeteccao" type="CollisionShape2D" parent="TerrenoFazenda/Passagem3"]
+[node name="ColisaoDeteccao" type="CollisionShape2D" parent="TerrenoFazenda/Passagem3" unique_id=777004645]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_xkeb6")
 
-[node name="PosicaoSpawn2" type="Marker2D" parent="TerrenoFazenda/Passagem3"]
+[node name="PosicaoSpawn2" type="Marker2D" parent="TerrenoFazenda/Passagem3" unique_id=1177072660]
 position = Vector2(0, 2)
 
-[node name="Passagem5" parent="TerrenoFazenda" instance=ExtResource("2_gcw66")]
+[node name="Passagem5" parent="TerrenoFazenda" unique_id=2024858328 instance=ExtResource("2_gcw66")]
 position = Vector2(16, -358)
 terreno_destino = "TerrenoMoinho"
 passagem_destino = "Passagem6"
 direcao_spawn = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TerrenoFazenda/Passagem5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TerrenoFazenda/Passagem5" unique_id=1004460292]
 position = Vector2(0, 5)
 shape = SubResource("RectangleShape2D_s2wpm")
 
-[node name="Marker2D" type="Marker2D" parent="TerrenoFazenda/Passagem5"]
+[node name="Marker2D" type="Marker2D" parent="TerrenoFazenda/Passagem5" unique_id=1480020781]
 
-[node name="Missao1" parent="TerrenoFazenda" instance=ExtResource("3_3at3k")]
+[node name="Missao2" parent="TerrenoFazenda" unique_id=1685694901 instance=ExtResource("3_3at3k")]
 position = Vector2(110, 35)
 
-[node name="Sprite" parent="TerrenoFazenda/Missao1" index="0"]
+[node name="Sprite" parent="TerrenoFazenda/Missao2" index="0"]
 texture = ExtResource("4_0nsch")
 region_enabled = true
 region_rect = Rect2(32, 192, 16, 16)
 
-[node name="Colisao" parent="TerrenoFazenda/Missao1" index="1"]
+[node name="Colisao" parent="TerrenoFazenda/Missao2" index="1"]
 position = Vector2(0, 3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_nhjpn")
 
-[node name="Colisao" parent="TerrenoFazenda/Missao1/AreaDetecao" index="0"]
+[node name="Colisao" parent="TerrenoFazenda/Missao2/AreaDetecao" index="0"]
 shape = SubResource("CircleShape2D_wlrp0")
 
-[node name="Missao4" parent="TerrenoFazenda" instance=ExtResource("3_3at3k")]
+[node name="Missao0" parent="TerrenoFazenda" unique_id=619604777 instance=ExtResource("3_diario_base")]
+position = Vector2(260, 77)
+comportamentos = Array[ExtResource("3_diario_comportamento")]([SubResource("Resource_diario_interativo")])
+
+[node name="Sprite" parent="TerrenoFazenda/Missao0" index="0"]
+texture = ExtResource("7_ru7ms")
+region_enabled = true
+region_rect = Rect2(20, 55, 7, 8)
+
+[node name="Colisao" parent="TerrenoFazenda/Missao0" index="1"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_nhjpn")
+
+[node name="Colisao" parent="TerrenoFazenda/Missao0/AreaDetecao" index="0"]
+shape = SubResource("CircleShape2D_wlrp0")
+
+[node name="Missao5" parent="TerrenoFazenda" unique_id=1963687969 instance=ExtResource("3_3at3k")]
 position = Vector2(312, -24)
 
-[node name="Sprite" parent="TerrenoFazenda/Missao4" index="0"]
+[node name="Sprite" parent="TerrenoFazenda/Missao5" index="0"]
 texture = ExtResource("8_jt3mr")
 region_enabled = true
 region_rect = Rect2(64, 32, 16, 16)
-
-[node name="Colisao" parent="TerrenoFazenda/Missao4" index="1"]
-position = Vector2(0, 3)
-rotation = 1.5708
-
-[node name="Colisao" parent="TerrenoFazenda/Missao4/AreaDetecao" index="0"]
-shape = SubResource("CircleShape2D_wlrp0")
-
-[node name="Missao5" parent="TerrenoFazenda" instance=ExtResource("3_3at3k")]
-position = Vector2(-28, -146)
-
-[node name="Sprite" parent="TerrenoFazenda/Missao5" index="0"]
-texture = ExtResource("7_yfmyd")
-offset = Vector2(0, 10)
 
 [node name="Colisao" parent="TerrenoFazenda/Missao5" index="1"]
 position = Vector2(0, 3)
@@ -146,7 +192,21 @@ rotation = 1.5708
 [node name="Colisao" parent="TerrenoFazenda/Missao5/AreaDetecao" index="0"]
 shape = SubResource("CircleShape2D_wlrp0")
 
-[node name="SaidaFazenda1" parent="TerrenoFazenda" instance=ExtResource("2_gcw66")]
+[node name="Missao6" parent="TerrenoFazenda" unique_id=547743871 instance=ExtResource("3_3at3k")]
+position = Vector2(-28, -146)
+
+[node name="Sprite" parent="TerrenoFazenda/Missao6" index="0"]
+texture = ExtResource("7_yfmyd")
+offset = Vector2(0, 10)
+
+[node name="Colisao" parent="TerrenoFazenda/Missao6" index="1"]
+position = Vector2(0, 3)
+rotation = 1.5708
+
+[node name="Colisao" parent="TerrenoFazenda/Missao6/AreaDetecao" index="0"]
+shape = SubResource("CircleShape2D_wlrp0")
+
+[node name="SaidaFazenda1" parent="TerrenoFazenda" unique_id=1300750745 instance=ExtResource("2_gcw66")]
 position = Vector2(248, 392)
 terreno_destino = "TerrenoVila"
 passagem_destino = "SaidaFazenda"
@@ -159,20 +219,43 @@ shape = SubResource("RectangleShape2D_mp83p")
 [node name="PosicaoSpawn" parent="TerrenoFazenda/SaidaFazenda1" index="1"]
 position = Vector2(1, -4)
 
-[node name="Vaca" parent="TerrenoFazenda" instance=ExtResource("15_s2wpm")]
+[node name="Vaca" parent="TerrenoFazenda" unique_id=2129155684 instance=ExtResource("15_s2wpm")]
 position = Vector2(299, -287)
 
-[node name="galinha" parent="TerrenoFazenda" instance=ExtResource("16_dy05v")]
+[node name="galinha" parent="TerrenoFazenda" unique_id=1730074643 instance=ExtResource("16_dy05v")]
 position = Vector2(591, -102)
 
-[node name="porco" parent="TerrenoFazenda" instance=ExtResource("17_muyhw")]
+[node name="CochoGalinhas" parent="TerrenoFazenda" instance=ExtResource("cocho_galinhas")]
+position = Vector2(550, -65)
+
+[node name="MilhoGalinhas1" parent="TerrenoFazenda" instance=ExtResource("milho_galinhas")]
+position = Vector2(512, -72)
+
+[node name="MilhoGalinhas2" parent="TerrenoFazenda" instance=ExtResource("milho_galinhas")]
+position = Vector2(512, -48)
+
+[node name="MilhoGalinhas3" parent="TerrenoFazenda" instance=ExtResource("milho_galinhas")]
+position = Vector2(512, -24)
+
+[node name="porco" parent="TerrenoFazenda" unique_id=588687097 instance=ExtResource("17_muyhw")]
 position = Vector2(631, -313)
 
-[node name="TerrenoCasa" parent="." instance=ExtResource("1_4mwex")]
+[node name="ObjetoColetavel" parent="TerrenoFazenda" unique_id=1057380000 instance=ExtResource("11_jtt2m")]
+
+[node name="ObjetoBase" parent="TerrenoFazenda" unique_id=1392569640 instance=ExtResource("16_n50el")]
+position = Vector2(-24, 89)
+
+[node name="bancada" parent="TerrenoFazenda" unique_id=353762870 node_paths=PackedStringArray("bau", "registro_plantio") instance=ExtResource("17_wgyws")]
+position = Vector2(-44, 89)
+bau = NodePath("../ObjetoBase")
+id_canteiro = 5
+registro_plantio = NodePath("../Chao")
+
+[node name="TerrenoCasa" parent="." unique_id=175163249 instance=ExtResource("1_4mwex")]
 y_sort_enabled = true
 position = Vector2(-995, -90)
 
-[node name="Passagem2" parent="TerrenoCasa" instance=ExtResource("2_gcw66")]
+[node name="Passagem2" parent="TerrenoCasa" unique_id=466758556 instance=ExtResource("2_gcw66")]
 position = Vector2(48, 192)
 terreno_destino = "TerrenoFazenda"
 passagem_destino = "Passagem1"
@@ -181,29 +264,13 @@ passagem_destino = "Passagem1"
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_51u5e")
 
-[node name="Missao2" parent="TerrenoCasa" instance=ExtResource("3_3at3k")]
+[node name="Missao3" parent="TerrenoCasa" unique_id=440663345 instance=ExtResource("3_3at3k")]
 position = Vector2(111, 50)
-
-[node name="Sprite" parent="TerrenoCasa/Missao2" index="0"]
-texture = ExtResource("7_ru7ms")
-region_enabled = true
-region_rect = Rect2(36, 22, 9, 9)
-
-[node name="Colisao" parent="TerrenoCasa/Missao2" index="1"]
-position = Vector2(0, 3)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_nhjpn")
-
-[node name="Colisao" parent="TerrenoCasa/Missao2/AreaDetecao" index="0"]
-shape = SubResource("CircleShape2D_wlrp0")
-
-[node name="Missao3" parent="TerrenoCasa" instance=ExtResource("3_3at3k")]
-position = Vector2(-28, 16)
 
 [node name="Sprite" parent="TerrenoCasa/Missao3" index="0"]
 texture = ExtResource("7_ru7ms")
 region_enabled = true
-region_rect = Rect2(5, 84, 7, 11)
+region_rect = Rect2(36, 22, 9, 9)
 
 [node name="Colisao" parent="TerrenoCasa/Missao3" index="1"]
 position = Vector2(0, 3)
@@ -213,25 +280,41 @@ shape = SubResource("CapsuleShape2D_nhjpn")
 [node name="Colisao" parent="TerrenoCasa/Missao3/AreaDetecao" index="0"]
 shape = SubResource("CircleShape2D_wlrp0")
 
-[node name="Copo" parent="TerrenoCasa" instance=ExtResource("9_y1w4k")]
+[node name="Missao4" parent="TerrenoCasa" unique_id=967582853 instance=ExtResource("3_3at3k")]
+position = Vector2(-28, 16)
+
+[node name="Sprite" parent="TerrenoCasa/Missao4" index="0"]
+texture = ExtResource("7_ru7ms")
+region_enabled = true
+region_rect = Rect2(5, 84, 7, 11)
+
+[node name="Colisao" parent="TerrenoCasa/Missao4" index="1"]
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_nhjpn")
+
+[node name="Colisao" parent="TerrenoCasa/Missao4/AreaDetecao" index="0"]
+shape = SubResource("CircleShape2D_wlrp0")
+
+[node name="Copo" parent="TerrenoCasa" unique_id=358354313 instance=ExtResource("9_y1w4k")]
 position = Vector2(-144, 62.6667)
 
-[node name="TapeteInterativo" type="StaticBody2D" parent="TerrenoCasa"]
+[node name="TapeteInterativo" type="StaticBody2D" parent="TerrenoCasa" unique_id=1273189613]
 position = Vector2(290.667, 10.6667)
 script = ExtResource("11_dy05v")
 terreno_destino = "TerrenoBunker"
 passagem_destino = "Passagem3"
 
-[node name="Sprite" type="Sprite2D" parent="TerrenoCasa/TapeteInterativo"]
+[node name="Sprite" type="Sprite2D" parent="TerrenoCasa/TapeteInterativo" unique_id=1721335012]
 position = Vector2(3.05176e-05, -2.86102e-06)
 scale = Vector2(1.30556, 0.958333)
 texture = ExtResource("13_muyhw")
 region_enabled = true
 region_rect = Rect2(160, 32, 48, 32)
 
-[node name="Animador" type="AnimationPlayer" parent="TerrenoCasa/TapeteInterativo"]
+[node name="Animador" type="AnimationPlayer" parent="TerrenoCasa/TapeteInterativo" unique_id=475086819]
 
-[node name="LabelInteracao" type="Label" parent="TerrenoCasa/TapeteInterativo"]
+[node name="LabelInteracao" type="Label" parent="TerrenoCasa/TapeteInterativo" unique_id=269057849]
 offset_left = -21.3333
 offset_top = -34.6667
 offset_right = 91.6667
@@ -241,52 +324,52 @@ text = "[E] para entrar"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TerrenoCasa/TapeteInterativo"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TerrenoCasa/TapeteInterativo" unique_id=1086227479]
 position = Vector2(-1.33337, -0.666664)
 shape = SubResource("RectangleShape2D_dy05v")
 
-[node name="AreaDeteccao" type="Area2D" parent="TerrenoCasa/TapeteInterativo"]
+[node name="AreaDeteccao" type="Area2D" parent="TerrenoCasa/TapeteInterativo" unique_id=352562090]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TerrenoCasa/TapeteInterativo/AreaDeteccao"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TerrenoCasa/TapeteInterativo/AreaDeteccao" unique_id=181024435]
 position = Vector2(-1.33337, -9.53674e-07)
 shape = SubResource("RectangleShape2D_muyhw")
 
-[node name="PosicaoSpawn" type="Marker2D" parent="TerrenoCasa/TapeteInterativo"]
+[node name="PosicaoSpawn" type="Marker2D" parent="TerrenoCasa/TapeteInterativo" unique_id=2035514944]
 position = Vector2(1.33331, 0)
 
-[node name="TerrenoCeleiro" parent="." instance=ExtResource("11_h23k8")]
+[node name="TerrenoCeleiro" parent="." unique_id=2105835483 instance=ExtResource("11_h23k8")]
 position = Vector2(245, -1265)
 
-[node name="Passagem4" parent="TerrenoCeleiro" instance=ExtResource("2_gcw66")]
+[node name="Passagem4" parent="TerrenoCeleiro" unique_id=787513132 instance=ExtResource("2_gcw66")]
 position = Vector2(369, 411)
 terreno_destino = "TerrenoFazenda"
 passagem_destino = "Passagem3"
 
-[node name="ColisaoDeteccao" type="CollisionShape2D" parent="TerrenoCeleiro/Passagem4"]
+[node name="ColisaoDeteccao" type="CollisionShape2D" parent="TerrenoCeleiro/Passagem4" unique_id=358620425]
 position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_h23k8")
 
-[node name="PosicaoSpawn2" type="Marker2D" parent="TerrenoCeleiro/Passagem4"]
+[node name="PosicaoSpawn2" type="Marker2D" parent="TerrenoCeleiro/Passagem4" unique_id=1770087016]
 
-[node name="TerrenoMoinho" parent="." instance=ExtResource("12_h23k8")]
+[node name="TerrenoMoinho" parent="." unique_id=1557533974 instance=ExtResource("12_h23k8")]
 position = Vector2(-621, -1257)
 
-[node name="Passagem6" parent="TerrenoMoinho" instance=ExtResource("2_gcw66")]
+[node name="Passagem6" parent="TerrenoMoinho" unique_id=149886069 instance=ExtResource("2_gcw66")]
 position = Vector2(322, 312)
 terreno_destino = "TerrenoFazenda"
 passagem_destino = "Passagem5"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TerrenoMoinho/Passagem6"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TerrenoMoinho/Passagem6" unique_id=1795526621]
 position = Vector2(6, 4)
 shape = SubResource("RectangleShape2D_dy05v")
 
-[node name="Marker2D" type="Marker2D" parent="TerrenoMoinho/Passagem6"]
+[node name="Marker2D" type="Marker2D" parent="TerrenoMoinho/Passagem6" unique_id=121137884]
 position = Vector2(6, 4)
 
-[node name="TerrenoBunker" parent="." instance=ExtResource("11_xkeb6")]
-position = Vector2(-910, -584)
+[node name="TerrenoBunker" parent="." unique_id=465230144 instance=ExtResource("11_xkeb6")]
+position = Vector2(-915, -584)
 
-[node name="Passagem3" parent="TerrenoBunker" instance=ExtResource("2_gcw66")]
+[node name="Passagem3" parent="TerrenoBunker" unique_id=562787474 instance=ExtResource("2_gcw66")]
 position = Vector2(77, 9)
 terreno_destino = "TerrenoCasa"
 passagem_destino = "TapeteInterativo"
@@ -297,20 +380,46 @@ shape = SubResource("RectangleShape2D_51u5e")
 [node name="PosicaoSpawn" parent="TerrenoBunker/Passagem3" index="1"]
 position = Vector2(16, 8)
 
-[node name="Jogador" parent="." instance=ExtResource("2_ytvii")]
+[node name="Missao1_legacy" parent="TerrenoBunker" unique_id=520370914 instance=ExtResource("3_3at3k")]
+visible = false
+position = Vector2(172, 51)
+metadata/_edit_group_ = true
+
+[node name="Sprite" parent="TerrenoBunker/Missao1_legacy" index="0"]
+texture = ExtResource("7_ru7ms")
+region_enabled = true
+region_rect = Rect2(36, 22, 9, 9)
+
+[node name="Colisao" parent="TerrenoBunker/Missao1_legacy" index="1"]
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_nhjpn")
+
+[node name="Colisao" parent="TerrenoBunker/Missao1_legacy/AreaDetecao" index="0"]
+shape = SubResource("CircleShape2D_wlrp0")
+
+[node name="CaixadoRobo" parent="TerrenoBunker" unique_id=559479198 groups=["ObjetosColetaveis"] instance=ExtResource("21_egxgh")]
+visible = false
+position = Vector2(55, 56)
+item = SubResource("Resource_vyvl6")
+
+[node name="Missao1" parent="TerrenoBunker" unique_id=716466495 instance=ExtResource("22_maqq7")]
+position = Vector2(172, 62)
+
+[node name="Jogador" parent="." unique_id=1782826884 instance=ExtResource("2_ytvii")]
 position = Vector2(174, 174)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=203455570]
 unique_name_in_owner = true
 
-[node name="TransicaoCenario" parent="CanvasLayer" instance=ExtResource("2_b3703")]
+[node name="TransicaoCenario" parent="CanvasLayer" unique_id=975475612 instance=ExtResource("2_b3703")]
 unique_name_in_owner = true
 
-[node name="TerrenoVila" parent="." instance=ExtResource("36_rs3yu")]
+[node name="TerrenoVila" parent="." unique_id=366369256 instance=ExtResource("36_rs3yu")]
 y_sort_enabled = true
 position = Vector2(979, 641)
 
-[node name="SaidaFazenda" parent="TerrenoVila" instance=ExtResource("2_gcw66")]
+[node name="SaidaFazenda" parent="TerrenoVila" unique_id=1565939463 instance=ExtResource("2_gcw66")]
 position = Vector2(231, 817)
 terreno_destino = "TerrenoFazenda"
 passagem_destino = "SaidaFazenda1"
@@ -322,7 +431,7 @@ shape = SubResource("RectangleShape2D_mp83p")
 [node name="PosicaoSpawn" parent="TerrenoVila/SaidaFazenda" index="1"]
 position = Vector2(-1, 59)
 
-[node name="EntrarCasaFerreiro" parent="TerrenoVila" instance=ExtResource("2_gcw66")]
+[node name="EntrarCasaFerreiro" parent="TerrenoVila" unique_id=794089126 instance=ExtResource("2_gcw66")]
 position = Vector2(-104, 1240)
 terreno_destino = "TerrenoFerreiro"
 passagem_destino = "SairCasaFerreiro"
@@ -335,7 +444,7 @@ shape = SubResource("RectangleShape2D_mp83p")
 [node name="PosicaoSpawn" parent="TerrenoVila/EntrarCasaFerreiro" index="1"]
 position = Vector2(1, 12)
 
-[node name="EntrarCasaMarceneiro" parent="TerrenoVila" instance=ExtResource("2_gcw66")]
+[node name="EntrarCasaMarceneiro" parent="TerrenoVila" unique_id=859828139 instance=ExtResource("2_gcw66")]
 position = Vector2(300, 1255)
 terreno_destino = "TerrenoMarceneiro"
 passagem_destino = "SairCasaMarceneiro"
@@ -348,7 +457,7 @@ shape = SubResource("RectangleShape2D_mp83p")
 [node name="PosicaoSpawn" parent="TerrenoVila/EntrarCasaMarceneiro" index="1"]
 position = Vector2(0, -3)
 
-[node name="EntrarSalao" parent="TerrenoVila" instance=ExtResource("2_gcw66")]
+[node name="EntrarSalao" parent="TerrenoVila" unique_id=475260333 instance=ExtResource("2_gcw66")]
 position = Vector2(99, 1255)
 terreno_destino = "TerrenoSalao"
 passagem_destino = "SairSalao"
@@ -360,18 +469,18 @@ shape = SubResource("RectangleShape2D_mp83p")
 [node name="PosicaoSpawn" parent="TerrenoVila/EntrarSalao" index="1"]
 position = Vector2(-2, 26)
 
-[node name="vaca" parent="TerrenoVila" instance=ExtResource("15_s2wpm")]
+[node name="vaca" parent="TerrenoVila" unique_id=1256692208 instance=ExtResource("15_s2wpm")]
 position = Vector2(332, 1349)
 
-[node name="boi" parent="TerrenoVila" instance=ExtResource("15_v2ue8")]
+[node name="boi" parent="TerrenoVila" unique_id=440428518 instance=ExtResource("15_v2ue8")]
 position = Vector2(385, 1350)
 
-[node name="vaca2" parent="TerrenoVila" instance=ExtResource("15_s2wpm")]
+[node name="vaca2" parent="TerrenoVila" unique_id=1035140993 instance=ExtResource("15_s2wpm")]
 position = Vector2(540, 1351)
 
-[node name="TerrenoFerreiro" parent="." instance=ExtResource("16_a5oup")]
+[node name="TerrenoFerreiro" parent="." unique_id=2102700175 instance=ExtResource("16_a5oup")]
 
-[node name="SairCasaFerreiro" parent="TerrenoFerreiro" instance=ExtResource("2_gcw66")]
+[node name="SairCasaFerreiro" parent="TerrenoFerreiro" unique_id=901597072 instance=ExtResource("2_gcw66")]
 position = Vector2(-288, 887)
 terreno_destino = "TerrenoVila"
 passagem_destino = "EntrarCasaFerreiro"
@@ -380,12 +489,12 @@ direcao_spawn = 3
 [node name="ColisaoDetecao" parent="TerrenoFerreiro/SairCasaFerreiro" index="0"]
 shape = SubResource("RectangleShape2D_mp83p")
 
-[node name="Ferreiro" parent="TerrenoFerreiro" instance=ExtResource("15_muyhw")]
+[node name="Ferreiro" parent="TerrenoFerreiro" unique_id=1830053799 instance=ExtResource("15_muyhw")]
 position = Vector2(-410, 863)
 
-[node name="TerrenoMarceneiro" parent="." instance=ExtResource("15_a1tre")]
+[node name="TerrenoMarceneiro" parent="." unique_id=829223327 instance=ExtResource("15_a1tre")]
 
-[node name="SairCasaMarceneiro" parent="TerrenoMarceneiro" instance=ExtResource("2_gcw66")]
+[node name="SairCasaMarceneiro" parent="TerrenoMarceneiro" unique_id=1309915732 instance=ExtResource("2_gcw66")]
 position = Vector2(1281, 930)
 terreno_destino = "TerrenoVila"
 passagem_destino = "EntrarCasaMarceneiro"
@@ -398,13 +507,13 @@ shape = SubResource("RectangleShape2D_mp83p")
 [node name="PosicaoSpawn" parent="TerrenoMarceneiro/SairCasaMarceneiro" index="1"]
 position = Vector2(-1, -45)
 
-[node name="marceneiro" parent="TerrenoMarceneiro" instance=ExtResource("17_r2s0a")]
+[node name="marceneiro" parent="TerrenoMarceneiro" unique_id=825093963 instance=ExtResource("17_r2s0a")]
 position = Vector2(1264, 828)
 
-[node name="TerrenoSalao" parent="." instance=ExtResource("16_muyhw")]
+[node name="TerrenoSalao" parent="." unique_id=885500881 instance=ExtResource("16_muyhw")]
 position = Vector2(1, 0)
 
-[node name="SairSalao" parent="TerrenoSalao" instance=ExtResource("2_gcw66")]
+[node name="SairSalao" parent="TerrenoSalao" unique_id=1583358949 instance=ExtResource("2_gcw66")]
 position = Vector2(539, 1064)
 terreno_destino = "TerrenoVila"
 passagem_destino = "EntrarSalao"
@@ -417,21 +526,25 @@ shape = SubResource("RectangleShape2D_mp83p")
 [node name="PosicaoSpawn" parent="TerrenoSalao/SairSalao" index="1"]
 position = Vector2(-2, -28)
 
-[node name="corvoVendedor" parent="TerrenoSalao" instance=ExtResource("19_u7fjk")]
+[node name="corvoVendedor" parent="TerrenoSalao" unique_id=1814802250 instance=ExtResource("19_u7fjk")]
 position = Vector2(332, 969)
+estoque = SubResource("Resource_wgyws")
 
-[node name="atendenteSalao" parent="TerrenoSalao" instance=ExtResource("20_jf6b1")]
+[node name="atendenteSalao" parent="TerrenoSalao" unique_id=779059810 instance=ExtResource("20_jf6b1")]
 position = Vector2(462, 951)
 
+[editable path="TerrenoFazenda"]
 [editable path="TerrenoFazenda/Passagem1"]
-[editable path="TerrenoFazenda/Missao1"]
-[editable path="TerrenoFazenda/Missao4"]
+[editable path="TerrenoFazenda/Missao2"]
+[editable path="TerrenoFazenda/Missao0"]
 [editable path="TerrenoFazenda/Missao5"]
+[editable path="TerrenoFazenda/Missao6"]
 [editable path="TerrenoFazenda/SaidaFazenda1"]
 [editable path="TerrenoCasa/Passagem2"]
-[editable path="TerrenoCasa/Missao2"]
 [editable path="TerrenoCasa/Missao3"]
+[editable path="TerrenoCasa/Missao4"]
 [editable path="TerrenoBunker/Passagem3"]
+[editable path="TerrenoBunker/Missao1_legacy"]
 [editable path="TerrenoVila/SaidaFazenda"]
 [editable path="TerrenoVila/EntrarCasaFerreiro"]
 [editable path="TerrenoVila/EntrarCasaMarceneiro"]

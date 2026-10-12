@@ -5,6 +5,7 @@ extends Control
 @onready var _foto: TextureRect = $MarginContainer/NinePatchRect/HBoxContainer/MarginContainer/NinePatchRect/TextureRect
 @onready var _personagem: Label = $MarginContainer/NinePatchRect/HBoxContainer/MarginContainer2/VBoxContainer/Label
 @onready var _dialogo: RichTextLabel = $MarginContainer/NinePatchRect/HBoxContainer/MarginContainer2/VBoxContainer/MarginContainer/FundoEditorTexto2/MarginContainer/RichTextLabel
+@onready var _container_escolhas: GridContainer = %ContainerEscolhas
 @onready var _som_caractere: AudioStreamPlayer = $SomCaracteresExibindo
 
 enum TipoDeDialogo {
@@ -17,6 +18,8 @@ var _dialogo_ativo: bool = false
 var _exibindo_texto: bool = false
 var _exibicao_interrompida: bool = false
 var _aguardando_confirmacao: bool = false
+
+signal escolha_selecionada(indice: int)
 
 func _process(_delta: float) -> void:
 	_ao_passar_texto()
@@ -110,3 +113,43 @@ func _formatar_codigos(texto: String) -> String:
 
 func parar_som() -> void:
 	_som_caractere.stop()
+
+# Nova função para lidar com diálogos que têm escolhas
+func exibir_dialogo_com_escolhas(texto: String, foto: String, personagem_nome: String, escolhas: Array) -> int:
+	# Exibe o texto animado chamando a sua função que já existe
+	_dialogo_ativo = true
+	_container_escolhas.hide()
+	await exibir_dialogo(texto, foto, personagem_nome, TipoDeDialogo.DIALOGO)
+	
+	# Verifica se existem opções de escolha
+	if escolhas.size() > 0:
+		_limpar_botoes()
+		_container_escolhas.show()
+		
+		# Cria um botão para cada opção no array
+		for i in range(escolhas.size()):
+			var botao = Button.new()
+			botao.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			botao.add_theme_font_size_override("font_size", 8)
+			botao.text = escolhas[i]
+			
+			# Conecta o clique do botão para emitir o sinal com o índice correspondente
+			botao.pressed.connect(func(): escolha_selecionada.emit(i))
+			
+			_container_escolhas.add_child(botao)
+		
+		# Congela o código aqui até que um botão emita o sinal
+		var indice_escolhido = await escolha_selecionada
+		
+		_container_escolhas.hide()
+		_limpar_botoes()
+		
+		return indice_escolhido
+	else:
+		await _aguardar_confirmacao_usuario()
+		return -1
+
+# Função para deletar os botões antigos da tela
+func _limpar_botoes() -> void:
+	for filho in _container_escolhas.get_children():
+		filho.queue_free()

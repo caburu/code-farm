@@ -1,0 +1,62 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="PackedScene" path="res://mundo_jogo/objeto_base/objeto_base.tscn" id="1_base"]
+[ext_resource type="Script" path="res://mundo_jogo/objeto_base/cocho/cocho.gd" id="2_cocho"]
+[ext_resource type="Script" path="res://mundo_jogo/objeto_base/comportamentos/comportamento_objeto.gd" id="3_tipo"]
+[ext_resource type="Script" path="res://mundo_jogo/objeto_base/comportamentos/comportamento_interativo.gd" id="4_interacao"]
+[ext_resource type="Texture2D" path="res://assets/imagens/itens/cocho.svg" id="5_icone"]
+
+[sub_resource type="Resource" id="Resource_interacao"]
+script = ExtResource("4_interacao")
+texto_interacao = "[E] Colocar milho (0/10)"
+
+[sub_resource type="RectangleShape2D" id="Rectangle_corpo"]
+size = Vector2(30, 12)
+
+[sub_resource type="CircleShape2D" id="Circle_area"]
+radius = 36.0
+
+[node name="Cocho" instance=ExtResource("1_base")]
+script = ExtResource("2_cocho")
+comportamentos = Array[ExtResource("3_tipo")]([SubResource("Resource_interacao")])
+
+[node name="Sprite" parent="." index="0"]
+texture_filter = 1
+texture = ExtResource("5_icone")
+
+[node name="Colisao" parent="." index="1"]
+shape = SubResource("Rectangle_corpo")
+
+[node name="AreaDetecao" parent="." index="2"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="Colisao" parent="AreaDetecao" index="0"]
+shape = SubResource("Circle_area")
+
+[node name="ContainerLabels" parent="." index="4"]
+offset_top = -26.0
+offset_bottom = -12.0
+
+[node name="MilhoNoCocho" type="Polygon2D" parent="."]
+visible = false
+color = Color(0.96, 0.73, 0.25, 1)
+polygon = PackedVector2Array(-10, -3, 10, -3, 10, 0, -10, 0)
+
+[node name="Mensagem" type="Label" parent="."]
+visible = false
+z_index = 100
+offset_left = -90.0
+offset_top = -40.0
+offset_right = 90.0
+offset_bottom = -28.0
+theme_override_colors/font_color = Color(1, 0.85, 0.5, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 7
+horizontal_alignment = 1
+mouse_filter = 2
+
+[node name="MensagemTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true

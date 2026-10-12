@@ -1,0 +1,57 @@
+[gd_scene load_steps=5 format=3 uid="uid://jo5gekf703qc"]
+
+[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/interface/Sprite sheet for Basic Pack.png" id="1_oo37g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5m0ch"]
+texture = ExtResource("1_oo37g")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 6.0
+region_rect = Rect2(837, 100, 22, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_arqv6"]
+texture = ExtResource("1_oo37g")
+texture_margin_left = 4.0
+texture_margin_top = 6.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(869, 100, 22, 24)
+modulate_color = Color(0.768627, 0.603922, 0.423529, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fwpee"]
+texture = ExtResource("1_oo37g")
+texture_margin_left = 4.0
+texture_margin_top = 6.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+region_rect = Rect2(869, 100, 22, 24)
+
+[node name="Fechar" type="Control"]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+offset_right = 45.0
+offset_bottom = 45.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="BotaoFechar" type="Button" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(25, 25)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_5m0ch")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_arqv6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_fwpee")
+text_overrun_behavior = 1

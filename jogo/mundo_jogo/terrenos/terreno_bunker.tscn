@@ -1,11 +1,11 @@
 [gd_scene load_steps=22 format=4 uid="uid://b7w8yxijr424"]
 
-[ext_resource type="Texture2D" uid="uid://dg4t1111qlfra" path="res://assets/imagens/tileset x1.png" id="1_viaqq"]
-[ext_resource type="Texture2D" uid="uid://dsvnp7jus60qx" path="res://assets/imagens/retro_interior/TopDownHouse_DoorsAndWindows.png" id="2_xtqef"]
-[ext_resource type="Texture2D" uid="uid://dwnipwsd5seqh" path="res://assets/imagens/retro_interior/TopDownHouse_FurnitureState2.png" id="3_e8jnf"]
-[ext_resource type="Texture2D" uid="uid://df3nifq2ujqwy" path="res://assets/imagens/retro_interior/TopDownHouse_SmallItems.png" id="4_tqkfk"]
-[ext_resource type="Texture2D" uid="uid://cvmhhkg2ewojj" path="res://assets/imagens/retro_interior/TopDownHouse_FurnitureState1.png" id="5_c8lke"]
-[ext_resource type="Texture2D" uid="uid://1g87abuaxx81" path="res://assets/imagens/Ferramentas.png" id="6_mkrmv"]
+[ext_resource type="Texture2D" uid="uid://dg4t1111qlfra" path="res://assets/imagens/terrenos/tileset x1.png" id="1_viaqq"]
+[ext_resource type="Texture2D" uid="uid://dsvnp7jus60qx" path="res://assets/imagens/terrenos/TopDownHouse_DoorsAndWindows.png" id="2_xtqef"]
+[ext_resource type="Texture2D" uid="uid://dwnipwsd5seqh" path="res://assets/imagens/terrenos/TopDownHouse_FurnitureState2.png" id="3_e8jnf"]
+[ext_resource type="Texture2D" uid="uid://df3nifq2ujqwy" path="res://assets/imagens/terrenos/TopDownHouse_SmallItems.png" id="4_tqkfk"]
+[ext_resource type="Texture2D" uid="uid://cvmhhkg2ewojj" path="res://assets/imagens/terrenos/TopDownHouse_FurnitureState1.png" id="5_c8lke"]
+[ext_resource type="Texture2D" uid="uid://1g87abuaxx81" path="res://assets/imagens/terrenos/Ferramentas.png" id="6_mkrmv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bdr5d"]
 texture = ExtResource("1_viaqq")
@@ -6242,5 +6242,5 @@ tile_map_data = PackedByteArray("AAACAP3/AAACAAUAAAACAP7/AAACAAYAAAACAP//AAACAAc
 tile_set = SubResource("TileSet_7uuhx")
 
 [node name="Itens" type="TileMapLayer" parent="."]
-tile_map_data = PackedByteArray("AAALAAEAAAACAAMAAAALAAUAAAACAAMAAAACAAEAAAAGAAIAAAACAAIAAAAHAAIAAAACAAMAAAAHAAIAAAADAAIAAAAGAAIAAAADAAEAAAAGAAIAAAAKAP7/AAABAAEAAAALAAQAAAADAAYAAAALAAMAAAABAAMAAAALAAIAAAABAAMAAAAKAAMAAAAGAAIAAAAKAAIAAAACAAEAAAAFAP7/AAAFAAEAAAACAAQAAAAGAAIAAAACAAUAAAAHAAIAAAAEAAUAAwAAABAAAAAEAAYAAwAAABEAAAA=")
+tile_map_data = PackedByteArray("AAALAAEAAAACAAMAAAALAAUAAAACAAMAAAACAAEAAAAGAAIAAAACAAIAAAAHAAIAAAACAAMAAAAHAAIAAAADAAIAAAAGAAIAAAADAAEAAAAGAAIAAAAKAP7/AAABAAEAAAALAAQAAAADAAYAAAALAAMAAAABAAMAAAALAAIAAAABAAMAAAAFAP7/AAAFAAEAAAACAAQAAAAGAAIAAAACAAUAAAAHAAIAAAAEAAUAAwAAABAAAAAEAAYAAwAAABEAAAA=")
 tile_set = SubResource("TileSet_2q7l2")

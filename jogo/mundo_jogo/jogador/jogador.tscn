@@ -1,8 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://bperut1ryhs0o"]
+[gd_scene format=3 uid="uid://bperut1ryhs0o"]
 
 [ext_resource type="Script" uid="uid://cx61kdkh6eoo5" path="res://mundo_jogo/jogador/jogador.gd" id="1_dqjfs"]
-[ext_resource type="Texture2D" uid="uid://hsfdr2sh3twq" path="res://assets/imagens/cute_fantasy/Player/Player.png" id="2_e1dja"]
-[ext_resource type="Texture2D" uid="uid://dtllcjn1io0e" path="res://assets/imagens/cute_fantasy/Player/Player_Actions.png" id="2_so6ri"]
+[ext_resource type="Texture2D" uid="uid://hsfdr2sh3twq" path="res://assets/imagens/jogador/Player.png" id="2_e1dja"]
+[ext_resource type="Texture2D" uid="uid://dtllcjn1io0e" path="res://assets/imagens/jogador/Player_Actions.png" id="2_so6ri"]
+[ext_resource type="PackedScene" uid="uid://7pk4ytvxy4kb" path="res://mundo_jogo/objeto_coletavel/objeto_coletavel.tscn" id="2_y3nx0"]
+[ext_resource type="PackedScene" uid="uid://c732sy3bq8jbn" path="res://mundo_jogo/animacoes/texto_placa/texto_placa.tscn" id="4_emtbw"]
+[ext_resource type="Script" uid="uid://cmf03hdvjv7w8" path="res://mundo_jogo/jogador/seletor_interacao.gd" id="6_7iiir"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_likew"]
 radius = 1.0
@@ -800,39 +803,51 @@ _data = {
 &"usando_regador_direita": SubResource("Animation_oryyh")
 }
 
-[node name="Jogador" type="CharacterBody2D" groups=["Jogador"]]
+[node name="Jogador" type="CharacterBody2D" unique_id=367421555 groups=["Jogador"]]
 y_sort_enabled = true
+collision_layer = 9
 collision_mask = 6
 platform_on_leave = 2
 script = ExtResource("1_dqjfs")
+cena_objeto_coletavel = ExtResource("2_y3nx0")
 
-[node name="Sprite" type="Sprite2D" parent="."]
+[node name="Sprite" type="Sprite2D" parent="." unique_id=465953865]
 texture = ExtResource("2_e1dja")
 offset = Vector2(0.5, -6)
 hframes = 6
 vframes = 10
 frame = 1
 
-[node name="Colisao" type="CollisionShape2D" parent="."]
+[node name="Colisao" type="CollisionShape2D" parent="." unique_id=1637777115]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_likew")
 one_way_collision_margin = 0.0
 
-[node name="AreaDetecao" type="Area2D" parent="."]
+[node name="AreaDetecao" type="Area2D" parent="." unique_id=1351880541]
 
-[node name="ColisaoDetecao" type="CollisionShape2D" parent="AreaDetecao"]
+[node name="ColisaoDetecao" type="CollisionShape2D" parent="AreaDetecao" unique_id=1488461357]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_stnbq")
 
-[node name="Camera" type="Camera2D" parent="."]
+[node name="Camera" type="Camera2D" parent="." unique_id=1620113577]
 zoom = Vector2(1.5, 1.5)
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
-[node name="Animador" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_tm3jw")
-}
-autoplay = "parado_baixo"
+[node name="Animador" type="AnimationPlayer" parent="." unique_id=472514087]
+libraries/ = SubResource("AnimationLibrary_tm3jw")
+autoplay = &"parado_baixo"
+
+[node name="TextoPlaca" parent="." unique_id=1290772748 instance=ExtResource("4_emtbw")]
+offset_top = -27.0
+offset_bottom = -27.0
+scale = Vector2(0.3, 0.3)
+
+[node name="PontoFala" type="Marker2D" parent="." unique_id=31763645]
+unique_name_in_owner = true
+position = Vector2(0, -8)
+
+[node name="SeletorInteracao" type="Node" parent="." unique_id=352253200]
+script = ExtResource("6_7iiir")
 
 [connection signal="body_entered" from="AreaDetecao" to="." method="_ao_entrar_area_detecao"]

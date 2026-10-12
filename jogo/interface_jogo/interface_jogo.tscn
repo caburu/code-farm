@@ -1,14 +1,19 @@
-[gd_scene load_steps=8 format=3 uid="uid://bj0447rfnfvpv"]
+[gd_scene format=3 uid="uid://bj0447rfnfvpv"]
 
-[ext_resource type="Script" uid="uid://17pwa3sqejlg" path="res://interface_jogo/interface_jogo.gd" id="1_40nnx"]
+[ext_resource type="Script" uid="uid://dy6dn7vf4kndd" path="res://interface_jogo/interface_jogo.gd" id="1_40nnx"]
 [ext_resource type="PackedScene" uid="uid://cl8hd4fyrtkyh" path="res://interface_jogo/interface_padrao/interface_padrao.tscn" id="2_nud58"]
 [ext_resource type="PackedScene" uid="uid://dpag6d368xqvo" path="res://interface_jogo/interface_missao/interface_missao.tscn" id="2_s4wmp"]
 [ext_resource type="PackedScene" uid="uid://isj1s76o4ek4" path="res://interface_jogo/interface_Pause_Menu/interface_glossario.tscn" id="3_8rodc"]
 [ext_resource type="PackedScene" uid="uid://21hji81cbghv" path="res://interface_jogo/interface_menu_inicial/interface_menu_inicial.tscn" id="5_l5nfd"]
 [ext_resource type="PackedScene" uid="uid://chgo2vmml8vc6" path="res://interface_jogo/interface_Pause_Menu/interface_Pause_Menu.tscn" id="6_rsl5s"]
 [ext_resource type="PackedScene" uid="uid://lw67vqmv51r3" path="res://interface_jogo/interface_Pause_Menu/interface_save_menu.tscn" id="7_vvkj0"]
+[ext_resource type="PackedScene" uid="uid://dcwsbmsq1qxq7" path="res://interface_jogo/tela_historia.tscn" id="8_2brhs"]
+[ext_resource type="Script" uid="uid://b0se652i7uewp" path="res://interface_jogo/tela_historia.gd" id="9_6gl5c"]
+[ext_resource type="PackedScene" uid="uid://rmy6sc6txb2h" path="res://interface_jogo/interface_dialogo/interface_npc.tscn" id="10_nfdrs"]
+[ext_resource type="PackedScene" uid="uid://bqqa26c68r7pg" path="res://interface_jogo/interface_padrao/interface_bau.tscn" id="11_d73mk"]
+[ext_resource type="PackedScene" uid="uid://b3lef5uhvd21j" path="res://interface_jogo/interface_padrao/interface_bancada.tscn" id="12_n24av"]
 
-[node name="InterfaceJogo" type="Control"]
+[node name="InterfaceJogo" type="Control" unique_id=1622983279]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,27 +22,45 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_40nnx")
 
-[node name="InterfacePadrao" parent="." instance=ExtResource("2_nud58")]
+[node name="InterfacePadrao" parent="." unique_id=681013642 instance=ExtResource("2_nud58")]
 unique_name_in_owner = true
 layout_mode = 1
 
-[node name="InterfaceMissao" parent="." instance=ExtResource("2_s4wmp")]
+[node name="InterfaceMissao" parent="." unique_id=707785441 instance=ExtResource("2_s4wmp")]
 unique_name_in_owner = true
 layout_mode = 1
 
-[node name="InterfaceGlossario" parent="." instance=ExtResource("3_8rodc")]
+[node name="InterfaceMenuInicial" parent="." unique_id=1552871476 instance=ExtResource("5_l5nfd")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="InterfaceHistoria" parent="." unique_id=1309435367 instance=ExtResource("8_2brhs")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+script = ExtResource("9_6gl5c")
+
+[node name="InterfaceNpc" parent="." unique_id=1788847754 instance=ExtResource("10_nfdrs")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="InterfaceBau" parent="." unique_id=1164160307 instance=ExtResource("11_d73mk")]
+visible = false
+layout_mode = 1
+
+[node name="InterfaceBancada" parent="." unique_id=404960778 instance=ExtResource("12_n24av")]
+visible = false
+layout_mode = 0
+
+[node name="Interface_Pause_Menu" parent="." unique_id=2118166073 node_paths=PackedStringArray("interface_glossario") instance=ExtResource("6_rsl5s")]
+layout_mode = 1
+interface_glossario = NodePath("../InterfaceGlossario")
+
+[node name="InterfaceGlossario" parent="." unique_id=460499100 instance=ExtResource("3_8rodc")]
 unique_name_in_owner = true
 process_mode = 3
 layout_mode = 1
 
-[node name="InterfaceMenuInicial" parent="." instance=ExtResource("5_l5nfd")]
-unique_name_in_owner = true
-layout_mode = 1
-
-[node name="Interface_Pause_Menu" parent="." node_paths=PackedStringArray("interface_glossario") instance=ExtResource("6_rsl5s")]
-layout_mode = 1
-interface_glossario = NodePath("../InterfaceGlossario")
-
-[node name="InterfaceSalvarCarregar" parent="." instance=ExtResource("7_vvkj0")]
+[node name="InterfaceSalvarCarregar" parent="." unique_id=606282119 instance=ExtResource("7_vvkj0")]
 visible = false
 layout_mode = 1

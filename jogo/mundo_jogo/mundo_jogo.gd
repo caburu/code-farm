@@ -8,9 +8,12 @@ extends Node2D
 @onready var _transicao_cenario: TransicaoCenario = %TransicaoCenario
 
 var _terreno_atual: Node2D = null
+var _persistencia = preload("res://gerenciador_jogo/save/persistencia_mundo.gd").new()
 
 func _ready():
+	add_to_group("MundoPersistente")
 	_conectar_passagens()
+	_persistencia.configurar(self)
 
 func _conectar_passagens():
 	for passagem in get_tree().get_nodes_in_group("Passagens"):
@@ -66,3 +69,31 @@ func adicionar_elemento_canvas(elemento: Node):
 		#"TerrenoCasa":
 			#return CAMINHO_TERRENO_CASA
 	#return null
+
+func obter_dados_save() -> Dictionary:
+	return _persistencia.obter_dados()
+
+func restaurar_dados_save(dados: Dictionary) -> void:
+	_persistencia.restaurar(dados)
+
+func restaurar_progresso_antigo() -> void:
+	# Saves antigos não têm um retrato do mundo; aplica apenas fatos conhecidos.
+	if Global.missao_atual > 0:
+		var diario = obter_elemento("Missao0")
+		if diario:
+			diario.hide()
+			diario.process_mode = Node.PROCESS_MODE_DISABLED
+	if Global.missao_atual > 1:
+		var caixa = obter_elemento("Missao1")
+		if caixa:
+			caixa.get_parent().remove_child(caixa)
+			caixa.queue_free()
+		if get_tree().get_nodes_in_group("Robo").is_empty():
+			var robo = preload("res://mundo_jogo/npcs/robo.tscn").instantiate()
+			add_child(robo)
+			robo.global_position = jogador.global_position + Vector2(-40, -10)
+	if Global.missao_atual > 4:
+		var copo = obter_elemento("Copo")
+		if copo:
+			copo.get_parent().remove_child(copo)
+			copo.queue_free()

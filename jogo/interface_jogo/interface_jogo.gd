@@ -4,7 +4,9 @@ enum Interface {
 	MENU_INICIAL,
 	PADRAO,
 	MISSAO,
-	GLOSSARIO
+	GLOSSARIO,
+	HISTORIA,
+	DIALOGO_NPC
 }
 
 @onready var interface_salvar_carregar: InterfaceSalvarCarregar = $InterfaceSalvarCarregar
@@ -14,6 +16,8 @@ enum Interface {
 	Interface.PADRAO: %InterfacePadrao,
 	Interface.MISSAO: %InterfaceMissao,
 	Interface.GLOSSARIO: %InterfaceGlossario,
+	Interface.HISTORIA: %InterfaceHistoria,
+	Interface.DIALOGO_NPC: %InterfaceNpc
 }
 
 func _ready():
@@ -43,6 +47,9 @@ func exibir_interface(qual_interface: Interface):
 			
 			Interface.GLOSSARIO:
 				interface.abrir_glossario()
+				
+			Interface.DIALOGO_NPC:
+				obter_interface(Interface.PADRAO).show()
 
 func obter_interface(qual_interface: Interface):
 	return _interfaces.get(qual_interface)
@@ -56,5 +63,4 @@ func obter_interface_atual() -> Interface:
 func abrir_menu_save_load(modo_salvar: bool) -> void:
 	# Se for abrir para salvar, garantimos que o pause menu (se estiver aberto) suma
 	# Mas mantenha o jogo pausado se já estiver
-	
 	interface_salvar_carregar.abrir_tela(modo_salvar)	

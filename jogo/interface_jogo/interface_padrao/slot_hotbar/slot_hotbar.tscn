@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dujl6ijvm1jas"]
 
 [ext_resource type="Script" path="res://interface_jogo/interface_padrao/slot_hotbar/slot_hotbar.gd" id="1_aoe8o"]
-[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/Sprout Lands - UI/Sprite sheets/Sprite sheet for Basic Pack.png" id="2_kh70p"]
+[ext_resource type="Texture2D" uid="uid://dics3kl13aipr" path="res://assets/imagens/interface/Sprite sheet for Basic Pack.png" id="2_kh70p"]
 [ext_resource type="FontFile" uid="uid://8dyl8sjpwyl2" path="res://assets/fontes/ExpressionPro.ttf" id="3_amq7o"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gdi1u"]
@@ -71,5 +71,4 @@ custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "99"
 label_settings = SubResource("LabelSettings_gdi1u")

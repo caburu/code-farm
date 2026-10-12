@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EstoqueTroca" format=3 uid="uid://cndg77nhoh1it"]
+
+[ext_resource type="Script" uid="uid://de8teor80qd8x" path="res://gerenciador_jogo/inventario/item.gd" id="1_ia6tv"]
+[ext_resource type="Resource" uid="uid://6h1psdesppbd" path="res://mundo_jogo/itens/morango.tres" id="2_2lnbu"]
+[ext_resource type="Resource" uid="uid://b6xfljq0cac3e" path="res://mundo_jogo/itens/semente_morango.tres" id="3_7hjho"]
+[ext_resource type="Script" uid="uid://bbx58l5wdibk1" path="res://gerenciador_jogo/gerenciador_npcs/troca/estoques/estoque_troca.gd" id="4_hg1y7"]
+
+[resource]
+resource_local_to_scene = true
+script = ExtResource("4_hg1y7")
+itens_a_venda = Array[ExtResource("1_ia6tv")]([ExtResource("2_2lnbu"), ExtResource("3_7hjho")])
+quantidades = Dictionary[ExtResource("1_ia6tv"), int]({
+ExtResource("2_2lnbu"): 10,
+ExtResource("3_7hjho"): 10
+})
+limites = Dictionary[ExtResource("1_ia6tv"), int]({
+ExtResource("2_2lnbu"): 10,
+ExtResource("3_7hjho"): 10
+})

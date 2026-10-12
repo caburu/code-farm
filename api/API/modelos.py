@@ -13,3 +13,5 @@ class ResultadoAnalise(BaseModel):
     mensagens: List[str]
     dados: Dict[str, Any] = {}
 
+class RequisicaoPlantio(BaseModel):
+    codigo: str = Field(max_length=10_000)

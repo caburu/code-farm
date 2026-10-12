@@ -18,7 +18,10 @@ func _ready():
 	fundo_texto_creditos.clip_contents = true
 	
 func _ao_clicar_novo_jogo():
-	Global.emit_signal("novo_jogo")
+	var gerenciador_interface = get_parent() # Pega o InterfaceJogo
+	
+	# Exibe a tela da história!
+	gerenciador_interface.exibir_interface(gerenciador_interface.Interface.HISTORIA)
 
 func _ao_clicar_continuar_jogo():
 	
@@ -75,3 +78,10 @@ func _ao_clicar_fechar_creditos():
 		tween_creditos.kill()
 	painel_creditos.hide()
 	painel_botoes.show()
+
+
+func _on_botao_carregar_pressed() -> void:
+	# Chama a função no seu gerenciador (InterfaceJogo)
+	# Passando 'false' pois queremos o modo Carregar
+	get_parent().abrir_menu_save_load(false)
+	pass # Replace with function body.

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://6h1psdesppbd"]
+
+[ext_resource type="Texture2D" uid="uid://1446d4da6pw8" path="res://assets/imagens/objetos_coletáveis/Spring Crops.png" id="1_08ikw"]
+[ext_resource type="Script" uid="uid://de8teor80qd8x" path="res://gerenciador_jogo/inventario/item.gd" id="1_tntwk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2ecu"]
+atlas = ExtResource("1_08ikw")
+region = Rect2(127.175, 14.3259, 17.7861, 19.9551)
+
+[resource]
+script = ExtResource("1_tntwk")
+nome = "morango"
+icone = SubResource("AtlasTexture_g2ecu")
+descricao = "Fruta morango."
+tipo = "alimento"
+caminho_cena = "uid://dlk0esnxgwqmg"
+preco = 20
+metadata/_custom_type_script = "uid://de8teor80qd8x"

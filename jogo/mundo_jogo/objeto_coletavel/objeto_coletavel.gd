@@ -24,23 +24,26 @@ func _process(delta: float) -> void:
 	_se_houver_interacao()
 
 func _se_houver_interacao() -> void:
-	if _jogador_dentro and Input.is_action_just_pressed("interagir") and not _interacao_em_execucao:
-		_interacao_em_execucao = true
-		print("[OBJETO] Tentando coletar item:", item)
-		
-		if item != null:
-			print("[OBJETO] Nome do item:", item.nome)
-		else:
-			print("[OBJETO] ERRO: item é nulo!")
+	if not _jogador_dentro or _interacao_em_execucao:
+		return
 
-		if Global.inventario.adicionar_item(item):
-			_label_interacao.hide()
-			_animador.play("coletar")
-			await _animador.animation_finished
-			queue_free()
-		else:
-			print("Inventário cheio!")
-			_interacao_em_execucao = false
+	var jogador := get_tree().get_first_node_in_group("Jogador") as Jogador
+
+	if jogador == null or not jogador.pode_interagir():
+		return
+
+	if not Input.is_action_just_pressed("coletar_item"):
+		return
+
+	var erro := guardar_em(Global.inventario)
+
+	if not erro.is_empty():
+		print(erro)
+		return
+
+	_animador.play("coletar")
+	await _animador.animation_finished
+	queue_free()
 
 func _ao_detectar_entrada(corpo: Node2D) -> void:
 	if corpo.is_in_group("Jogador"):
@@ -53,3 +56,22 @@ func _ao_detectar_saida(corpo: Node2D) -> void:
 		_label_interacao.hide()
 		_jogador_dentro = false
 		_animador.play("RESET")
+		
+func guardar_em(destino: Inventario) -> String:
+	if _interacao_em_execucao:
+		return "Este produto já está sendo coletado."
+
+	if destino == null:
+		return "Inventário de destino não encontrado."
+
+	if item == null:
+		return "O produto não possui um item configurado."
+
+	_interacao_em_execucao = true
+
+	if not destino.adicionar_item(item):
+		_interacao_em_execucao = false
+		return "O inventário de destino está cheio."
+
+	_label_interacao.hide()
+	return ""
